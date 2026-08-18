@@ -6,6 +6,10 @@ https://github.com/orgs/zunoser/projects/3
 `calendar.ics` を自動生成します。日付は GitHub の Date フィールド形式
 `YYYY-MM-DD` のみを受理します。
 
+実装は TypeScript です。Project の項目は100件ずつカーソルページングするため、
+数百件以上でも全件を取得します。GitHub の応答と日付は Zod、日付計算は
+Temporal、ICS の生成・エスケープ・行折り返しは `ical-generator` に委ねています。
+
 - 両方とも有効: `Start Date` から `Target Date` まで（両端を含む）
 - 片方だけ有効: その日1日の予定
 - 両方とも未設定または不正: 予定に含めない
@@ -24,11 +28,15 @@ Issue 作成直後の自動追加を反映するため15分ごとにも同期し
 ローカルで生成する場合:
 
 ```sh
-PROJECT_TOKEN=... python3 scripts/generate_calendar.py
+bun ci
+PROJECT_TOKEN=... bun run generate
 ```
 
 テスト:
 
 ```sh
-python3 -m unittest discover -s tests -v
+bun run check
 ```
+
+テストでは350件のページング、日付の正常・異常系に加えて、生成結果を
+別実装の `ical.js` で読み戻して検証します。
