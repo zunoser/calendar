@@ -1,0 +1,41 @@
+name: Generate calendar
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited, deleted, reopened, closed]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: generate-calendar
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    # A deleted issue can only be handled from the default branch workflow.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Generate calendar.ics from all issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/generate-calendar-ics.mjs
+
+      - name: Commit updated calendar
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          if git diff --quiet -- calendar.ics; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calendar.ics
+          git commit -m "chore: regenerate calendar"
+          git push origin "HEAD:${DEFAULT_BRANCH}"
