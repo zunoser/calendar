@@ -13,6 +13,6 @@
     "@zunoser/calendar-core": "workspace:*",
     "@zunoser/calendar-ics": "workspace:*",
     "@zunoser/utils": "workspace:*",
-    "citty": "^0.1.6"
+    "citty": "0.1.6"
   }
 }
