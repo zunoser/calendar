@@ -11,7 +11,7 @@ export const ics = defineCommand({
   args: {
     config: { type: "string", default: "config.jsonc", description: "設定ファイルのパス" },
     out: { type: "string", default: "ics/calendar.ics", description: "出力先のパス" },
-    name: { type: "string", default: "calendar", description: "カレンダー名 (NAME / X-WR-CALNAME)" },
+    name: { type: "string", default: "ずのさー", description: "カレンダー名 (NAME / X-WR-CALNAME)" },
   },
   async run({ args }) {
     const config = parseConfig(await readFile(args.config, "utf8"));
