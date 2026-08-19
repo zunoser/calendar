@@ -83,9 +83,6 @@ importers:
       ical-generator:
         specifier: ^11.1.0
         version: 11.1.0(@types/node@26.2.0)
-      ts-ics:
-        specifier: ^2.4.6
-        version: 2.4.6
 
   packages/utils:
     dependencies:
@@ -955,9 +952,6 @@ packages:
     resolution: {integrity: sha512-yau8yJdTt989Mm0Bd/236QnzEiPf2xLLTqUZRUJOo/3CB078LSwzei343DgtJVmfJKJE3TMINY1u42SQsP6mXw==}
     engines: {node: '>=14.0.0'}
 
-  ts-ics@2.4.6:
-    resolution: {integrity: sha512-s/au7fIeVQ1OJvhWPHiN5WMZqvJ4+6NDHnep3YcZCXDdjH8iwmBo0szJVRufF98t+dJk2d+ssgNjwP8PGfVMsw==}
-
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -1657,10 +1651,6 @@ snapshots:
   tinypool@2.1.0: {}
 
   tinyrainbow@3.1.1: {}
-
-  ts-ics@2.4.6:
-    dependencies:
-      '@standard-schema/spec': 1.1.0
 
   tslib@2.8.1: {}
 
