@@ -1,0 +1,18 @@
+{
+  "name": "@zunoser/calendar-cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zunoser/calendar-core": "workspace:*",
+    "@zunoser/calendar-ics": "workspace:*",
+    "@zunoser/utils": "workspace:*",
+    "citty": "^0.1.6"
+  }
+}

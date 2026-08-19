@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "no-underscore-dangle": ["warn", { "allow": ["__typename"] }]
+  },
+  "ignorePatterns": ["node_modules", "ics", "**/graphql-env.d.ts"]
+}

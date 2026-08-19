@@ -1,0 +1,16 @@
+{
+  "name": "@zunoser/calendar-ics",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zunoser/utils": "workspace:*",
+    "ical-generator": "^11.1.0"
+  }
+}

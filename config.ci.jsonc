@@ -1,0 +1,6 @@
+{
+  "project": { "org": "zunoser", "number": 3 },
+  "userAgent": "zunoser-calendar",
+  "dateFields": { "start": "Start Date", "end": "Target Date" },
+  "statusField": { "error": "Error", "done": "Done", "open": "Next" },
+}

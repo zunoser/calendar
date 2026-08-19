@@ -1,0 +1,18 @@
+{
+  "name": "@zunoser/calendar-core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zunoser/calendar-github": "workspace:*",
+    "@zunoser/utils": "workspace:*",
+    "jsonc-parser": "^3.3.1",
+    "zod": "^4.1.0"
+  }
+}
