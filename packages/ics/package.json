@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@zunoser/utils": "workspace:*",
-    "ical-generator": "^11.1.0"
+    "ical-generator": "11.1.0"
   }
 }
