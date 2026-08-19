@@ -5,6 +5,7 @@ import { toIcs, type IcsEvent } from "../src/index";
 const event = (overrides: Partial<IcsEvent> = {}): IcsEvent => ({
   id: "PVTI_1",
   title: "映画まどマギ 公開日",
+  body: "",
   url: "https://github.com/zunoser/calendar/issues/7",
   startDate: isoDate("2026-08-28"),
   endDate: isoDate("2026-08-28"),
@@ -20,6 +21,12 @@ describe("toIcs", () => {
     expect(ics).toContain("DTSTART;VALUE=DATE:20260828\r\n");
     expect(ics).toContain("DTSTAMP:20260818T185254Z\r\n");
     expect(ics).toContain("SUMMARY:映画まどマギ 公開日\r\n");
+    expect(ics).toContain("DESCRIPTION:https://github.com/zunoser/calendar/issues/7\r\n");
+  });
+
+  it("本文があれば DESCRIPTION は本文 + リンクになる", () => {
+    const ics = toIcs([event({ body: "10時開場" })], "calendar");
+    expect(ics).toContain("DESCRIPTION:10時開場\\n\\nhttps://github.com/zunoser/calendar/issues/7\r\n");
   });
 
   it("単日イベントは DTEND を省略する", () => {

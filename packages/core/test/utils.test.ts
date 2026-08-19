@@ -10,6 +10,7 @@ const event = (
   id,
   issueId: `I_${id}`,
   title: "t",
+  body: "",
   url: "https://github.com/zunoser/calendar/issues/1",
   state: options.state ?? "OPEN",
   status: "Next",
