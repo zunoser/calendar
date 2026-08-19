@@ -24,7 +24,7 @@ jobs:
 
       - run: pnpm zunocal check --config config.ci.jsonc
       - run: pnpm zunocal close --config config.ci.jsonc
-      - run: pnpm zunocal ics --config config.ci.jsonc
+      - run: pnpm zunocal ics --config config.ci.jsonc --name ずのさー
 
       - name: Check diff
         id: diff
