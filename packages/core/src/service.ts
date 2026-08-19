@@ -67,6 +67,7 @@ export const getGitHubCalendar = async (options: Config) => {
         id: item.id,
         issueId: content.id,
         title: content.title,
+        body: content.body,
         url: content.url,
         state: content.state,
         status: strings.get("Status"),

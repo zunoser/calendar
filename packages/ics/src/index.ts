@@ -7,6 +7,7 @@ import ical, { ICalCalendarMethod } from "ical-generator";
 export interface IcsEvent {
   id: string;
   title: string;
+  body: string;
   url: string;
   startDate: IsoDate;
   /** この日を含む */
@@ -34,6 +35,7 @@ export const toIcs = (events: readonly IcsEvent[], calendarName: string) => {
       ...(event.endDate === event.startDate ? {} : { end: nextDay(event.endDate) }),
       summary: event.title,
       url: event.url,
+      description: event.body === "" ? event.url : `${event.body}\n\n${event.url}`,
       stamp: event.updatedAt,
     });
   }

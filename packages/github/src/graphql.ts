@@ -42,6 +42,7 @@ export const projectItemFragment = graphql(`
         id
         number
         title
+        body
         url
         state
         repository {
