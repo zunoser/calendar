@@ -1,0 +1,40 @@
+name: daily
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 9:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    env:
+      TOKEN: ${{ secrets.PROJECT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm zunocal check --config config.ci.jsonc
+      - run: pnpm zunocal close --config config.ci.jsonc
+      - run: pnpm zunocal ics --config config.ci.jsonc
+
+      - name: Check diff
+        id: diff
+        run: git diff --quiet && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit changes
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: update calendar"
+          git push

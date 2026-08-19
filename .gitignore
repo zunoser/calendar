@@ -1,0 +1,4 @@
+node_modules/
+*.tsbuildinfo
+.env
+config.jsonc
