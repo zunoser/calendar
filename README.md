@@ -1,6 +1,6 @@
 # カレンダー
 
-![今月のカレンダー](assets/calendar-0.svg?v=6e633c6a1b96eefe7a5e79f4936b7df26d6461e3)
+![今月のカレンダー](assets/calendar-0.svg?v=bee4689752d503b4497a4e65f91c08304db90fa8)
 
 ![来月のカレンダー](assets/calendar-1.svg?v=3ff97c604cdac8116803f6fa10cf01c4bc3128fe)
 

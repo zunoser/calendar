@@ -72,6 +72,7 @@
 <text x="654" y="292">21</text>
 <rect x="776" y="276" width="128" height="72" class="cell"/>
 <text x="782" y="292" class="sat">22</text>
+<svg x="778" y="298" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">未踏ジュニア2026 中間合宿</text></svg>
 <rect x="8" y="348" width="128" height="72" class="cell"/>
 <text x="14" y="364" class="sun">23</text>
 <rect x="136" y="348" width="128" height="72" class="cell"/>
@@ -86,6 +87,7 @@
 <text x="654" y="364">28</text>
 <rect x="776" y="348" width="128" height="72" class="cell"/>
 <text x="782" y="364" class="sat">29</text>
+<svg x="10" y="370" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">未踏ジュニア2026 中間合宿</text></svg>
 <svg x="650" y="370" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">映画まどマギ 公開日</text></svg>
 <svg x="778" y="370" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">まどマギ見に行く</text></svg>
 <svg x="778" y="390" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
