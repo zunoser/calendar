@@ -7,22 +7,21 @@ if (!token) {
 }
 
 const github = createGitHubGraphQL({ token, userAgent: "zunoser-calendar-integration" });
-const project = { org: "zunoser", number: 3 };
+const repository = { owner: "zunoser", name: "calendar" };
 
 describe("createGitHubGraphQL", () => {
-  it("iterateProjectItems が実 Project のアイテムを返す", async () => {
-    const items = await Array.fromAsync(github.iterateProjectItems({ project }));
-    expect(items.length).toBeGreaterThan(0);
-    for (const item of items) {
-      expect(item.id).toMatch(/^PVTI_/);
-      expect(Date.parse(item.updatedAt)).not.toBeNaN();
+  it("iterateIssues が実リポジトリの Issue を返す", async () => {
+    const issues = await Array.fromAsync(github.iterateIssues({ repository }));
+    expect(issues.length).toBeGreaterThan(0);
+    for (const issue of issues) {
+      expect(issue.id).toMatch(/^I_/);
+      expect(Date.parse(issue.updatedAt)).not.toBeNaN();
     }
   });
 
-  it("fetchStatusField が Status フィールドと選択肢を返す", async () => {
-    const field = await github.fetchStatusField(project);
-    expect(field.projectId).toMatch(/^PVT_/);
-    expect(field.fieldId).toMatch(/^PVTSSF_/);
-    expect(field.options.map(({ name }) => name)).toEqual(expect.arrayContaining(["Next", "Done", "Error"]));
+  it("fetchSingleSelectField が Date status フィールドと選択肢を返す", async () => {
+    const field = await github.fetchSingleSelectField(repository, "Date status");
+    expect(field.fieldId).toMatch(/^IFSS_/);
+    expect(field.options.map(({ name }) => name)).toEqual(expect.arrayContaining(["Next", "Error"]));
   });
 });

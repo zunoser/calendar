@@ -35,7 +35,7 @@ export const remind = defineCommand({
       return;
     }
     for (const event of targets) {
-      if (!args.dryRun) await addIssueComment(event.issueId, reminderComment(event, kind));
+      if (!args.dryRun) await addIssueComment(event.id, reminderComment(event, kind));
       console.log(`${args.dryRun ? "通知対象" : "notified"}: ${event.startDate}  ${event.title}`);
     }
   },
