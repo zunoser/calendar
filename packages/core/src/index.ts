@@ -7,8 +7,6 @@ export {
   dateInTokyoAfterDays,
   filterDated,
   pastOpenEvents,
-  reminderComment,
   reminderTargets,
   sortByStartDate,
 } from "./utils";
-export type { ReminderKind } from "./utils";

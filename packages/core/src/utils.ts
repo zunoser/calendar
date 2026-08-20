@@ -28,8 +28,6 @@ export const sortByStartDate = (events: readonly DatedCalendarEvent[]) =>
     (a, b) => a.startDate.localeCompare(b.startDate) || a.endDate.localeCompare(b.endDate) || a.id.localeCompare(b.id),
   );
 
-export type ReminderKind = "3d" | "1d";
-
 /** 対象日に開始し、担当者がいる open なイベントを返す */
 export const reminderTargets = (events: readonly CalendarEvent[], startDate: IsoDate) =>
   events.filter((event) => event.state === "OPEN" && event.startDate === startDate && event.assignees.length > 0);
@@ -41,9 +39,3 @@ export const dateInTokyoAfterDays = (now: Date, days: number) =>
       new Date(now.getTime() + days * 24 * 60 * 60 * 1000),
     ),
   );
-
-export const reminderComment = (event: CalendarEvent, kind: ReminderKind) => {
-  const mentions = event.assignees.map((login) => `@${login}`).join(" ");
-  const timing = kind === "3d" ? "3日前" : "1日前";
-  return `${mentions}\n\n開始日の${timing}です。`;
-};

@@ -6,7 +6,6 @@ import {
   dateInTokyoAfterDays,
   filterDated,
   pastOpenEvents,
-  reminderComment,
   reminderTargets,
   sortByStartDate,
 } from "../src/utils";
@@ -94,9 +93,5 @@ describe("reminder", () => {
     const unassigned = { ...event("unassigned", { startDate: "2026-08-22" }), assignees: [] };
     const closed = event("closed", { startDate: "2026-08-22", state: "CLOSED" });
     expect(reminderTargets([target, unassigned, closed], isoDate("2026-08-22"))).toEqual([target]);
-  });
-
-  it("担当者全員のメンションを含むコメントを作る", () => {
-    expect(reminderComment(event("a", { startDate: "2026-08-22" }), "3d")).toBe("@alice @bob\n\n開始日の3日前です。");
   });
 });

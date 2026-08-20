@@ -1,15 +1,9 @@
 // remind コマンド。開始日の3日前または1日前に、Issue の担当者全員へコメントで通知する。
 
 import { readFile } from "node:fs/promises";
-import {
-  dateInTokyoAfterDays,
-  getGitHubCalendar,
-  parseConfig,
-  reminderComment,
-  reminderTargets,
-  type ReminderKind,
-} from "@zunoser/calendar-core";
+import { dateInTokyoAfterDays, getGitHubCalendar, parseConfig, reminderTargets } from "@zunoser/calendar-core";
 import { defineCommand } from "citty";
+import { reminderComment, type ReminderKind } from "./reminder";
 
 const daysByKind: Record<ReminderKind, number> = { "3d": 3, "1d": 1 };
 
@@ -35,7 +29,7 @@ export const remind = defineCommand({
       return;
     }
     for (const event of targets) {
-      if (!args.dryRun) await addIssueComment(event.id, reminderComment(event, kind));
+      if (!args.dryRun) await addIssueComment(event.id, reminderComment(event.assignees, kind));
       console.log(`${args.dryRun ? "通知対象" : "notified"}: ${event.startDate}  ${event.title}`);
     }
   },
