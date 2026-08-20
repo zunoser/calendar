@@ -29,6 +29,15 @@ describe("toIcs", () => {
     expect(ics).toContain("DESCRIPTION:10時開場\\n\\nhttps://github.com/zunoser/calendar/issues/7\r\n");
   });
 
+  it("場所があれば LOCATION に対応付ける", () => {
+    const ics = toIcs([event({ location: "新宿ピカデリー" })], "calendar");
+    expect(ics).toContain("LOCATION:新宿ピカデリー\r\n");
+  });
+
+  it("場所がなければ LOCATION を省略する", () => {
+    expect(toIcs([event()], "calendar")).not.toContain("LOCATION");
+  });
+
   it("単日イベントは DTEND を省略する", () => {
     expect(toIcs([event()], "calendar")).not.toContain("DTEND");
   });

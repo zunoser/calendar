@@ -43,6 +43,25 @@ const stringValueByFieldName = (nodes: unknown[]) => {
   return values;
 };
 
+const TextValueSchema = z.object({
+  value: z.string(),
+  field: z.object({
+    name: z.string().min(1),
+  }),
+});
+
+const textValueByFieldName = (nodes: unknown[]) => {
+  const values = new Map<string, string>();
+  for (const node of nodes) {
+    const parsed = TextValueSchema.safeParse(node);
+    if (parsed.success) {
+      const { value, field } = parsed.data;
+      values.set(field.name, value);
+    }
+  }
+  return values;
+};
+
 export const getGitHubCalendar = async (options: Config) => {
   const github = createGitHubGraphQL({
     token: options.token,
@@ -60,6 +79,7 @@ export const getGitHubCalendar = async (options: Config) => {
       const nodes = issue.issueFieldValues?.nodes ?? [];
       const dates = dateValuesByFieldName(nodes);
       const strings = stringValueByFieldName(nodes);
+      const texts = textValueByFieldName(nodes);
 
       yield {
         id: issue.id,
@@ -70,6 +90,7 @@ export const getGitHubCalendar = async (options: Config) => {
         labelColors: (issue.labels?.nodes ?? []).flatMap((label) => (label ? [label.color] : [])),
         assignees: (issue.assignees.nodes ?? []).flatMap((assignee) => (assignee === null ? [] : [assignee.login])),
         status: strings.get(options.statusField.name),
+        location: texts.get("Location"),
         startDate: dates.get(options.dateFields.start),
         endDate: dates.get(options.dateFields.end),
         updatedAt: issue.updatedAt,
