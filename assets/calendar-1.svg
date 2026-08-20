@@ -6,7 +6,7 @@
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .bar-text { font-size: 11px; fill: #ffffff; paint-order: stroke; stroke: #000000; stroke-opacity: 0.45; stroke-width: 2px; stroke-linejoin: round; }
+  .bar-text { font-size: 11px; fill: #ffffff; }
   @media (prefers-color-scheme: dark) {
     text { fill: #e6edf3; }
     .sat { fill: #4493f8; }

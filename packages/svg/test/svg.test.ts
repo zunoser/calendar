@@ -16,6 +16,7 @@ describe("toSvg", () => {
     expect(svg).toContain(">2026年8月</text>");
     expect(svg).toContain(">映画まどマギ 公開日</text>");
     expect(svg).toContain("@media (prefers-color-scheme: dark)");
+    expect(svg).not.toContain("stroke: #000000");
   });
 
   it("指定した月にかからないイベントは描かない", () => {
