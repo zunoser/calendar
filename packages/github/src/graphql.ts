@@ -45,6 +45,16 @@ export const projectItemFragment = graphql(`
         body
         url
         state
+        assignees(first: 100) {
+          nodes {
+            login
+          }
+        }
+        comments(last: 100) {
+          nodes {
+            body
+          }
+        }
         repository {
           nameWithOwner
         }
@@ -122,6 +132,18 @@ export const closeIssueMutation = graphql(`
       issue {
         id
         state
+      }
+    }
+  }
+`);
+
+export const addIssueCommentMutation = graphql(`
+  mutation AddIssueComment($issueId: ID!, $body: String!) {
+    addComment(input: { subjectId: $issueId, body: $body }) {
+      commentEdge {
+        node {
+          id
+        }
       }
     }
   }

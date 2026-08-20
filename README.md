@@ -34,9 +34,12 @@ https://raw.githubusercontent.com/zunoser/calendar/main/ics/calendar.ics
 pnpm zunocal view                # カレンダーをテーブル表示
 pnpm zunocal check [--dry-run]   # 日付の整合性を検査し Status を Error/Next に更新
 pnpm zunocal close [--dry-run]   # 終了日が過去の open な Issue を close
+pnpm zunocal remind 1d|1h [--dry-run] # 開始前に担当者全員を Issue コメントでメンション
 pnpm zunocal ics [--out <path>]  # iCalendar を書き出す (既定: ics/calendar.ics)
 pnpm zunocal svg [--dir <path>]  # 今月と来月のカレンダー画像を書き出す (既定: assets/)
 ```
+
+`Start Date` は日付フィールドのため、開始時刻は 00:00 JST としてリマインドします。
 
 ### Secrets
 

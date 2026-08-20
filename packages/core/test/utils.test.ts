@@ -1,7 +1,16 @@
 import { isoDate, type IsoDate } from "@zunoser/utils";
 import { describe, expect, it } from "vitest";
 import type { CalendarEvent } from "../src/service";
-import { checkEvent, filterDated, pastOpenEvents, sortByStartDate } from "../src/utils";
+import {
+  checkEvent,
+  dateInTokyoAfterHours,
+  filterDated,
+  pastOpenEvents,
+  reminderComment,
+  reminderMarker,
+  reminderTargets,
+  sortByStartDate,
+} from "../src/utils";
 
 const event = (
   id: string,
@@ -13,6 +22,8 @@ const event = (
   body: "",
   url: "https://github.com/zunoser/calendar/issues/1",
   state: options.state ?? "OPEN",
+  assignees: ["alice", "bob"],
+  comments: [],
   status: "Next",
   startDate: options.startDate as IsoDate | undefined,
   endDate: options.endDate as IsoDate | undefined,
@@ -71,5 +82,29 @@ describe("sortByStartDate", () => {
       day("a1", "2026-01-01"),
     ]);
     expect(sorted.map((e) => e.id)).toEqual(["a1", "a2", "b", "c"]);
+  });
+});
+
+describe("reminder", () => {
+  it("指定日時から1日後・1時間後の日本時間の日付を返す", () => {
+    expect(dateInTokyoAfterHours(new Date("2026-08-21T15:00:00Z"), 24)).toBe("2026-08-23");
+    expect(dateInTokyoAfterHours(new Date("2026-08-21T14:00:00Z"), 1)).toBe("2026-08-22");
+  });
+
+  it("未通知で担当者のいる open Issue だけを対象にする", () => {
+    const target = event("target", { startDate: "2026-08-22" });
+    const sent = {
+      ...event("sent", { startDate: "2026-08-22" }),
+      comments: [reminderMarker("1h", isoDate("2026-08-22"))],
+    };
+    const unassigned = { ...event("unassigned", { startDate: "2026-08-22" }), assignees: [] };
+    const closed = event("closed", { startDate: "2026-08-22", state: "CLOSED" });
+    expect(reminderTargets([target, sent, unassigned, closed], isoDate("2026-08-22"), "1h")).toEqual([target]);
+  });
+
+  it("担当者全員のメンションと再送防止マーカーを含むコメントを作る", () => {
+    expect(reminderComment(event("a", { startDate: "2026-08-22" }), "1d")).toBe(
+      "@alice @bob\n\n開始日の1日前です。\n\n<!-- zunocal-reminder:1d:2026-08-22 -->",
+    );
   });
 });

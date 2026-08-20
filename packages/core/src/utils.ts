@@ -1,6 +1,6 @@
 // イベント配列に対する純粋な操作 (検査・絞り込み・整列)。
 
-import type { IsoDate } from "@zunoser/utils";
+import { isoDate, type IsoDate } from "@zunoser/utils";
 import type { CalendarEvent } from "./service";
 
 /** 日付の整合性を検査する。問題がなければ undefined */
@@ -27,3 +27,36 @@ export const sortByStartDate = (events: readonly DatedCalendarEvent[]) =>
   events.toSorted(
     (a, b) => a.startDate.localeCompare(b.startDate) || a.endDate.localeCompare(b.endDate) || a.id.localeCompare(b.id),
   );
+
+export type ReminderKind = "1d" | "1h";
+
+/** リマインダーを識別する不可視コメント。再実行時の重複送信防止にも使う */
+export const reminderMarker = (kind: ReminderKind, startDate: IsoDate) =>
+  `<!-- zunocal-reminder:${kind}:${startDate} -->`;
+
+/** 対象日に開始し、担当者がいて、同じリマインダーを未送信の open なイベントを返す */
+export const reminderTargets = (events: readonly CalendarEvent[], startDate: IsoDate, kind: ReminderKind) => {
+  const marker = reminderMarker(kind, startDate);
+  return events.filter(
+    (event) =>
+      event.state === "OPEN" &&
+      event.startDate === startDate &&
+      event.assignees.length > 0 &&
+      !event.comments.some((comment) => comment.includes(marker)),
+  );
+};
+
+/** 指定時刻から hours 後の日本時間での暦日 */
+export const dateInTokyoAfterHours = (now: Date, hours: number) =>
+  isoDate(
+    new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(
+      new Date(now.getTime() + hours * 60 * 60 * 1000),
+    ),
+  );
+
+export const reminderComment = (event: CalendarEvent, kind: ReminderKind) => {
+  if (event.startDate === undefined) throw new Error("Reminder event must have a start date");
+  const mentions = event.assignees.map((login) => `@${login}`).join(" ");
+  const timing = kind === "1d" ? "1日前" : "1時間前";
+  return `${mentions}\n\n開始日の${timing}です。\n\n${reminderMarker(kind, event.startDate)}`;
+};
