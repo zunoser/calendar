@@ -4,9 +4,9 @@ import { parse } from "jsonc-parser";
 import { z } from "zod";
 
 export const configSchema = z.strictObject({
-  project: z.strictObject({
-    org: z.string().min(1),
-    number: z.int().positive(),
+  repository: z.strictObject({
+    owner: z.string().min(1),
+    name: z.string().min(1),
   }),
   token: z.string().prefault(process.env.TOKEN ?? ""),
   userAgent: z.string().min(1),
@@ -15,8 +15,8 @@ export const configSchema = z.strictObject({
     end: z.string().min(1),
   }),
   statusField: z.strictObject({
+    name: z.string().min(1),
     error: z.string().min(1),
-    done: z.string().min(1),
     open: z.string().min(1),
   }),
 });

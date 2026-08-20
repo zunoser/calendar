@@ -8,7 +8,6 @@ const event = (
   options: { startDate?: string; endDate?: string; state?: CalendarEvent["state"] } = {},
 ): CalendarEvent => ({
   id,
-  issueId: `I_${id}`,
   title: "t",
   body: "",
   url: "https://github.com/zunoser/calendar/issues/1",

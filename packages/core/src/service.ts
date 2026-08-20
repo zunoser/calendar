@@ -1,4 +1,4 @@
-// サービス層。github の repository から取得した生アイテムをイベントへ変換しながらストリームで返す。
+// サービス層。github の repository から取得した生の Issue をイベントへ変換しながらストリームで返す。
 
 import { createGitHubGraphQL } from "@zunoser/calendar-github";
 import { IsoDateSchema, type IsoDate } from "@zunoser/utils";
@@ -6,7 +6,7 @@ import { z } from "zod";
 import type { Config } from "./config";
 
 const DateFieldValuesSchema = z.object({
-  date: IsoDateSchema,
+  value: IsoDateSchema,
   field: z.object({
     name: z.string().min(1),
   }),
@@ -17,8 +17,8 @@ const dateValuesByFieldName = (nodes: unknown[]) => {
   for (const node of nodes) {
     const parsed = DateFieldValuesSchema.safeParse(node);
     if (parsed.success) {
-      const { date, field } = parsed.data;
-      dates.set(field.name, date);
+      const { value, field } = parsed.data;
+      dates.set(field.name, value);
     }
   }
   return dates;
@@ -49,45 +49,41 @@ export const getGitHubCalendar = async (options: Config) => {
     userAgent: options.userAgent,
   });
 
-  const statusField = await github.fetchStatusField(options.project);
+  const statusField = await github.fetchSingleSelectField(options.repository, options.statusField.name);
 
   async function* getCalendar() {
-    const items = github.iterateProjectItems({
-      project: options.project,
+    const issues = github.iterateIssues({
+      repository: options.repository,
     });
 
-    for await (const item of items) {
-      const content = item.content;
-      if (!content) continue;
-      if (content.__typename !== "Issue") continue;
-      const dates = dateValuesByFieldName(item.fieldValues.nodes ?? []);
-      const strings = stringValueByFieldName(item.fieldValues.nodes ?? []);
+    for await (const issue of issues) {
+      const nodes = issue.issueFieldValues?.nodes ?? [];
+      const dates = dateValuesByFieldName(nodes);
+      const strings = stringValueByFieldName(nodes);
 
       yield {
-        id: item.id,
-        issueId: content.id,
-        title: content.title,
-        body: content.body,
-        url: content.url,
-        state: content.state,
-        labelColors: (content.labels?.nodes ?? []).flatMap((label) => (label ? [label.color] : [])),
-        status: strings.get("Status"),
+        id: issue.id,
+        title: issue.title,
+        body: issue.body,
+        url: issue.url,
+        state: issue.state,
+        labelColors: (issue.labels?.nodes ?? []).flatMap((label) => (label ? [label.color] : [])),
+        status: strings.get(options.statusField.name),
         startDate: dates.get(options.dateFields.start),
         endDate: dates.get(options.dateFields.end),
-        updatedAt: item.updatedAt,
+        updatedAt: issue.updatedAt,
       };
     }
   }
 
-  /** アイテムの Status を選択肢名で更新する */
-  const updateStatus = async (itemId: string, status: string) => {
+  /** Issue の Status フィールドを選択肢名で更新する */
+  const updateStatus = async (issueId: string, status: string) => {
     const option = statusField.options.find(({ name }) => name === status);
     if (!option) {
       throw new Error(`Status option "${status}" not found`);
     }
-    await github.updateItemStatus({
-      projectId: statusField.projectId,
-      itemId,
+    await github.setIssueStatus({
+      issueId,
       fieldId: statusField.fieldId,
       optionId: option.id,
     });

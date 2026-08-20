@@ -2,7 +2,7 @@
 // ドメイン変換は core が行う。
 
 import { request } from "graphql-request";
-import { closeIssueMutation, projectItemsQuery, projectStatusQuery, updateItemStatusMutation } from "./graphql";
+import { closeIssueMutation, issueFieldsQuery, issuesQuery, setIssueFieldValueMutation } from "./graphql";
 import { paginate } from "./paginate";
 
 export interface GitHubRepository {
@@ -10,25 +10,24 @@ export interface GitHubRepository {
   userAgent: string;
 }
 
-export interface ProjectRef {
-  org: string;
-  number: number;
+export interface RepositoryRef {
+  owner: string;
+  name: string;
 }
 
 export interface FetchPageOptions {
-  project: ProjectRef;
+  repository: RepositoryRef;
   pageSize?: number;
   cursor?: string | null;
 }
 
 export interface IteratePageOptions {
-  project: ProjectRef;
+  repository: RepositoryRef;
   pageSize?: number;
 }
 
-export interface UpdateItemStatusOptions {
-  projectId: string;
-  itemId: string;
+export interface SetIssueStatusOptions {
+  issueId: string;
   fieldId: string;
   optionId: string;
 }
@@ -45,26 +44,26 @@ export const createGitHubGraphQL = (repository: GitHubRepository) => {
   const fetchPage = async function (options: FetchPageOptions) {
     const data = await request({
       url: GRAPHQL_ENDPOINT,
-      document: projectItemsQuery,
+      document: issuesQuery,
       variables: {
-        org: options.project.org,
-        number: options.project.number,
+        owner: options.repository.owner,
+        name: options.repository.name,
         pageSize: options.pageSize ?? PAGE_SIZE,
         cursor: options.cursor ?? null,
       },
       requestHeaders,
     });
-    const items = data.organization?.projectV2?.items;
-    if (!items) {
+    const issues = data.repository?.issues;
+    if (!issues) {
       throw new Error(
-        `Unexpected response: no projectV2.items for ${options.project.org}/projects/${options.project.number}`,
+        `Unexpected response: no repository.issues for ${options.repository.owner}/${options.repository.name}`,
       );
     }
-    return items;
+    return issues;
   };
 
-  /** Project の全アイテムを返す。ページネーションはここで吸収し、ページをまたいで逐次 yield する */
-  const iterateProjectItems = async function* (options: IteratePageOptions) {
+  /** リポジトリの全 Issue を返す。ページネーションはここで吸収し、ページをまたいで逐次 yield する */
+  const iterateIssues = async function* (options: IteratePageOptions) {
     const pages = paginate(async (cursor) => {
       const page = await fetchPage({ ...options, cursor });
       return [page, page.pageInfo.hasNextPage ? page.pageInfo.endCursor : null];
@@ -76,35 +75,36 @@ export const createGitHubGraphQL = (repository: GitHubRepository) => {
     }
   };
 
-  /** project id と Status フィールドを生のまま返す */
-  const fetchProjectStatus = async (project: ProjectRef) => {
+  /** リポジトリの Issue Field (single select のみ) を生のまま返す */
+  const fetchIssueFields = async (repo: RepositoryRef) => {
     const data = await request({
       url: GRAPHQL_ENDPOINT,
-      document: projectStatusQuery,
-      variables: { org: project.org, number: project.number },
+      document: issueFieldsQuery,
+      variables: { owner: repo.owner, name: repo.name },
       requestHeaders,
     });
-    const projectV2 = data.organization?.projectV2;
-    if (!projectV2) {
-      throw new Error(`Unexpected response: no projectV2 for ${project.org}/projects/${project.number}`);
+    const issueFields = data.repository?.issueFields;
+    if (!issueFields) {
+      throw new Error(`Unexpected response: no repository.issueFields for ${repo.owner}/${repo.name}`);
     }
-    return projectV2;
+    return issueFields;
   };
 
-  /** Status フィールドの id・選択肢と project id を返す (fetchProjectStatus の narrowing 済み版) */
-  const fetchStatusField = async (project: ProjectRef) => {
-    const projectV2 = await fetchProjectStatus(project);
-    const field = projectV2.field;
-    if (!field || !("options" in field)) {
-      throw new Error(`Status field not found in ${project.org}/projects/${project.number}`);
+  /** 名前で single select の Issue Field を引き、id と選択肢を返す (fetchIssueFields の narrowing 済み版) */
+  const fetchSingleSelectField = async (repo: RepositoryRef, fieldName: string) => {
+    const issueFields = await fetchIssueFields(repo);
+    for (const node of issueFields.nodes ?? []) {
+      if (node && "options" in node && node.name === fieldName) {
+        return { fieldId: node.id, options: node.options };
+      }
     }
-    return { projectId: projectV2.id, fieldId: field.id, options: field.options };
+    throw new Error(`Issue field "${fieldName}" not found in ${repo.owner}/${repo.name}`);
   };
 
-  const updateItemStatus = async (options: UpdateItemStatusOptions) => {
+  const setIssueStatus = async (options: SetIssueStatusOptions) => {
     await request({
       url: GRAPHQL_ENDPOINT,
-      document: updateItemStatusMutation,
+      document: setIssueFieldValueMutation,
       variables: options,
       requestHeaders,
     });
@@ -121,10 +121,10 @@ export const createGitHubGraphQL = (repository: GitHubRepository) => {
 
   return {
     fetchPage,
-    iterateProjectItems,
-    fetchProjectStatus,
-    fetchStatusField,
-    updateItemStatus,
+    iterateIssues,
+    fetchIssueFields,
+    fetchSingleSelectField,
+    setIssueStatus,
     closeIssue,
   };
 };

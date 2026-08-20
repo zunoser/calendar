@@ -22,7 +22,7 @@ export const close = defineCommand({
     }
     for (const event of targets) {
       if (!args.dryRun) {
-        await closeIssue(event.issueId);
+        await closeIssue(event.id);
       }
       console.log(`${args.dryRun ? "close 対象" : "closed"}: ${event.endDate}  ${event.title}`);
     }
