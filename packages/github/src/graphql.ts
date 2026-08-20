@@ -49,6 +49,11 @@ export const issueFragment = graphql(`
         }
       }
     }
+    assignees(first: 100) {
+      nodes {
+        login
+      }
+    }
   }
 `);
 
@@ -108,6 +113,18 @@ export const closeIssueMutation = graphql(`
       issue {
         id
         state
+      }
+    }
+  }
+`);
+
+export const addIssueCommentMutation = graphql(`
+  mutation AddIssueComment($issueId: ID!, $body: String!) {
+    addComment(input: { subjectId: $issueId, body: $body }) {
+      commentEdge {
+        node {
+          id
+        }
       }
     }
   }

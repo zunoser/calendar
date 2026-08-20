@@ -2,7 +2,13 @@
 // ドメイン変換は core が行う。
 
 import { request } from "graphql-request";
-import { closeIssueMutation, issueFieldsQuery, issuesQuery, setIssueFieldValueMutation } from "./graphql";
+import {
+  addIssueCommentMutation,
+  closeIssueMutation,
+  issueFieldsQuery,
+  issuesQuery,
+  setIssueFieldValueMutation,
+} from "./graphql";
 import { paginate } from "./paginate";
 
 export interface GitHubRepository {
@@ -119,6 +125,15 @@ export const createGitHubGraphQL = (repository: GitHubRepository) => {
     });
   };
 
+  const addIssueComment = async (issueId: string, body: string) => {
+    await request({
+      url: GRAPHQL_ENDPOINT,
+      document: addIssueCommentMutation,
+      variables: { issueId, body },
+      requestHeaders,
+    });
+  };
+
   return {
     fetchPage,
     iterateIssues,
@@ -126,5 +141,6 @@ export const createGitHubGraphQL = (repository: GitHubRepository) => {
     fetchSingleSelectField,
     setIssueStatus,
     closeIssue,
+    addIssueComment,
   };
 };

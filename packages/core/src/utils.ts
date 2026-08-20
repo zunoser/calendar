@@ -1,6 +1,6 @@
 // イベント配列に対する純粋な操作 (検査・絞り込み・整列)。
 
-import type { IsoDate } from "@zunoser/utils";
+import { isoDate, type IsoDate } from "@zunoser/utils";
 import type { CalendarEvent } from "./service";
 
 /** 日付の整合性を検査する。問題がなければ undefined */
@@ -26,4 +26,16 @@ export const filterDated = (events: readonly CalendarEvent[]) =>
 export const sortByStartDate = (events: readonly DatedCalendarEvent[]) =>
   events.toSorted(
     (a, b) => a.startDate.localeCompare(b.startDate) || a.endDate.localeCompare(b.endDate) || a.id.localeCompare(b.id),
+  );
+
+/** 対象日に開始し、担当者がいる open なイベントを返す */
+export const reminderTargets = (events: readonly CalendarEvent[], startDate: IsoDate) =>
+  events.filter((event) => event.state === "OPEN" && event.startDate === startDate && event.assignees.length > 0);
+
+/** 指定時刻から days 日後の日本時間での暦日 */
+export const dateInTokyoAfterDays = (now: Date, days: number) =>
+  isoDate(
+    new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(
+      new Date(now.getTime() + days * 24 * 60 * 60 * 1000),
+    ),
   );

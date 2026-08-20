@@ -68,6 +68,7 @@ export const getGitHubCalendar = async (options: Config) => {
         url: issue.url,
         state: issue.state,
         labelColors: (issue.labels?.nodes ?? []).flatMap((label) => (label ? [label.color] : [])),
+        assignees: (issue.assignees.nodes ?? []).flatMap((assignee) => (assignee === null ? [] : [assignee.login])),
         status: strings.get(options.statusField.name),
         startDate: dates.get(options.dateFields.start),
         endDate: dates.get(options.dateFields.end),
@@ -93,6 +94,7 @@ export const getGitHubCalendar = async (options: Config) => {
     getCalendar,
     updateStatus,
     closeIssue: github.closeIssue,
+    addIssueComment: github.addIssueComment,
   };
 };
 

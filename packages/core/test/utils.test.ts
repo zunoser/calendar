@@ -1,7 +1,14 @@
 import { isoDate, type IsoDate } from "@zunoser/utils";
 import { describe, expect, it } from "vitest";
 import type { CalendarEvent } from "../src/service";
-import { checkEvent, filterDated, pastOpenEvents, sortByStartDate } from "../src/utils";
+import {
+  checkEvent,
+  dateInTokyoAfterDays,
+  filterDated,
+  pastOpenEvents,
+  reminderTargets,
+  sortByStartDate,
+} from "../src/utils";
 
 const event = (
   id: string,
@@ -13,6 +20,7 @@ const event = (
   url: "https://github.com/zunoser/calendar/issues/1",
   state: options.state ?? "OPEN",
   labelColors: [],
+  assignees: ["alice", "bob"],
   status: "Next",
   startDate: options.startDate as IsoDate | undefined,
   endDate: options.endDate as IsoDate | undefined,
@@ -71,5 +79,19 @@ describe("sortByStartDate", () => {
       day("a1", "2026-01-01"),
     ]);
     expect(sorted.map((e) => e.id)).toEqual(["a1", "a2", "b", "c"]);
+  });
+});
+
+describe("reminder", () => {
+  it("指定日時から3日後・1日後の日本時間の日付を返す", () => {
+    expect(dateInTokyoAfterDays(new Date("2026-08-21T09:00:00Z"), 3)).toBe("2026-08-24");
+    expect(dateInTokyoAfterDays(new Date("2026-08-21T09:00:00Z"), 1)).toBe("2026-08-22");
+  });
+
+  it("担当者のいる open Issue だけを対象にする", () => {
+    const target = event("target", { startDate: "2026-08-22" });
+    const unassigned = { ...event("unassigned", { startDate: "2026-08-22" }), assignees: [] };
+    const closed = event("closed", { startDate: "2026-08-22", state: "CLOSED" });
+    expect(reminderTargets([target, unassigned, closed], isoDate("2026-08-22"))).toEqual([target]);
   });
 });
