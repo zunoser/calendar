@@ -36,11 +36,10 @@ const STYLE = `
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .bar { fill: #ffffff; }
+  .bar { fill: none; }
   .bar-text { font-size: 11px; }
   @media (prefers-color-scheme: dark) {
     text { fill: #e6edf3; }
-    .bar { fill: #0d1117; }
     .sat { fill: #4493f8; }
     .sun { fill: #f85149; }
   }
