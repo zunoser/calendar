@@ -6,7 +6,7 @@ import { readFile } from "node:fs/promises";
 
 /**
  * 期待される Status: 問題があれば error、問題が解消していれば error → open。
- * それ以外 (done 等) は現状維持。
+ * それ以外は現状維持。
  */
 const expectedStatus = (
   problem: ReturnType<typeof checkEvent>,
@@ -19,7 +19,7 @@ const expectedStatus = (
 };
 
 export const check = defineCommand({
-  meta: { name: "check", description: "日付の整合性を検査し、Project の Status を更新する" },
+  meta: { name: "check", description: "日付の整合性を検査し、Issue の Status フィールドを更新する" },
   args: {
     config: { type: "string", default: "config.jsonc", description: "設定ファイルのパス" },
     dryRun: { type: "boolean", default: false, alias: "dry-run", description: "Status を変更せず差分の表示のみ" },
