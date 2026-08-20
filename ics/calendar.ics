@@ -5,17 +5,6 @@ METHOD:PUBLISH
 NAME:ずのさー
 X-WR-CALNAME:ずのさー
 BEGIN:VEVENT
-UID:I_kwDOT8rdKs8AAAABNQ0NZA
-SEQUENCE:0
-DTSTAMP:20260820T174733Z
-DTSTART;VALUE=DATE:20260818
-X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
-X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
-SUMMARY:キオクシア決算 2026 Q2
-DESCRIPTION:https://github.com/zunoser/calendar/issues/17
-URL;VALUE=URI:https://github.com/zunoser/calendar/issues/17
-END:VEVENT
-BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQnyYQ
 SEQUENCE:0
 DTSTAMP:20260820T174718Z
@@ -56,6 +45,7 @@ DTSTART;VALUE=DATE:20260904
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:W3C Japan 30 周年記念イベント - Web Together
+LOCATION:サイボウズ
 DESCRIPTION:https://github.com/zunoser/calendar/issues/43
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/43
 END:VEVENT
@@ -91,6 +81,7 @@ X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:"𝑺𝒑𝒂𝒄𝒆 𝑺𝒐𝒖𝒓𝒄𝒆" 5th Anniversary: E
  ncore!!
+LOCATION:名古屋 Space Source
 DESCRIPTION:piccoさんが名古屋にきますよ\n\nhttps://github.com/z
  unoser/calendar/issues/39
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/39
@@ -126,6 +117,7 @@ DTSTART;VALUE=DATE:20260924
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:yuta kobayashi 誕生日
+LOCATION:yuta kobayaashiの家
 DESCRIPTION:https://github.com/zunoser/calendar/issues/47
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/47
 END:VEVENT
@@ -138,6 +130,7 @@ DTEND;VALUE=DATE:20260928
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:暴力的にカワイイ 2026
+LOCATION:東京都江東区青海1丁目1
 DESCRIPTION:https://github.com/zunoser/calendar/issues/2
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/2
 END:VEVENT
@@ -183,6 +176,7 @@ DTSTART;VALUE=DATE:20261025
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:M3
+LOCATION:東京流通センター(TRC) 第一・第二展示場
 DESCRIPTION:午前8時開始\nhttps://www.m3net.jp/attendance/index.php\n\
  nhttps://github.com/zunoser/calendar/issues/29
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/29
@@ -241,6 +235,7 @@ DTEND;VALUE=DATE:20261124
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:SFC ORF
+LOCATION:慶應義塾湘南藤沢大学
 DESCRIPTION:https://github.com/zunoser/calendar/issues/41
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/41
 END:VEVENT
