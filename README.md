@@ -39,12 +39,6 @@ pnpm zunocal ics [--out <path>]  # iCalendar を書き出す (既定: ics/calend
 pnpm zunocal svg [--dir <path>]  # 今月と来月のカレンダー画像を書き出す (既定: assets/)
 ```
 
-`Start date` の3日前と1日前の18:00 JSTにリマインドします。
-
-### Secrets
-
-- **`PROJECT_TOKEN`** — ふぁが発行した**無期限・`public_repo` スコープ**の classic PAT
-
 ## 開発
 
 ```sh
