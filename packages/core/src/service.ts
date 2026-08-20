@@ -76,6 +76,7 @@ export const getGitHubCalendar = async (options: Config) => {
     });
 
     for await (const issue of issues) {
+      if (issue.issueType?.name !== options.issueType) continue;
       const nodes = issue.issueFieldValues?.nodes ?? [];
       const dates = dateValuesByFieldName(nodes);
       const strings = stringValueByFieldName(nodes);

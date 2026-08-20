@@ -21,6 +21,9 @@ export const issueFragment = graphql(`
     url
     state
     updatedAt
+    issueType {
+      name
+    }
     repository {
       nameWithOwner
     }

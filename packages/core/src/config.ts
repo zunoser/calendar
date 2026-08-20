@@ -10,6 +10,7 @@ export const configSchema = z.strictObject({
   }),
   token: z.string().prefault(process.env.TOKEN ?? ""),
   userAgent: z.string().min(1),
+  issueType: z.string().min(1),
   dateFields: z.strictObject({
     start: z.string().min(1),
     end: z.string().min(1),
