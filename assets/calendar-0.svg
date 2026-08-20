@@ -6,8 +6,7 @@
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .bar { fill: #1f6feb; }
-  .bar-text { font-size: 11px; fill: #ffffff; }
+  .bar-text { font-size: 11px; fill: #ffffff; paint-order: stroke; stroke: #000000; stroke-opacity: 0.45; stroke-width: 2px; stroke-linejoin: round; }
   @media (prefers-color-scheme: dark) {
     text { fill: #e6edf3; }
     .sat { fill: #4493f8; }
@@ -86,9 +85,9 @@
 <text x="654" y="364">28</text>
 <rect x="776" y="348" width="128" height="72" class="cell"/>
 <text x="782" y="364" class="sat">29</text>
-<svg x="650" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">映画まどマギ 公開日</text></svg>
-<svg x="778" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">まどマギ見に行く</text></svg>
-<svg x="778" y="390" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
+<svg x="650" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">映画まどマギ 公開日</text></svg>
+<svg x="778" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">まどマギ見に行く</text></svg>
+<svg x="778" y="390" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#0b7ac8"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
 <rect x="8" y="420" width="128" height="72" class="cell"/>
 <text x="14" y="436" class="sun">30</text>
 <rect x="136" y="420" width="128" height="72" class="cell"/>
