@@ -54,11 +54,6 @@ export const issueFragment = graphql(`
         login
       }
     }
-    comments(last: 100) {
-      nodes {
-        body
-      }
-    }
   }
 `);
 

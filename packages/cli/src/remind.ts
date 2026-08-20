@@ -28,7 +28,7 @@ export const remind = defineCommand({
     const config = parseConfig(await readFile(args.config, "utf8"));
     const { getCalendar, addIssueComment } = await getGitHubCalendar(config);
     const startDate = dateInTokyoAfterDays(new Date(), daysByKind[kind]);
-    const targets = reminderTargets(await Array.fromAsync(getCalendar()), startDate, kind);
+    const targets = reminderTargets(await Array.fromAsync(getCalendar()), startDate);
 
     if (targets.length === 0) {
       console.log("対象はありません");

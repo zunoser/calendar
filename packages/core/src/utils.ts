@@ -30,21 +30,9 @@ export const sortByStartDate = (events: readonly DatedCalendarEvent[]) =>
 
 export type ReminderKind = "3d" | "1d";
 
-/** リマインダーを識別する不可視コメント。再実行時の重複送信防止にも使う */
-export const reminderMarker = (kind: ReminderKind, startDate: IsoDate) =>
-  `<!-- zunocal-reminder:${kind}:${startDate} -->`;
-
-/** 対象日に開始し、担当者がいて、同じリマインダーを未送信の open なイベントを返す */
-export const reminderTargets = (events: readonly CalendarEvent[], startDate: IsoDate, kind: ReminderKind) => {
-  const marker = reminderMarker(kind, startDate);
-  return events.filter(
-    (event) =>
-      event.state === "OPEN" &&
-      event.startDate === startDate &&
-      event.assignees.length > 0 &&
-      !event.comments.some((comment) => comment.includes(marker)),
-  );
-};
+/** 対象日に開始し、担当者がいる open なイベントを返す */
+export const reminderTargets = (events: readonly CalendarEvent[], startDate: IsoDate) =>
+  events.filter((event) => event.state === "OPEN" && event.startDate === startDate && event.assignees.length > 0);
 
 /** 指定時刻から days 日後の日本時間での暦日 */
 export const dateInTokyoAfterDays = (now: Date, days: number) =>
@@ -55,8 +43,7 @@ export const dateInTokyoAfterDays = (now: Date, days: number) =>
   );
 
 export const reminderComment = (event: CalendarEvent, kind: ReminderKind) => {
-  if (event.startDate === undefined) throw new Error("Reminder event must have a start date");
   const mentions = event.assignees.map((login) => `@${login}`).join(" ");
   const timing = kind === "3d" ? "3日前" : "1日前";
-  return `${mentions}\n\n開始日の${timing}です。\n\n${reminderMarker(kind, event.startDate)}`;
+  return `${mentions}\n\n開始日の${timing}です。`;
 };

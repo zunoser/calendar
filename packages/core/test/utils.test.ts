@@ -7,7 +7,6 @@ import {
   filterDated,
   pastOpenEvents,
   reminderComment,
-  reminderMarker,
   reminderTargets,
   sortByStartDate,
 } from "../src/utils";
@@ -23,7 +22,6 @@ const event = (
   state: options.state ?? "OPEN",
   labelColors: [],
   assignees: ["alice", "bob"],
-  comments: [],
   status: "Next",
   startDate: options.startDate as IsoDate | undefined,
   endDate: options.endDate as IsoDate | undefined,
@@ -91,20 +89,14 @@ describe("reminder", () => {
     expect(dateInTokyoAfterDays(new Date("2026-08-21T09:00:00Z"), 1)).toBe("2026-08-22");
   });
 
-  it("未通知で担当者のいる open Issue だけを対象にする", () => {
+  it("担当者のいる open Issue だけを対象にする", () => {
     const target = event("target", { startDate: "2026-08-22" });
-    const sent = {
-      ...event("sent", { startDate: "2026-08-22" }),
-      comments: [reminderMarker("3d", isoDate("2026-08-22"))],
-    };
     const unassigned = { ...event("unassigned", { startDate: "2026-08-22" }), assignees: [] };
     const closed = event("closed", { startDate: "2026-08-22", state: "CLOSED" });
-    expect(reminderTargets([target, sent, unassigned, closed], isoDate("2026-08-22"), "3d")).toEqual([target]);
+    expect(reminderTargets([target, unassigned, closed], isoDate("2026-08-22"))).toEqual([target]);
   });
 
-  it("担当者全員のメンションと再送防止マーカーを含むコメントを作る", () => {
-    expect(reminderComment(event("a", { startDate: "2026-08-22" }), "3d")).toBe(
-      "@alice @bob\n\n開始日の3日前です。\n\n<!-- zunocal-reminder:3d:2026-08-22 -->",
-    );
+  it("担当者全員のメンションを含むコメントを作る", () => {
+    expect(reminderComment(event("a", { startDate: "2026-08-22" }), "3d")).toBe("@alice @bob\n\n開始日の3日前です。");
   });
 });

@@ -8,7 +8,6 @@ export {
   filterDated,
   pastOpenEvents,
   reminderComment,
-  reminderMarker,
   reminderTargets,
   sortByStartDate,
 } from "./utils";
