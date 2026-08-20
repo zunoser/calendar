@@ -6,7 +6,6 @@
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .bar { fill: #1f6feb; }
   .bar-text { font-size: 11px; fill: #ffffff; }
   @media (prefers-color-scheme: dark) {
     text { fill: #e6edf3; }
@@ -34,7 +33,7 @@
 <text x="654" y="76">4</text>
 <rect x="776" y="60" width="128" height="72" class="cell"/>
 <text x="782" y="76" class="sat">5</text>
-<svg x="778" y="82" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
+<svg x="778" y="82" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#6c30bc"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
 <rect x="8" y="132" width="128" height="72" class="cell"/>
 <text x="14" y="148" class="sun">6</text>
 <rect x="136" y="132" width="128" height="72" class="cell"/>
@@ -49,8 +48,8 @@
 <text x="654" y="148">11</text>
 <rect x="776" y="132" width="128" height="72" class="cell"/>
 <text x="782" y="148" class="sat">12</text>
-<svg x="10" y="154" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
-<svg x="138" y="154" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">リコリコスロット新台</text></svg>
+<svg x="10" y="154" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#6c30bc"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
+<svg x="138" y="154" width="124" height="16"><defs><linearGradient id="bar-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f74761"/><stop offset="100%" stop-color="#ed9324"/></linearGradient></defs><rect width="124" height="16" rx="4" class="bar" fill="url(#bar-gradient-2)"/><text x="6" y="12" class="bar-text">リコリコスロット新台</text></svg>
 <rect x="8" y="204" width="128" height="72" class="cell"/>
 <text x="14" y="220" class="sun">13</text>
 <rect x="136" y="204" width="128" height="72" class="cell"/>
@@ -65,7 +64,7 @@
 <text x="654" y="220">18</text>
 <rect x="776" y="204" width="128" height="72" class="cell"/>
 <text x="782" y="220" class="sat">19</text>
-<svg x="650" y="226" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">映画名探偵プリキュア！公開日</text></svg>
+<svg x="650" y="226" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">映画名探偵プリキュア！公開日</text></svg>
 <rect x="8" y="276" width="128" height="72" class="cell"/>
 <text x="14" y="292" class="sun">20</text>
 <rect x="136" y="276" width="128" height="72" class="cell"/>
@@ -80,8 +79,8 @@
 <text x="654" y="292">25</text>
 <rect x="776" y="276" width="128" height="72" class="cell"/>
 <text x="782" y="292" class="sat">26</text>
-<svg x="10" y="298" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">moons 誕生日 2026</text></svg>
-<svg x="778" y="298" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
+<svg x="10" y="298" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#0b7ac8"/><text x="6" y="12" class="bar-text">moons 誕生日 2026</text></svg>
+<svg x="778" y="298" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
 <rect x="8" y="348" width="128" height="72" class="cell"/>
 <text x="14" y="364" class="sun">27</text>
 <rect x="136" y="348" width="128" height="72" class="cell"/>
@@ -93,6 +92,6 @@
 <rect x="520" y="348" width="128" height="72" class="out"/>
 <rect x="648" y="348" width="128" height="72" class="out"/>
 <rect x="776" y="348" width="128" height="72" class="out"/>
-<svg x="10" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
-<svg x="138" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">映画たんぷり東京に観にいく</text></svg>
+<svg x="10" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
+<svg x="138" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">映画たんぷり東京に観にいく</text></svg>
 </svg>

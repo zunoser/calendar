@@ -1,22 +1,8 @@
-// check コマンド。日付の整合性から期待される Status を計算し、実際との差分だけを更新する。
+// check コマンド。全 Issue を error か open のどちらかに寄せ、既に一致しているものだけ除外して更新する。
 
-import { checkEvent, getGitHubCalendar, parseConfig, type Config } from "@zunoser/calendar-core";
+import { checkEvent, getGitHubCalendar, parseConfig } from "@zunoser/calendar-core";
 import { defineCommand } from "citty";
 import { readFile } from "node:fs/promises";
-
-/**
- * 期待される Status: 問題があれば error、問題が解消していれば error → open。
- * それ以外は現状維持。
- */
-const expectedStatus = (
-  problem: ReturnType<typeof checkEvent>,
-  actual: string | undefined,
-  statusField: Config["statusField"],
-) => {
-  if (problem) return statusField.error;
-  if (actual === statusField.error) return statusField.open;
-  return actual;
-};
 
 export const check = defineCommand({
   meta: { name: "check", description: "日付の整合性を検査し、Issue の Status フィールドを更新する" },
@@ -29,21 +15,30 @@ export const check = defineCommand({
     const { getCalendar, updateStatus } = await getGitHubCalendar(config);
     const events = await Array.fromAsync(getCalendar());
 
-    const changes = events.flatMap((event) => {
-      const problem = checkEvent(event);
-      const expected = expectedStatus(problem, event.status, config.statusField);
-      if (expected === undefined || expected === event.status) return [];
-      return [{ event, problem, actual: event.status, expected }];
-    });
+    const expectedError = new Set(events.filter((event) => checkEvent(event) !== undefined));
+    const expectedOpen = new Set(events.filter((event) => checkEvent(event) === undefined));
+    const actualError = new Set(events.filter((event) => event.status === config.statusField.error));
+    const actualOpen = new Set(events.filter((event) => event.status === config.statusField.open));
+
+    const changes = [
+      ...Array.from(expectedError.difference(actualError), (event) => ({
+        event,
+        expected: config.statusField.error,
+      })),
+      ...Array.from(expectedOpen.difference(actualOpen), (event) => ({
+        event,
+        expected: config.statusField.open,
+      })),
+    ];
     if (changes.length === 0) {
       console.log("Status の変更はありません");
       return;
     }
-    for (const { event, problem, actual, expected } of changes) {
+    for (const { event, expected } of changes) {
       if (!args.dryRun) {
         await updateStatus(event.id, expected);
       }
-      console.log(`${event.title}: ${actual ?? "(未設定)"} → ${expected}${problem ? ` (${problem})` : ""}`);
+      console.log(`${event.title}: ${event.status ?? "(未設定)"} → ${expected}`);
     }
   },
 });

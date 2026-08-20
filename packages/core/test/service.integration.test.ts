@@ -14,6 +14,7 @@ describe("getGitHubCalendar", () => {
       expect(event.id).toMatch(/^I_/);
       expect(event.title).not.toBe("");
       expect(["OPEN", "CLOSED"]).toContain(event.state);
+      expect(event.labelColors.every((color) => /^[0-9a-f]{6}$/i.test(color))).toBe(true);
     }
     expect(events.some((event) => event.startDate !== undefined)).toBe(true);
   });

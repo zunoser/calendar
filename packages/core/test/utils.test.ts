@@ -21,6 +21,7 @@ const event = (
   body: "",
   url: "https://github.com/zunoser/calendar/issues/1",
   state: options.state ?? "OPEN",
+  labelColors: [],
   assignees: ["alice", "bob"],
   comments: [],
   status: "Next",

@@ -24,6 +24,11 @@ export const issueFragment = graphql(`
     repository {
       nameWithOwner
     }
+    labels(first: 100) {
+      nodes {
+        color
+      }
+    }
     issueFieldValues(first: 20) {
       nodes {
         ... on IssueFieldDateValue {
