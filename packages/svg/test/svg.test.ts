@@ -6,6 +6,7 @@ const event = (overrides: Partial<SvgEvent> = {}): SvgEvent => ({
   title: "映画まどマギ 公開日",
   startDate: isoDate("2026-08-28"),
   endDate: isoDate("2026-08-28"),
+  labelColors: [],
   ...overrides,
 });
 
@@ -15,6 +16,7 @@ describe("toSvg", () => {
     expect(svg).toContain(">2026年8月</text>");
     expect(svg).toContain(">映画まどマギ 公開日</text>");
     expect(svg).toContain("@media (prefers-color-scheme: dark)");
+    expect(svg).not.toContain("stroke: #000000");
   });
 
   it("指定した月にかからないイベントは描かない", () => {
@@ -26,6 +28,43 @@ describe("toSvg", () => {
 
   it("イベントがない月もグリッドは描く", () => {
     expect(toSvg([], "2026-10")).toContain(">2026年10月</text>");
+  });
+
+  it("ラベルがなければ既定色、1件ならラベル色で帯を描く", () => {
+    expect(toSvg([event()], "2026-08")).toContain('class="bar" fill="#1f6feb"');
+    expect(toSvg([event({ labelColors: ["e99695"] })], "2026-08")).toContain('class="bar" fill="#e99695"');
+  });
+
+  it("複数のラベル色を横グラデーションにする", () => {
+    const svg = toSvg([event({ labelColors: ["d73a4a", "fbca04", "0e8a16"] })], "2026-08");
+    expect(svg).toContain('<linearGradient id="bar-gradient-0" x1="0%" y1="0%" x2="100%" y2="0%">');
+    expect(svg).toContain('<stop offset="0%" stop-color="#d73a4a"/>');
+    expect(svg).toContain('<stop offset="50%" stop-color="#fbca04"/>');
+    expect(svg).toContain('<stop offset="100%" stop-color="#0e8a16"/>');
+    expect(svg).toContain('class="bar" fill="url(#bar-gradient-0)"');
+  });
+
+  it("週をまたぐイベントのグラデーションIDが重複しない", () => {
+    const svg = toSvg(
+      [
+        event({
+          startDate: isoDate("2026-08-22"),
+          endDate: isoDate("2026-08-31"),
+          labelColors: ["d73a4a", "0e8a16"],
+        }),
+      ],
+      "2026-08",
+    );
+    expect(svg.match(/<linearGradient id=/g)).toHaveLength(3);
+    expect(svg).toContain('id="bar-gradient-0"');
+    expect(svg).toContain('id="bar-gradient-1"');
+    expect(svg).toContain('id="bar-gradient-2"');
+  });
+
+  it("不正なラベル色は使わない", () => {
+    const svg = toSvg([event({ labelColors: ['"/><script>alert(1)</script>'] })], "2026-08");
+    expect(svg).toContain('class="bar" fill="#1f6feb"');
+    expect(svg).not.toContain("<script>");
   });
 
   it("期間イベントは列数分の幅の帯になる", () => {

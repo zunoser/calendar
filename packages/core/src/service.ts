@@ -67,6 +67,7 @@ export const getGitHubCalendar = async (options: Config) => {
         body: issue.body,
         url: issue.url,
         state: issue.state,
+        labelColors: (issue.labels?.nodes ?? []).flatMap((label) => (label ? [label.color] : [])),
         status: strings.get(options.statusField.name),
         startDate: dates.get(options.dateFields.start),
         endDate: dates.get(options.dateFields.end),

@@ -10,6 +10,8 @@ export interface SvgEvent {
   startDate: IsoDate;
   /** この日を含む */
   endDate: IsoDate;
+  /** GitHub Issue ラベルの6桁HEXカラー (#なし) */
+  labelColors: readonly string[];
 }
 
 const CELL_W = 128;
@@ -22,6 +24,8 @@ const LANE_H = 20;
 const BAR_H = 16;
 const WEEK_PAD = 4;
 const WEEK_MIN_H = 72;
+const DEFAULT_BAR_COLOR = "#1f6feb";
+const HEX_COLOR = /^[0-9a-f]{6}$/i;
 const WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
 
 const STYLE = `
@@ -31,7 +35,6 @@ const STYLE = `
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .bar { fill: #1f6feb; }
   .bar-text { font-size: 11px; fill: #ffffff; }
   @media (prefers-color-scheme: dark) {
     text { fill: #e6edf3; }
@@ -47,9 +50,28 @@ const weekdayClass = (col: number) => (col === 0 ? ' class="sun"' : col === 6 ? 
 
 const monthTitle = (month: string) => `${Number(month.slice(0, 4))}年${Number(month.slice(5, 7))}月`;
 
+const barFill = (labelColors: readonly string[], gradientId: string) => {
+  const colors = labelColors.flatMap((color) => (HEX_COLOR.test(color) ? [`#${color}`] : []));
+  if (colors.length < 2) {
+    return { definition: "", fill: colors[0] ?? DEFAULT_BAR_COLOR };
+  }
+
+  const stops = colors
+    .map(
+      (color, index) =>
+        `<stop offset="${Math.round((index * 10_000) / (colors.length - 1)) / 100}%" stop-color="${color}"/>`,
+    )
+    .join("");
+  return {
+    definition: `<defs><linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="0%">${stops}</linearGradient></defs>`,
+    fill: `url(#${gradientId})`,
+  };
+};
+
 // 1か月分を描画し、消費した高さと要素を返す
 const renderMonth = (month: string, events: readonly SvgEvent[], top: number) => {
   const parts: string[] = [];
+  let barIndex = 0;
   parts.push(`<text x="${MARGIN}" y="${top + 20}" class="title">${monthTitle(month)}</text>`);
   for (const [col, label] of WEEKDAYS.entries()) {
     const x = MARGIN + col * CELL_W + CELL_W / 2;
@@ -75,10 +97,12 @@ const renderMonth = (month: string, events: readonly SvgEvent[], top: number) =>
       const x = MARGIN + bar.startCol * CELL_W + 2;
       const width = bar.span * CELL_W - 4;
       const barY = y + DAY_H + bar.lane * LANE_H;
+      const { definition, fill } = barFill(bar.event.labelColors, `bar-gradient-${barIndex++}`);
       // 入れ子の <svg> で帯からはみ出すタイトルを切り落とす
       parts.push(
         `<svg x="${x}" y="${barY}" width="${width}" height="${BAR_H}">` +
-          `<rect width="${width}" height="${BAR_H}" rx="4" class="bar"/>` +
+          definition +
+          `<rect width="${width}" height="${BAR_H}" rx="4" class="bar" fill="${fill}"/>` +
           `<text x="6" y="12" class="bar-text">${escapeXml(bar.event.title)}</text>` +
           `</svg>`,
       );
