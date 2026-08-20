@@ -13,6 +13,7 @@ const event = (
   body: "",
   url: "https://github.com/zunoser/calendar/issues/1",
   state: options.state ?? "OPEN",
+  labelColors: [],
   status: "Next",
   startDate: options.startDate as IsoDate | undefined,
   endDate: options.endDate as IsoDate | undefined,

@@ -45,6 +45,11 @@ export const projectItemFragment = graphql(`
         body
         url
         state
+        labels(first: 100) {
+          nodes {
+            color
+          }
+        }
         repository {
           nameWithOwner
         }
