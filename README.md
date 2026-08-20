@@ -4,17 +4,25 @@
 
 ## カレンダー購読
 
-Apple カレンダーや Outlook は次の URL を開くと購読登録される (`webcal://` スキーム):
+[Google カレンダーに追加](https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fraw.githubusercontent.com%2Fzunoser%2Fcalendar%2Fmain%2Fics%2Fcalendar.ics)
+
+<details>
+<summary>Apple カレンダー / Outlook:</summary>
 
 ```
 webcal://raw.githubusercontent.com/zunoser/calendar/main/ics/calendar.ics
 ```
 
-Google カレンダーは [URL で追加](https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fraw.githubusercontent.com%2Fzunoser%2Fcalendar%2Fmain%2Fics%2Fcalendar.ics)、それ以外のアプリは https の URL をそのまま登録する:
+</details>
 
-```
+<details>
+<summary>その他:</summary>
+
+```url
 https://raw.githubusercontent.com/zunoser/calendar/main/ics/calendar.ics
 ```
+
+</details>
 
 ## コマンド
 
