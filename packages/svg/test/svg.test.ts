@@ -29,9 +29,9 @@ describe("toSvg", () => {
   });
 
   it("期間イベントは列数分の幅の帯になる", () => {
-    // 2026-09-05 (土) 〜 09-06 (日) は同じ週なので 2 列分 (128 * 2 - 4)
-    const svg = toSvg([event({ startDate: isoDate("2026-09-05"), endDate: isoDate("2026-09-06") })], "2026-09");
-    expect(svg).toContain('width="252" height="16" rx="4" class="bar"');
+    // 2026-12-29 (火) 〜 12-31 (木) は同じ週なので 3 列分 (128 * 3 - 4)
+    const svg = toSvg([event({ startDate: isoDate("2026-12-29"), endDate: isoDate("2026-12-31") })], "2026-12");
+    expect(svg).toContain('width="380" height="16" rx="4" class="bar"');
   });
 
   it("月をまたぐイベントは月内の日だけ描く", () => {

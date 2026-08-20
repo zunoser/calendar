@@ -24,26 +24,35 @@ describe("nextMonth", () => {
 });
 
 describe("monthWeeks", () => {
-  it("月曜始まりで週ごとに並べ、月外は undefined で埋める", () => {
+  it("日曜始まりで週ごとに並べ、月外は undefined で埋める", () => {
     // 2026-09-01 は火曜、2026-09-30 は水曜
     const weeks = monthWeeks("2026-09");
     expect(weeks).toHaveLength(5);
     expect(weeks[0]).toEqual([
+      undefined,
       undefined,
       "2026-09-01",
       "2026-09-02",
       "2026-09-03",
       "2026-09-04",
       "2026-09-05",
-      "2026-09-06",
     ]);
-    expect(weeks[4]).toEqual(["2026-09-28", "2026-09-29", "2026-09-30", undefined, undefined, undefined, undefined]);
+    expect(weeks[4]).toEqual([
+      "2026-09-27",
+      "2026-09-28",
+      "2026-09-29",
+      "2026-09-30",
+      undefined,
+      undefined,
+      undefined,
+    ]);
   });
 
-  it("月曜始まり・日曜終わりの月は埋めなしでちょうど収まる", () => {
-    // 2026-06-01 は月曜、2026-06-28 は日曜、2026-06-30 は火曜
-    const weeks = monthWeeks("2026-06");
-    expect(weeks[0]![0]).toBe("2026-06-01");
-    expect(weeks[3]![6]).toBe("2026-06-28");
+  it("日曜始まり・土曜終わりの月は埋めなしでちょうど収まる", () => {
+    // 2026-02-01 は日曜、2026-02-28 は土曜
+    const weeks = monthWeeks("2026-02");
+    expect(weeks).toHaveLength(4);
+    expect(weeks[0]![0]).toBe("2026-02-01");
+    expect(weeks[3]![6]).toBe("2026-02-28");
   });
 });

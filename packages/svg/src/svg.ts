@@ -21,7 +21,8 @@ const DAY_H = 22;
 const LANE_H = 20;
 const BAR_H = 16;
 const WEEK_PAD = 4;
-const WEEKDAYS = ["月", "火", "水", "木", "金", "土", "日"];
+const WEEK_MIN_H = 72;
+const WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
 
 const STYLE = `
   text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #1f2328; }
@@ -42,7 +43,7 @@ const STYLE = `
 const escapeXml = (text: string) =>
   text.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 
-const weekdayClass = (col: number) => (col === 5 ? ' class="sat"' : col === 6 ? ' class="sun"' : "");
+const weekdayClass = (col: number) => (col === 0 ? ' class="sun"' : col === 6 ? ' class="sat"' : "");
 
 const monthTitle = (month: string) => `${Number(month.slice(0, 4))}年${Number(month.slice(5, 7))}月`;
 
@@ -59,7 +60,7 @@ const renderMonth = (month: string, events: readonly SvgEvent[], top: number) =>
   for (const week of monthWeeks(month)) {
     const bars = weekBars(week, events);
     const lanes = bars.reduce((max, bar) => Math.max(max, bar.lane + 1), 1);
-    const weekHeight = DAY_H + lanes * LANE_H + WEEK_PAD;
+    const weekHeight = Math.max(DAY_H + lanes * LANE_H + WEEK_PAD, WEEK_MIN_H);
 
     for (const [col, date] of week.entries()) {
       const x = MARGIN + col * CELL_W;

@@ -10,7 +10,7 @@ interface DatedEvent {
 
 export interface WeekBar<E extends DatedEvent> {
   event: E;
-  /** 週内の開始列 (月曜 = 0) */
+  /** 週内の開始列 (日曜 = 0) */
   startCol: number;
   /** 占める列数 */
   span: number;
