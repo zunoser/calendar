@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "@0no-co/graphqlsp": "1.17.4",
-    "@octokit/graphql-schema": "15.26.1",
     "@types/node": "26.2.0",
     "oxfmt": "0.63.0",
     "oxlint": "1.78.0",

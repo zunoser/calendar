@@ -12,87 +12,68 @@ export const graphql = initGraphQLTada<{
   };
 }>();
 
-export const projectItemFragment = graphql(`
-  fragment ProjectItemFields on ProjectV2Item @_unmask {
+export const issueFragment = graphql(`
+  fragment CalendarIssueFields on Issue @_unmask {
     id
+    number
+    title
+    body
+    url
+    state
     updatedAt
-    fieldValues(first: 20) {
+    repository {
+      nameWithOwner
+    }
+    issueFieldValues(first: 20) {
       nodes {
-        ... on ProjectV2ItemFieldDateValue {
-          date
+        ... on IssueFieldDateValue {
+          value
           field {
-            ... on ProjectV2FieldCommon {
+            ... on IssueFieldCommon {
               name
             }
           }
         }
-        ... on ProjectV2ItemFieldSingleSelectValue {
+        ... on IssueFieldSingleSelectValue {
           name
           field {
-            ... on ProjectV2FieldCommon {
+            ... on IssueFieldCommon {
               name
             }
           }
         }
-      }
-    }
-    content {
-      __typename
-      ... on Issue {
-        id
-        number
-        title
-        body
-        url
-        state
-        repository {
-          nameWithOwner
-        }
-      }
-      ... on PullRequest {
-        number
-        title
-        url
-        repository {
-          nameWithOwner
-        }
-      }
-      ... on DraftIssue {
-        title
       }
     }
   }
 `);
 
-export const projectItemsQuery = graphql(
+export const issuesQuery = graphql(
   `
-    query ProjectItems($org: String!, $number: Int!, $pageSize: Int!, $cursor: String) {
-      organization(login: $org) {
-        projectV2(number: $number) {
-          items(first: $pageSize, after: $cursor) {
-            pageInfo {
-              hasNextPage
-              endCursor
-            }
-            nodes {
-              ...ProjectItemFields
-            }
+    query RepositoryIssues($owner: String!, $name: String!, $pageSize: Int!, $cursor: String) {
+      repository(owner: $owner, name: $name) {
+        issues(first: $pageSize, after: $cursor, states: [OPEN, CLOSED]) {
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+          nodes {
+            ...CalendarIssueFields
           }
         }
       }
     }
   `,
-  [projectItemFragment],
+  [issueFragment],
 );
 
-export const projectStatusQuery = graphql(`
-  query ProjectStatus($org: String!, $number: Int!) {
-    organization(login: $org) {
-      projectV2(number: $number) {
-        id
-        field(name: "Status") {
-          ... on ProjectV2SingleSelectField {
+export const issueFieldsQuery = graphql(`
+  query RepositoryIssueFields($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      issueFields(first: 50) {
+        nodes {
+          ... on IssueFieldSingleSelect {
             id
+            name
             options {
               id
               name
@@ -104,12 +85,12 @@ export const projectStatusQuery = graphql(`
   }
 `);
 
-export const updateItemStatusMutation = graphql(`
-  mutation UpdateItemStatus($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
-    updateProjectV2ItemFieldValue(
-      input: { projectId: $projectId, itemId: $itemId, fieldId: $fieldId, value: { singleSelectOptionId: $optionId } }
+export const setIssueFieldValueMutation = graphql(`
+  mutation SetIssueFieldValue($issueId: ID!, $fieldId: ID!, $optionId: ID!) {
+    setIssueFieldValue(
+      input: { issueId: $issueId, issueFields: [{ fieldId: $fieldId, singleSelectOptionId: $optionId }] }
     ) {
-      projectV2Item {
+      issue {
         id
       }
     }
@@ -127,4 +108,4 @@ export const closeIssueMutation = graphql(`
   }
 `);
 
-export type ProjectV2Item = FragmentOf<typeof projectItemFragment>;
+export type CalendarIssue = FragmentOf<typeof issueFragment>;

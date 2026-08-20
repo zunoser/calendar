@@ -32,7 +32,7 @@ https://raw.githubusercontent.com/zunoser/calendar/main/ics/calendar.ics
 
 ```sh
 pnpm zunocal view                # カレンダーをテーブル表示
-pnpm zunocal check [--dry-run]   # 日付の整合性を検査し Status を Error/Next に更新
+pnpm zunocal check [--dry-run]   # 日付の整合性を検査し Date status を Error/Next に更新
 pnpm zunocal close [--dry-run]   # 終了日が過去の open な Issue を close
 pnpm zunocal ics [--out <path>]  # iCalendar を書き出す (既定: ics/calendar.ics)
 pnpm zunocal svg [--dir <path>]  # 今月と来月のカレンダー画像を書き出す (既定: assets/)
@@ -40,7 +40,7 @@ pnpm zunocal svg [--dir <path>]  # 今月と来月のカレンダー画像を書
 
 ### Secrets
 
-- **`PROJECT_TOKEN`** — ふぁが発行した**無期限・`Full control of projects` + `public_repo` スコープ**の classic PAT
+- **`PROJECT_TOKEN`** — ふぁが発行した**無期限・`public_repo` スコープ**の classic PAT
 
 ## 開発
 
@@ -64,8 +64,11 @@ pnpm fmt
 | `packages/svg`    | 月グリッドのカレンダー画像 (SVG) 生成                                                         |
 | `packages/utils`  | 汎用ユーティリティ                                                                            |
 
-GitHub の GraphQL スキーマを更新したら型定義を再生成する:
+GitHub の GraphQL スキーマは `packages/github/schema.docs.graphql` にベンダリングしている
+([公式の公開スキーマ](https://docs.github.com/public/fpt/schema.docs.graphql) をダウンロードしたもの)。
+スキーマを更新したら型定義を再生成する:
 
 ```sh
+curl -sL -o packages/github/schema.docs.graphql https://docs.github.com/public/fpt/schema.docs.graphql
 pnpm --filter @zunoser/calendar-github exec gql-tada generate-output
 ```
