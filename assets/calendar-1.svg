@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="912" height="428" viewBox="0 0 912 428" role="img" aria-label="カレンダー 2026年9月">
 <style>
-  text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #1f2328; }
+  text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #000000; }
   .title { font-size: 15px; font-weight: 600; }
   .cell { fill: none; stroke: #808080; stroke-opacity: 0.4; }
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
@@ -9,6 +9,7 @@
   .bar { fill: none; }
   .bar-text { font-size: 11px; }
   @media (prefers-color-scheme: dark) {
+    text { fill: #ffffff; }
     .sat { fill: #4493f8; }
     .sun { fill: #f85149; }
   }

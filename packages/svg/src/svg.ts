@@ -1,6 +1,5 @@
-// 月グリッドのカレンダー SVG 生成。GitHub の README に <img> で埋め込む前提。
-// 背景は透過・白地想定で文字は常に黒 (ビューアのテーマ判定と実際の背景色が
-// 食い違うことがあるため、文字色は prefers-color-scheme に連動させない)。
+// 月グリッドのカレンダー SVG 生成。GitHub の README に <img> で埋め込む前提で、
+// 配色は内蔵 CSS の prefers-color-scheme でライト/ダーク両対応にする。
 
 import type { IsoDate } from "@zunoser/utils";
 import { weekBars } from "./lane";
@@ -31,7 +30,7 @@ const HEX_COLOR = /^[0-9a-f]{6}$/i;
 const WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
 
 const STYLE = `
-  text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #1f2328; }
+  text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #000000; }
   .title { font-size: 15px; font-weight: 600; }
   .cell { fill: none; stroke: #808080; stroke-opacity: 0.4; }
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
@@ -40,6 +39,7 @@ const STYLE = `
   .bar { fill: none; }
   .bar-text { font-size: 11px; }
   @media (prefers-color-scheme: dark) {
+    text { fill: #ffffff; }
     .sat { fill: #4493f8; }
     .sun { fill: #f85149; }
   }
