@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "0 0 * * *" # 9:00 JST
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
