@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="912" height="500" viewBox="0 0 912 500" role="img" aria-label="カレンダー 2026年8月">
+<style>
+  text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #1f2328; }
+  .title { font-size: 15px; font-weight: 600; }
+  .cell { fill: none; stroke: #808080; stroke-opacity: 0.4; }
+  .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
+  .sat { fill: #0969da; }
+  .sun { fill: #cf222e; }
+  .bar { fill: #1f6feb; }
+  .bar-text { font-size: 11px; fill: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    text { fill: #e6edf3; }
+    .sat { fill: #4493f8; }
+    .sun { fill: #f85149; }
+  }
+</style>
+<text x="8" y="28" class="title">2026年8月</text>
+<text x="72" y="53" text-anchor="middle" class="sun">日</text>
+<text x="200" y="53" text-anchor="middle">月</text>
+<text x="328" y="53" text-anchor="middle">火</text>
+<text x="456" y="53" text-anchor="middle">水</text>
+<text x="584" y="53" text-anchor="middle">木</text>
+<text x="712" y="53" text-anchor="middle">金</text>
+<text x="840" y="53" text-anchor="middle" class="sat">土</text>
+<rect x="8" y="60" width="128" height="72" class="out"/>
+<rect x="136" y="60" width="128" height="72" class="out"/>
+<rect x="264" y="60" width="128" height="72" class="out"/>
+<rect x="392" y="60" width="128" height="72" class="out"/>
+<rect x="520" y="60" width="128" height="72" class="out"/>
+<rect x="648" y="60" width="128" height="72" class="out"/>
+<rect x="776" y="60" width="128" height="72" class="cell"/>
+<text x="782" y="76" class="sat">1</text>
+<rect x="8" y="132" width="128" height="72" class="cell"/>
+<text x="14" y="148" class="sun">2</text>
+<rect x="136" y="132" width="128" height="72" class="cell"/>
+<text x="142" y="148">3</text>
+<rect x="264" y="132" width="128" height="72" class="cell"/>
+<text x="270" y="148">4</text>
+<rect x="392" y="132" width="128" height="72" class="cell"/>
+<text x="398" y="148">5</text>
+<rect x="520" y="132" width="128" height="72" class="cell"/>
+<text x="526" y="148">6</text>
+<rect x="648" y="132" width="128" height="72" class="cell"/>
+<text x="654" y="148">7</text>
+<rect x="776" y="132" width="128" height="72" class="cell"/>
+<text x="782" y="148" class="sat">8</text>
+<rect x="8" y="204" width="128" height="72" class="cell"/>
+<text x="14" y="220" class="sun">9</text>
+<rect x="136" y="204" width="128" height="72" class="cell"/>
+<text x="142" y="220">10</text>
+<rect x="264" y="204" width="128" height="72" class="cell"/>
+<text x="270" y="220">11</text>
+<rect x="392" y="204" width="128" height="72" class="cell"/>
+<text x="398" y="220">12</text>
+<rect x="520" y="204" width="128" height="72" class="cell"/>
+<text x="526" y="220">13</text>
+<rect x="648" y="204" width="128" height="72" class="cell"/>
+<text x="654" y="220">14</text>
+<rect x="776" y="204" width="128" height="72" class="cell"/>
+<text x="782" y="220" class="sat">15</text>
+<rect x="8" y="276" width="128" height="72" class="cell"/>
+<text x="14" y="292" class="sun">16</text>
+<rect x="136" y="276" width="128" height="72" class="cell"/>
+<text x="142" y="292">17</text>
+<rect x="264" y="276" width="128" height="72" class="cell"/>
+<text x="270" y="292">18</text>
+<rect x="392" y="276" width="128" height="72" class="cell"/>
+<text x="398" y="292">19</text>
+<rect x="520" y="276" width="128" height="72" class="cell"/>
+<text x="526" y="292">20</text>
+<rect x="648" y="276" width="128" height="72" class="cell"/>
+<text x="654" y="292">21</text>
+<rect x="776" y="276" width="128" height="72" class="cell"/>
+<text x="782" y="292" class="sat">22</text>
+<rect x="8" y="348" width="128" height="72" class="cell"/>
+<text x="14" y="364" class="sun">23</text>
+<rect x="136" y="348" width="128" height="72" class="cell"/>
+<text x="142" y="364">24</text>
+<rect x="264" y="348" width="128" height="72" class="cell"/>
+<text x="270" y="364">25</text>
+<rect x="392" y="348" width="128" height="72" class="cell"/>
+<text x="398" y="364">26</text>
+<rect x="520" y="348" width="128" height="72" class="cell"/>
+<text x="526" y="364">27</text>
+<rect x="648" y="348" width="128" height="72" class="cell"/>
+<text x="654" y="364">28</text>
+<rect x="776" y="348" width="128" height="72" class="cell"/>
+<text x="782" y="364" class="sat">29</text>
+<svg x="650" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">映画まどマギ 公開日</text></svg>
+<svg x="778" y="370" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">まどマギ見に行く</text></svg>
+<svg x="778" y="390" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
+<rect x="8" y="420" width="128" height="72" class="cell"/>
+<text x="14" y="436" class="sun">30</text>
+<rect x="136" y="420" width="128" height="72" class="cell"/>
+<text x="142" y="436">31</text>
+<rect x="264" y="420" width="128" height="72" class="out"/>
+<rect x="392" y="420" width="128" height="72" class="out"/>
+<rect x="520" y="420" width="128" height="72" class="out"/>
+<rect x="648" y="420" width="128" height="72" class="out"/>
+<rect x="776" y="420" width="128" height="72" class="out"/>
+</svg>
