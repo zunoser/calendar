@@ -27,6 +27,13 @@ jobs:
       - run: pnpm zunocal ics --config config.ci.jsonc --name ずのさー
       - run: pnpm zunocal svg --config config.ci.jsonc
 
+      - name: Update SVG cache keys
+        run: |
+          for image in assets/calendar-{0,1}.svg; do
+            hash=$(git hash-object "$image")
+            sed -i -E "s#(${image})(\\?[^)]*)?#\\1?v=${hash}#" README.md
+          done
+
       - name: Check diff
         id: diff
         run: git diff --quiet && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
