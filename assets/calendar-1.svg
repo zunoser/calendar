@@ -33,6 +33,7 @@
 <text x="654" y="76">4</text>
 <rect x="776" y="60" width="128" height="72" class="cell"/>
 <text x="782" y="76" class="sat">5</text>
+<svg x="650" y="82" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#6c30bc"/><text x="6" y="12" class="bar-text">W3C Japan 30 周年記念イベント - Web Together</text></svg>
 <svg x="778" y="82" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#6c30bc"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
 <rect x="8" y="132" width="128" height="72" class="cell"/>
 <text x="14" y="148" class="sun">6</text>
@@ -49,7 +50,7 @@
 <rect x="776" y="132" width="128" height="72" class="cell"/>
 <text x="782" y="148" class="sat">12</text>
 <svg x="10" y="154" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#6c30bc"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
-<svg x="138" y="154" width="124" height="16"><defs><linearGradient id="bar-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f74761"/><stop offset="100%" stop-color="#ed9324"/></linearGradient></defs><rect width="124" height="16" rx="4" class="bar" fill="url(#bar-gradient-2)"/><text x="6" y="12" class="bar-text">リコリコスロット新台</text></svg>
+<svg x="138" y="154" width="124" height="16"><defs><linearGradient id="bar-gradient-3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f74761"/><stop offset="100%" stop-color="#ed9324"/></linearGradient></defs><rect width="124" height="16" rx="4" class="bar" fill="url(#bar-gradient-3)"/><text x="6" y="12" class="bar-text">リコリコスロット新台</text></svg>
 <rect x="8" y="204" width="128" height="72" class="cell"/>
 <text x="14" y="220" class="sun">13</text>
 <rect x="136" y="204" width="128" height="72" class="cell"/>
@@ -64,6 +65,7 @@
 <text x="654" y="220">18</text>
 <rect x="776" y="204" width="128" height="72" class="cell"/>
 <text x="782" y="220" class="sat">19</text>
+<svg x="10" y="226" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">&quot;𝑺𝒑𝒂𝒄𝒆 𝑺𝒐𝒖𝒓𝒄𝒆&quot; 5th Anniversary: Encore!!</text></svg>
 <svg x="650" y="226" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">映画名探偵プリキュア！公開日</text></svg>
 <rect x="8" y="276" width="128" height="72" class="cell"/>
 <text x="14" y="292" class="sun">20</text>
@@ -79,7 +81,7 @@
 <text x="654" y="292">25</text>
 <rect x="776" y="276" width="128" height="72" class="cell"/>
 <text x="782" y="292" class="sat">26</text>
-<svg x="10" y="298" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#0b7ac8"/><text x="6" y="12" class="bar-text">moons 誕生日 2026</text></svg>
+<svg x="10" y="298" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#eff587"/><text x="6" y="12" class="bar-text">moons20周年誕生祭</text></svg>
 <svg x="778" y="298" width="124" height="16"><rect width="124" height="16" rx="4" class="bar" fill="#f74761"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
 <rect x="8" y="348" width="128" height="72" class="cell"/>
 <text x="14" y="364" class="sun">27</text>
