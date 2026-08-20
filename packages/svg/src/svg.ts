@@ -35,7 +35,9 @@ const STYLE = `
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .bar-text { font-size: 11px; fill: #ffffff; }
+  .bar-text { font-size: 11px; }
+  .bar-text.black { fill: #000000; }
+  .bar-text.white { fill: #ffffff; }
   @media (prefers-color-scheme: dark) {
     text { fill: #e6edf3; }
     .sat { fill: #4493f8; }
@@ -50,10 +52,27 @@ const weekdayClass = (col: number) => (col === 0 ? ' class="sun"' : col === 6 ? 
 
 const monthTitle = (month: string) => `${Number(month.slice(0, 4))}年${Number(month.slice(5, 7))}月`;
 
+const relativeLuminance = (color: string) => {
+  const channel = (start: number) => {
+    const value = Number.parseInt(color.slice(start, start + 2), 16) / 255;
+    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * channel(1) + 0.7152 * channel(3) + 0.0722 * channel(5);
+};
+
+const barTextColor = (colors: readonly string[]) => {
+  const luminances = colors.map(relativeLuminance);
+  const blackContrast = Math.min(...luminances.map((luminance) => (luminance + 0.05) / 0.05));
+  const whiteContrast = Math.min(...luminances.map((luminance) => 1.05 / (luminance + 0.05)));
+  return blackContrast >= whiteContrast ? "black" : "white";
+};
+
 const barFill = (labelColors: readonly string[], gradientId: string) => {
   const colors = labelColors.flatMap((color) => (HEX_COLOR.test(color) ? [`#${color}`] : []));
+  const backgroundColors = colors.length === 0 ? [DEFAULT_BAR_COLOR] : colors;
+  const textColor = barTextColor(backgroundColors);
   if (colors.length < 2) {
-    return { definition: "", fill: colors[0] ?? DEFAULT_BAR_COLOR };
+    return { definition: "", fill: backgroundColors[0], textColor };
   }
 
   const stops = colors
@@ -65,6 +84,7 @@ const barFill = (labelColors: readonly string[], gradientId: string) => {
   return {
     definition: `<defs><linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="0%">${stops}</linearGradient></defs>`,
     fill: `url(#${gradientId})`,
+    textColor,
   };
 };
 
@@ -97,13 +117,13 @@ const renderMonth = (month: string, events: readonly SvgEvent[], top: number) =>
       const x = MARGIN + bar.startCol * CELL_W + 2;
       const width = bar.span * CELL_W - 4;
       const barY = y + DAY_H + bar.lane * LANE_H;
-      const { definition, fill } = barFill(bar.event.labelColors, `bar-gradient-${barIndex++}`);
+      const { definition, fill, textColor } = barFill(bar.event.labelColors, `bar-gradient-${barIndex++}`);
       // 入れ子の <svg> で帯からはみ出すタイトルを切り落とす
       parts.push(
         `<svg x="${x}" y="${barY}" width="${width}" height="${BAR_H}">` +
           definition +
           `<rect width="${width}" height="${BAR_H}" rx="4" class="bar" fill="${fill}"/>` +
-          `<text x="6" y="12" class="bar-text">${escapeXml(bar.event.title)}</text>` +
+          `<text x="6" y="12" class="bar-text ${textColor}">${escapeXml(bar.event.title)}</text>` +
           `</svg>`,
       );
     }

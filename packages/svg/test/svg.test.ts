@@ -35,6 +35,18 @@ describe("toSvg", () => {
     expect(toSvg([event({ labelColors: ["e99695"] })], "2026-08")).toContain('class="bar" fill="#e99695"');
   });
 
+  it.each([
+    ["既定色", [], "white"],
+    ["明るい単色", ["ffffff"], "black"],
+    ["暗い単色", ["000000"], "white"],
+    ["明るいグラデーション", ["ffffff", "fbca04"], "black"],
+    ["暗いグラデーション", ["000000", "5319e7"], "white"],
+  ])("%sに対して%sの文字を描く", (_, labelColors, textColor) => {
+    const svg = toSvg([event({ labelColors })], "2026-08");
+
+    expect(svg).toContain(`class="bar-text ${textColor}"`);
+  });
+
   it("複数のラベル色を横グラデーションにする", () => {
     const svg = toSvg([event({ labelColors: ["d73a4a", "fbca04", "0e8a16"] })], "2026-08");
     expect(svg).toContain('<linearGradient id="bar-gradient-0" x1="0%" y1="0%" x2="100%" y2="0%">');
