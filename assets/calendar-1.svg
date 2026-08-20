@@ -6,11 +6,10 @@
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .bar { fill: #ffffff; }
+  .bar { fill: none; }
   .bar-text { font-size: 11px; }
   @media (prefers-color-scheme: dark) {
     text { fill: #e6edf3; }
-    .bar { fill: #0d1117; }
     .sat { fill: #4493f8; }
     .sun { fill: #f85149; }
   }
@@ -84,6 +83,7 @@
 <rect x="776" y="276" width="128" height="72" class="cell"/>
 <text x="782" y="292" class="sat">26</text>
 <svg x="10" y="298" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">moons20周年誕生祭</text></svg>
+<svg x="522" y="298" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">yuta kobayashi 誕生日</text></svg>
 <svg x="778" y="298" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
 <rect x="8" y="348" width="128" height="72" class="cell"/>
 <text x="14" y="364" class="sun">27</text>
