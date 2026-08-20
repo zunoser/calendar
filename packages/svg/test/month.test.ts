@@ -37,15 +37,7 @@ describe("monthWeeks", () => {
       "2026-09-04",
       "2026-09-05",
     ]);
-    expect(weeks[4]).toEqual([
-      "2026-09-27",
-      "2026-09-28",
-      "2026-09-29",
-      "2026-09-30",
-      undefined,
-      undefined,
-      undefined,
-    ]);
+    expect(weeks[4]).toEqual(["2026-09-27", "2026-09-28", "2026-09-29", "2026-09-30", undefined, undefined, undefined]);
   });
 
   it("日曜始まり・土曜終わりの月は埋めなしでちょうど収まる", () => {
