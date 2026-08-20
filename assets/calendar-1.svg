@@ -9,7 +9,6 @@
   .bar { fill: none; }
   .bar-text { font-size: 11px; }
   @media (prefers-color-scheme: dark) {
-    text { fill: #e6edf3; }
     .sat { fill: #4493f8; }
     .sun { fill: #f85149; }
   }
