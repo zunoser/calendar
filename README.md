@@ -4,7 +4,7 @@
 
 ![今月のカレンダー](assets/calendar-0.svg?v=ceed934f02af8f827efc4adfad42f418219367e9)
 
-![来月のカレンダー](assets/calendar-1.svg?v=11cd8c583bc5dc56f536603042d6d4a6a7a03233)
+![来月のカレンダー](assets/calendar-1.svg?v=0941cc164a9c36020e109f8f6c403e2dfb22b682)
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
 
