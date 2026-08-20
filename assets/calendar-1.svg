@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="912" height="298" viewBox="0 0 912 298" role="img" aria-label="カレンダー 2026年9月">
+<style>
+  text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #1f2328; }
+  .title { font-size: 15px; font-weight: 600; }
+  .cell { fill: none; stroke: #808080; stroke-opacity: 0.4; }
+  .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
+  .sat { fill: #0969da; }
+  .sun { fill: #cf222e; }
+  .bar { fill: #1f6feb; }
+  .bar-text { font-size: 11px; fill: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    text { fill: #e6edf3; }
+    .sat { fill: #4493f8; }
+    .sun { fill: #f85149; }
+  }
+</style>
+<text x="8" y="28" class="title">2026年9月</text>
+<text x="72" y="53" text-anchor="middle">月</text>
+<text x="200" y="53" text-anchor="middle">火</text>
+<text x="328" y="53" text-anchor="middle">水</text>
+<text x="456" y="53" text-anchor="middle">木</text>
+<text x="584" y="53" text-anchor="middle">金</text>
+<text x="712" y="53" text-anchor="middle" class="sat">土</text>
+<text x="840" y="53" text-anchor="middle" class="sun">日</text>
+<rect x="8" y="60" width="128" height="46" class="out"/>
+<rect x="136" y="60" width="128" height="46" class="cell"/>
+<text x="142" y="76">1</text>
+<rect x="264" y="60" width="128" height="46" class="cell"/>
+<text x="270" y="76">2</text>
+<rect x="392" y="60" width="128" height="46" class="cell"/>
+<text x="398" y="76">3</text>
+<rect x="520" y="60" width="128" height="46" class="cell"/>
+<text x="526" y="76">4</text>
+<rect x="648" y="60" width="128" height="46" class="cell"/>
+<text x="654" y="76" class="sat">5</text>
+<rect x="776" y="60" width="128" height="46" class="cell"/>
+<text x="782" y="76" class="sun">6</text>
+<svg x="650" y="82" width="252" height="16"><rect width="252" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
+<rect x="8" y="106" width="128" height="46" class="cell"/>
+<text x="14" y="122">7</text>
+<rect x="136" y="106" width="128" height="46" class="cell"/>
+<text x="142" y="122">8</text>
+<rect x="264" y="106" width="128" height="46" class="cell"/>
+<text x="270" y="122">9</text>
+<rect x="392" y="106" width="128" height="46" class="cell"/>
+<text x="398" y="122">10</text>
+<rect x="520" y="106" width="128" height="46" class="cell"/>
+<text x="526" y="122">11</text>
+<rect x="648" y="106" width="128" height="46" class="cell"/>
+<text x="654" y="122" class="sat">12</text>
+<rect x="776" y="106" width="128" height="46" class="cell"/>
+<text x="782" y="122" class="sun">13</text>
+<svg x="10" y="128" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">リコリコスロット新台</text></svg>
+<rect x="8" y="152" width="128" height="46" class="cell"/>
+<text x="14" y="168">14</text>
+<rect x="136" y="152" width="128" height="46" class="cell"/>
+<text x="142" y="168">15</text>
+<rect x="264" y="152" width="128" height="46" class="cell"/>
+<text x="270" y="168">16</text>
+<rect x="392" y="152" width="128" height="46" class="cell"/>
+<text x="398" y="168">17</text>
+<rect x="520" y="152" width="128" height="46" class="cell"/>
+<text x="526" y="168">18</text>
+<rect x="648" y="152" width="128" height="46" class="cell"/>
+<text x="654" y="168" class="sat">19</text>
+<rect x="776" y="152" width="128" height="46" class="cell"/>
+<text x="782" y="168" class="sun">20</text>
+<svg x="522" y="174" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">映画名探偵プリキュア！公開日</text></svg>
+<svg x="778" y="174" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">moons 誕生日 2026</text></svg>
+<rect x="8" y="198" width="128" height="46" class="cell"/>
+<text x="14" y="214">21</text>
+<rect x="136" y="198" width="128" height="46" class="cell"/>
+<text x="142" y="214">22</text>
+<rect x="264" y="198" width="128" height="46" class="cell"/>
+<text x="270" y="214">23</text>
+<rect x="392" y="198" width="128" height="46" class="cell"/>
+<text x="398" y="214">24</text>
+<rect x="520" y="198" width="128" height="46" class="cell"/>
+<text x="526" y="214">25</text>
+<rect x="648" y="198" width="128" height="46" class="cell"/>
+<text x="654" y="214" class="sat">26</text>
+<rect x="776" y="198" width="128" height="46" class="cell"/>
+<text x="782" y="214" class="sun">27</text>
+<svg x="650" y="220" width="252" height="16"><rect width="252" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
+<rect x="8" y="244" width="128" height="46" class="cell"/>
+<text x="14" y="260">28</text>
+<rect x="136" y="244" width="128" height="46" class="cell"/>
+<text x="142" y="260">29</text>
+<rect x="264" y="244" width="128" height="46" class="cell"/>
+<text x="270" y="260">30</text>
+<rect x="392" y="244" width="128" height="46" class="out"/>
+<rect x="520" y="244" width="128" height="46" class="out"/>
+<rect x="648" y="244" width="128" height="46" class="out"/>
+<rect x="776" y="244" width="128" height="46" class="out"/>
+<svg x="10" y="266" width="124" height="16"><rect width="124" height="16" rx="4" class="bar"/><text x="6" y="12" class="bar-text">映画たんぷり東京に観にいく</text></svg>
+</svg>

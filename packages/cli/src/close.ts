@@ -2,10 +2,8 @@
 
 import { readFile } from "node:fs/promises";
 import { getGitHubCalendar, parseConfig, pastOpenEvents } from "@zunoser/calendar-core";
-import { isoDate } from "@zunoser/utils";
+import { todayInTokyo } from "@zunoser/utils";
 import { defineCommand } from "citty";
-
-const todayInTokyo = () => isoDate(new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(new Date()));
 
 export const close = defineCommand({
   meta: { name: "close", description: "終了日が過去の Issue を close する" },

@@ -41,6 +41,9 @@ importers:
       '@zunoser/calendar-ics':
         specifier: workspace:*
         version: link:../ics
+      '@zunoser/calendar-svg':
+        specifier: workspace:*
+        version: link:../svg
       '@zunoser/utils':
         specifier: workspace:*
         version: link:../utils
@@ -83,6 +86,12 @@ importers:
       ical-generator:
         specifier: 11.1.0
         version: 11.1.0(@types/node@26.2.0)
+
+  packages/svg:
+    dependencies:
+      '@zunoser/utils':
+        specifier: workspace:*
+        version: link:../utils
 
   packages/utils:
     dependencies:
