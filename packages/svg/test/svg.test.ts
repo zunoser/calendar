@@ -30,18 +30,18 @@ describe("toSvg", () => {
     expect(toSvg([], "2026-10")).toContain(">2026年10月</text>");
   });
 
-  it("ラベルがなければ既定色、1件ならラベル色で帯を描く", () => {
-    expect(toSvg([event()], "2026-08")).toContain('class="bar" fill="#1f6feb"');
-    expect(toSvg([event({ labelColors: ["e99695"] })], "2026-08")).toContain('class="bar" fill="#e99695"');
+  it("ラベルがなければ既定色、1件ならラベル色で縁を描く", () => {
+    expect(toSvg([event()], "2026-08")).toContain('class="bar" stroke="#1f6feb"');
+    expect(toSvg([event({ labelColors: ["e99695"] })], "2026-08")).toContain('class="bar" stroke="#e99695"');
   });
 
-  it("複数のラベル色を横グラデーションにする", () => {
+  it("複数のラベル色を縁の横グラデーションにする", () => {
     const svg = toSvg([event({ labelColors: ["d73a4a", "fbca04", "0e8a16"] })], "2026-08");
     expect(svg).toContain('<linearGradient id="bar-gradient-0" x1="0%" y1="0%" x2="100%" y2="0%">');
     expect(svg).toContain('<stop offset="0%" stop-color="#d73a4a"/>');
     expect(svg).toContain('<stop offset="50%" stop-color="#fbca04"/>');
     expect(svg).toContain('<stop offset="100%" stop-color="#0e8a16"/>');
-    expect(svg).toContain('class="bar" fill="url(#bar-gradient-0)"');
+    expect(svg).toContain('class="bar" stroke="url(#bar-gradient-0)"');
   });
 
   it("週をまたぐイベントのグラデーションIDが重複しない", () => {
@@ -63,14 +63,14 @@ describe("toSvg", () => {
 
   it("不正なラベル色は使わない", () => {
     const svg = toSvg([event({ labelColors: ['"/><script>alert(1)</script>'] })], "2026-08");
-    expect(svg).toContain('class="bar" fill="#1f6feb"');
+    expect(svg).toContain('class="bar" stroke="#1f6feb"');
     expect(svg).not.toContain("<script>");
   });
 
   it("期間イベントは列数分の幅の帯になる", () => {
-    // 2026-12-29 (火) 〜 12-31 (木) は同じ週なので 3 列分 (128 * 3 - 4)
+    // 2026-12-29 (火) 〜 12-31 (木) は同じ週なので 3 列分 (128 * 3 - 4)。縁の分さらに 2px 縮む
     const svg = toSvg([event({ startDate: isoDate("2026-12-29"), endDate: isoDate("2026-12-31") })], "2026-12");
-    expect(svg).toContain('width="380" height="16" rx="4" class="bar"');
+    expect(svg).toContain('width="378" height="14" rx="3" class="bar"');
   });
 
   it("月をまたぐイベントは月内の日だけ描く", () => {
