@@ -1,8 +1,10 @@
 # カレンダー
 
-![今月のカレンダー](assets/calendar-0.svg?v=1a7f1b680a1451a75755c382fa21e36f04cdbc97)
+🟪 Geek / 🟥 Nerd / 🟧 Gambling / 🟨 Birthday
 
-![来月のカレンダー](assets/calendar-1.svg?v=108870821aa89cc02715c1fe1dde7f92552ed51b)
+![今月のカレンダー](assets/calendar-0.svg?v=ceed934f02af8f827efc4adfad42f418219367e9)
+
+![来月のカレンダー](assets/calendar-1.svg?v=11cd8c583bc5dc56f536603042d6d4a6a7a03233)
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
 
