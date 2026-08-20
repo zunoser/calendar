@@ -9,6 +9,7 @@ export interface IcsEvent {
   title: string;
   body: string;
   url: string;
+  location?: string;
   startDate: IsoDate;
   /** この日を含む */
   endDate: IsoDate;
@@ -35,6 +36,7 @@ export const toIcs = (events: readonly IcsEvent[], calendarName: string) => {
       ...(event.endDate === event.startDate ? {} : { end: nextDay(event.endDate) }),
       summary: event.title,
       url: event.url,
+      ...(event.location ? { location: event.location } : {}),
       description: event.body === "" ? event.url : `${event.body}\n\n${event.url}`,
       stamp: event.updatedAt,
     });

@@ -22,6 +22,7 @@ const event = (
   labelColors: [],
   assignees: ["alice", "bob"],
   status: "Next",
+  location: undefined,
   startDate: options.startDate as IsoDate | undefined,
   endDate: options.endDate as IsoDate | undefined,
   updatedAt: "2026-08-18T18:00:00Z",

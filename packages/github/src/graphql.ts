@@ -47,6 +47,14 @@ export const issueFragment = graphql(`
             }
           }
         }
+        ... on IssueFieldTextValue {
+          value
+          field {
+            ... on IssueFieldCommon {
+              name
+            }
+          }
+        }
       }
     }
     assignees(first: 100) {
