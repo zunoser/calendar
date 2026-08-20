@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { CalendarEvent } from "../src/service";
 import {
   checkEvent,
-  dateInTokyoAfterHours,
+  dateInTokyoAfterDays,
   filterDated,
   pastOpenEvents,
   reminderComment,
@@ -85,25 +85,25 @@ describe("sortByStartDate", () => {
 });
 
 describe("reminder", () => {
-  it("指定日時から1日後・1時間後の日本時間の日付を返す", () => {
-    expect(dateInTokyoAfterHours(new Date("2026-08-21T15:00:00Z"), 24)).toBe("2026-08-23");
-    expect(dateInTokyoAfterHours(new Date("2026-08-21T14:00:00Z"), 1)).toBe("2026-08-22");
+  it("指定日時から3日後・1日後の日本時間の日付を返す", () => {
+    expect(dateInTokyoAfterDays(new Date("2026-08-21T09:00:00Z"), 3)).toBe("2026-08-24");
+    expect(dateInTokyoAfterDays(new Date("2026-08-21T09:00:00Z"), 1)).toBe("2026-08-22");
   });
 
   it("未通知で担当者のいる open Issue だけを対象にする", () => {
     const target = event("target", { startDate: "2026-08-22" });
     const sent = {
       ...event("sent", { startDate: "2026-08-22" }),
-      comments: [reminderMarker("1h", isoDate("2026-08-22"))],
+      comments: [reminderMarker("3d", isoDate("2026-08-22"))],
     };
     const unassigned = { ...event("unassigned", { startDate: "2026-08-22" }), assignees: [] };
     const closed = event("closed", { startDate: "2026-08-22", state: "CLOSED" });
-    expect(reminderTargets([target, sent, unassigned, closed], isoDate("2026-08-22"), "1h")).toEqual([target]);
+    expect(reminderTargets([target, sent, unassigned, closed], isoDate("2026-08-22"), "3d")).toEqual([target]);
   });
 
   it("担当者全員のメンションと再送防止マーカーを含むコメントを作る", () => {
-    expect(reminderComment(event("a", { startDate: "2026-08-22" }), "1d")).toBe(
-      "@alice @bob\n\n開始日の1日前です。\n\n<!-- zunocal-reminder:1d:2026-08-22 -->",
+    expect(reminderComment(event("a", { startDate: "2026-08-22" }), "3d")).toBe(
+      "@alice @bob\n\n開始日の3日前です。\n\n<!-- zunocal-reminder:3d:2026-08-22 -->",
     );
   });
 });

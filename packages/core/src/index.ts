@@ -4,7 +4,7 @@ export { getGitHubCalendar } from "./service";
 export type { CalendarEvent } from "./service";
 export {
   checkEvent,
-  dateInTokyoAfterHours,
+  dateInTokyoAfterDays,
   filterDated,
   pastOpenEvents,
   reminderComment,

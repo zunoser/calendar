@@ -2,8 +2,7 @@ name: remind
 
 on:
   schedule:
-    - cron: "0 14 * * *" # 23:00 JST: 開始日 (00:00 JST) の1時間前
-    - cron: "0 15 * * *" # 00:00 JST: 開始日の1日前
+    - cron: "0 9 * * *" # 18:00 JST
   workflow_dispatch:
 
 permissions:
@@ -24,10 +23,8 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
 
-      - name: Remind one hour before
-        if: github.event.schedule == '0 14 * * *' || github.event_name == 'workflow_dispatch'
-        run: pnpm zunocal remind 1h --config config.ci.jsonc
+      - name: Remind three days before
+        run: pnpm zunocal remind 3d --config config.ci.jsonc
 
       - name: Remind one day before
-        if: github.event.schedule == '0 15 * * *' || github.event_name == 'workflow_dispatch'
         run: pnpm zunocal remind 1d --config config.ci.jsonc

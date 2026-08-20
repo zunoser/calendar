@@ -28,7 +28,7 @@ export const sortByStartDate = (events: readonly DatedCalendarEvent[]) =>
     (a, b) => a.startDate.localeCompare(b.startDate) || a.endDate.localeCompare(b.endDate) || a.id.localeCompare(b.id),
   );
 
-export type ReminderKind = "1d" | "1h";
+export type ReminderKind = "3d" | "1d";
 
 /** リマインダーを識別する不可視コメント。再実行時の重複送信防止にも使う */
 export const reminderMarker = (kind: ReminderKind, startDate: IsoDate) =>
@@ -46,17 +46,17 @@ export const reminderTargets = (events: readonly CalendarEvent[], startDate: Iso
   );
 };
 
-/** 指定時刻から hours 後の日本時間での暦日 */
-export const dateInTokyoAfterHours = (now: Date, hours: number) =>
+/** 指定時刻から days 日後の日本時間での暦日 */
+export const dateInTokyoAfterDays = (now: Date, days: number) =>
   isoDate(
     new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(
-      new Date(now.getTime() + hours * 60 * 60 * 1000),
+      new Date(now.getTime() + days * 24 * 60 * 60 * 1000),
     ),
   );
 
 export const reminderComment = (event: CalendarEvent, kind: ReminderKind) => {
   if (event.startDate === undefined) throw new Error("Reminder event must have a start date");
   const mentions = event.assignees.map((login) => `@${login}`).join(" ");
-  const timing = kind === "1d" ? "1日前" : "1時間前";
+  const timing = kind === "3d" ? "3日前" : "1日前";
   return `${mentions}\n\n開始日の${timing}です。\n\n${reminderMarker(kind, event.startDate)}`;
 };
