@@ -2,19 +2,19 @@ locals {
   repository_labels = {
     "Birthday🎂" = {
       color       = "eff587"
-      description = ""
+      description = "誕生日に関する予定"
     }
     "Gambling💰" = {
       color       = "ed9324"
-      description = ""
+      description = "ギャンブルに関する予定"
     }
     "Geek💻" = {
       color       = "6c30bc"
-      description = ""
+      description = "技術やコンピューターに関する予定"
     }
     "Nerd🤓" = {
       color       = "f74761"
-      description = ""
+      description = "趣味やオタク活動に関する予定"
     }
   }
 }
