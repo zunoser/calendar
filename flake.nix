@@ -17,11 +17,18 @@
     in
     {
       devShells = forEachSupportedSystem (
-        system: pkgs: {
+        system: pkgs:
+        let
+          corepackShims = pkgs.runCommand "corepack-shims" { nativeBuildInputs = [ pkgs.nodejs ]; } ''
+            mkdir -p $out/bin
+            corepack enable --install-directory $out/bin
+          '';
+        in
+        {
           default = pkgs.mkShellNoCC {
-            packages = with pkgs; [
-              nodejs
-              pnpm
+            packages = [
+              pkgs.nodejs
+              corepackShims
             ];
           };
         }

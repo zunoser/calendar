@@ -5,6 +5,7 @@
   },
   "extends": [
     "config:recommended",
+    "security:minimumReleaseAgeNpm",
     ":semanticCommitTypeAll(chore)",
     ":enableVulnerabilityAlerts",
     ":separateMajorReleases"
