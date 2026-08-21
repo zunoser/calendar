@@ -67,6 +67,7 @@
 <rect x="776" y="204" width="128" height="72" class="cell"/>
 <text x="782" y="220" class="sat">19</text>
 <svg x="10" y="226" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">&quot;𝑺𝒑𝒂𝒄𝒆 𝑺𝒐𝒖𝒓𝒄𝒆&quot; 5th Anniversary: Encore!!</text></svg>
+<svg x="522" y="226" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">POPOPOサービス終了</text></svg>
 <svg x="650" y="226" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">映画名探偵プリキュア！公開日</text></svg>
 <rect x="8" y="276" width="128" height="72" class="cell"/>
 <text x="14" y="292" class="sun">20</text>

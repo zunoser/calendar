@@ -2,7 +2,7 @@
 
 ![今月のカレンダー](assets/calendar-0.svg?v=bee4689752d503b4497a4e65f91c08304db90fa8)
 
-![来月のカレンダー](assets/calendar-1.svg?v=3ff97c604cdac8116803f6fa10cf01c4bc3128fe)
+![来月のカレンダー](assets/calendar-1.svg?v=36d3857f7454ddd1330ebab67b4a00108428b3ee)
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
 
