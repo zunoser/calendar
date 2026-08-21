@@ -7,5 +7,5 @@
   "rules": {
     "no-underscore-dangle": ["warn", { "allow": ["__typename"] }]
   },
-  "ignorePatterns": ["node_modules", "ics", "**/graphql-env.d.ts"]
+  "ignorePatterns": ["node_modules", ".direnv", "ics", "**/graphql-env.d.ts"]
 }

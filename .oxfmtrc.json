@@ -1,5 +1,5 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "ignorePatterns": ["README.md", "ics/**", "**/graphql-env.d.ts"],
+  "ignorePatterns": ["README.md", ".direnv/**", "ics/**", "**/graphql-env.d.ts"],
   "printWidth": 120
 }
