@@ -10,8 +10,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "gql.tada": "1.11.3",
-    "graphql": "17.0.2",
-    "graphql-request": "7.4.0"
+    "gql.tada": "catalog:",
+    "graphql": "catalog:",
+    "graphql-request": "catalog:"
   }
 }

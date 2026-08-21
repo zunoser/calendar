@@ -14,6 +14,6 @@
     "@zunoser/calendar-ics": "workspace:*",
     "@zunoser/calendar-svg": "workspace:*",
     "@zunoser/utils": "workspace:*",
-    "citty": "0.1.6"
+    "citty": "catalog:"
   }
 }
