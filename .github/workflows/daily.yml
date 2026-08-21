@@ -19,6 +19,8 @@ jobs:
       TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: # zizmor: ignore[artipacked] credentials are required for git push
+          persist-credentials: true
       - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -31,11 +33,15 @@ jobs:
       - run: pnpm zunocal ics --config config.ci.jsonc --name ずのさー
       - run: pnpm zunocal svg --config config.ci.jsonc
 
-      - name: Update SVG cache keys
+      - name: Version SVG filenames
         run: |
-          for image in assets/calendar-{0,1}.svg; do
+          for index in 0 1; do
+            image="assets/calendar-${index}.svg"
             hash=$(git hash-object "$image")
-            sed -i -E "s#(${image})(\\?[^)]*)?#\\1?v=${hash}#" README.md
+            versioned_image="assets/calendar-${index}-${hash}.svg"
+            rm -f assets/calendar-"${index}"-*.svg
+            mv "$image" "$versioned_image"
+            sed -i -E "s#assets/calendar-${index}[^)]*#${versioned_image}#" README.md
           done
 
       - name: Check diff

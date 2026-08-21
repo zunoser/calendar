@@ -1,6 +1,6 @@
 // svg コマンド。今月と来月のカレンダー画像 (SVG) を書き出す。
-// ファイル名は月によらず calendar-0.svg (今月) / calendar-1.svg (来月) で固定し、
-// README からは静的に参照する。
+// ファイル名は月によらず calendar-0.svg (今月) / calendar-1.svg (来月) で固定する。
+// daily workflow は生成後、README のキャッシュ対策として内容ハッシュ付きの名前へ変更する。
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";

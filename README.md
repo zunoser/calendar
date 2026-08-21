@@ -1,8 +1,8 @@
 # カレンダー
 
-![今月のカレンダー](assets/calendar-0.svg?v=bee4689752d503b4497a4e65f91c08304db90fa8)
+![今月のカレンダー](assets/calendar-0-bee4689752d503b4497a4e65f91c08304db90fa8.svg)
 
-![来月のカレンダー](assets/calendar-1.svg?v=36d3857f7454ddd1330ebab67b4a00108428b3ee)
+![来月のカレンダー](assets/calendar-1-36d3857f7454ddd1330ebab67b4a00108428b3ee.svg)
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
 
