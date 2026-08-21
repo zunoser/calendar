@@ -23,12 +23,14 @@
             mkdir -p $out/bin
             corepack enable --install-directory $out/bin
           '';
+          tofu = pkgs.opentofu.withPlugins (plugins: [ plugins.integrations_github ]);
         in
         {
           default = pkgs.mkShellNoCC {
             packages = [
               pkgs.nodejs
               corepackShims
+              tofu
             ];
           };
         }

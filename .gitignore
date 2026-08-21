@@ -1,5 +1,8 @@
 node_modules/
 .direnv/
+.terraform/
+*.tfstate
+*.tfstate.*
 *.tsbuildinfo
 .env
 config.jsonc

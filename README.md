@@ -52,6 +52,21 @@ pnpm lint
 pnpm fmt
 ```
 
+### Repository infrastructure
+
+`infra/github` manages this repository through the versioned
+`zunoser/tfmodule-gh-repo-kit` OpenTofu module. Its state remains in the shared
+R2 backend at `github/repositories/calendar/terraform.tfstate`.
+
+Static validation does not require credentials:
+
+```sh
+tofu -chdir=infra/github init -backend=false
+tofu -chdir=infra/github validate
+```
+
+A real plan additionally requires the R2 backend credentials and a GitHub token.
+
 ### パッケージ構成
 
 | パッケージ        | 役割                                                                                          |
