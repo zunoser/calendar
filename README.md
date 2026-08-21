@@ -41,6 +41,8 @@ pnpm zunocal svg [--dir <path>]  # 今月と来月のカレンダー画像を書
 
 ## 開発
 
+Nix を利用する場合は、`direnv allow` または `nix develop` で Node.js と pnpm が入った開発環境を利用できる。
+
 ```sh
 pnpm install
 pnpm test              # ユニットテスト (純粋ロジックのみ)
