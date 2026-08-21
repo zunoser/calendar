@@ -56,7 +56,8 @@ pnpm fmt
 
 `infra/github` manages this repository through the versioned
 `zunoser/tfmodule-gh-repo-kit` OpenTofu module. Its state remains in the shared
-R2 backend at `github/repositories/calendar/terraform.tfstate`.
+R2 backend at `github/repositories/calendar/terraform.tfstate`. Repository
+labels are declared alongside the module in `infra/github/labels.tf`.
 
 Static validation does not require credentials:
 
