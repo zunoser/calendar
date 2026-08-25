@@ -19,7 +19,7 @@ const MARGIN = 8;
 const WIDTH = CELL_W * 7 + MARGIN * 2;
 const TITLE_H = 30;
 const HEADER_H = 22;
-const DAY_H = 22;
+const DAY_H = 28;
 const LANE_H = 20;
 const BAR_H = 16;
 const WEEK_PAD = 4;
@@ -36,12 +36,16 @@ const STYLE = `
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
+  .today { fill: #1a73e8; }
+  .today-text { fill: #ffffff; font-weight: 600; }
   .bar { fill: none; }
   .bar-text { font-size: 11px; }
   @media (prefers-color-scheme: dark) {
     text { fill: #ffffff; }
     .sat { fill: #4493f8; }
     .sun { fill: #f85149; }
+    .today { fill: #8ab4f8; }
+    .today-text { fill: #202124; }
   }
 `;
 
@@ -71,7 +75,7 @@ const barStroke = (labelColors: readonly string[], gradientId: string) => {
 };
 
 // 1か月分を描画し、消費した高さと要素を返す
-const renderMonth = (month: string, events: readonly SvgEvent[], top: number) => {
+const renderMonth = (month: string, events: readonly SvgEvent[], today: IsoDate, top: number) => {
   const parts: string[] = [];
   let barIndex = 0;
   parts.push(`<text x="${MARGIN}" y="${top + 20}" class="title">${monthTitle(month)}</text>`);
@@ -92,7 +96,13 @@ const renderMonth = (month: string, events: readonly SvgEvent[], top: number) =>
         `<rect x="${x}" y="${y}" width="${CELL_W}" height="${weekHeight}" class="${date === undefined ? "out" : "cell"}"/>`,
       );
       if (date !== undefined) {
-        parts.push(`<text x="${x + 6}" y="${y + 16}"${weekdayClass(col)}>${Number(date.slice(8, 10))}</text>`);
+        const day = Number(date.slice(8, 10));
+        if (date === today) {
+          parts.push(`<rect x="${x + 2}" y="${y + 3}" width="52" height="18" rx="4" class="today"/>`);
+          parts.push(`<text x="${x + 6}" y="${y + 16}" class="today-text">${day}</text>`);
+        } else {
+          parts.push(`<text x="${x + 6}" y="${y + 16}"${weekdayClass(col)}>${day}</text>`);
+        }
       }
     }
     for (const bar of bars) {
@@ -116,11 +126,14 @@ const renderMonth = (month: string, events: readonly SvgEvent[], top: number) =>
 };
 
 /** イベント一覧から、指定した月 ("YYYY-MM") の月グリッド SVG を生成する */
-export const toSvg = (events: readonly SvgEvent[], month: string) => {
-  const { height, parts } = renderMonth(month, events, MARGIN);
+export const toSvg = (events: readonly SvgEvent[], month: string, today: IsoDate) => {
+  const { height, parts } = renderMonth(month, events, today, MARGIN);
   const total = height + MARGIN * 2;
+  const todayLabel = today.startsWith(`${month}-`)
+    ? `、今日 ${Number(today.slice(5, 7))}月${Number(today.slice(8, 10))}日`
+    : "";
   return [
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${total}" viewBox="0 0 ${WIDTH} ${total}" role="img" aria-label="カレンダー ${monthTitle(month)}">`,
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${total}" viewBox="0 0 ${WIDTH} ${total}" role="img" aria-label="カレンダー ${monthTitle(month)}${todayLabel}">`,
     `<style>${STYLE}</style>`,
     ...parts,
     `</svg>`,

@@ -31,18 +31,7 @@ jobs:
       - run: pnpm zunocal check --config config.ci.jsonc
       - run: pnpm zunocal close --config config.ci.jsonc
       - run: pnpm zunocal ics --config config.ci.jsonc --name ずのさー
-      - run: pnpm zunocal svg --config config.ci.jsonc
-
-      - name: Version SVG filenames
-        run: |
-          for index in 0 1; do
-            image="assets/calendar-${index}.svg"
-            hash=$(git hash-object "$image")
-            versioned_image="assets/calendar-${index}-${hash}.svg"
-            rm -f assets/calendar-"${index}"-*.svg
-            mv "$image" "$versioned_image"
-            sed -i -E "s#assets/calendar-${index}[^)]*#${versioned_image}#" README.md
-          done
+      - run: pnpm zunocal svg --config config.ci.jsonc --readme README.md
 
       - name: Check diff
         id: diff

@@ -1,8 +1,10 @@
 # カレンダー
 
-![今月のカレンダー](assets/calendar-0-b30782713e82f6380ec017fceb1967b657e6e525.svg)
+<!-- zunocal:calendar:start -->
+![今月のカレンダー](assets/calendar-0-7324dd52bf66.svg)
 
-![来月のカレンダー](assets/calendar-1-90fe37d239ea2b369264a3bd1f1e141b65317d50.svg)
+![来月のカレンダー](assets/calendar-1-0075b95e5c20.svg)
+<!-- zunocal:calendar:end -->
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
 
@@ -36,7 +38,7 @@ pnpm zunocal check [--dry-run]   # 日付の整合性を検査し Date status �
 pnpm zunocal close [--dry-run]   # 終了日が過去の open な Issue を close
 pnpm zunocal remind 3d|1d [--dry-run] # 開始前に担当者全員を Issue コメントでメンション
 pnpm zunocal ics [--out <path>]  # iCalendar を書き出す (既定: ics/calendar.ics)
-pnpm zunocal svg [--dir <path>]  # 今月と来月のカレンダー画像を書き出す (既定: assets/)
+pnpm zunocal svg [--dir <path>] [--readme <path>] # 今月と来月の画像を書き出し、指定時はREADMEも更新
 ```
 
 ## 開発
