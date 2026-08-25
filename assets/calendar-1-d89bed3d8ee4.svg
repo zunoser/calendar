@@ -106,4 +106,5 @@
 <rect x="776" y="348" width="128" height="72" class="out"/>
 <svg x="10" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
 <svg x="138" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">映画たんぷり東京に観にいく</text></svg>
+<svg x="266" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">OpenAI DevDay 2026</text></svg>
 </svg>

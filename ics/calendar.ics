@@ -206,6 +206,18 @@ DESCRIPTION:https://github.com/zunoser/calendar/issues/12
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/12
 END:VEVENT
 BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABOJynsw
+SEQUENCE:0
+DTSTAMP:20260825T153345Z
+DTSTART;VALUE=DATE:20260929
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:OpenAI DevDay 2026
+DESCRIPTION:https://openai.com/ja-JP/index/devday-2026/\n\nhttps://github.
+ com/zunoser/calendar/issues/70
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/70
+END:VEVENT
+BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQoRHw
 SEQUENCE:0
 DTSTAMP:20260820T174719Z
