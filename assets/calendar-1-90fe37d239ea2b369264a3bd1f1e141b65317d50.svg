@@ -86,6 +86,7 @@
 <text x="782" y="292" class="sat">26</text>
 <svg x="10" y="298" width="252" height="16"><rect x="1" y="1" width="250" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">東京ゲームショウ 一般デー</text></svg>
 <svg x="10" y="318" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">moons20周年誕生祭</text></svg>
+<svg x="138" y="318" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Codexのリセットの有効期限</text></svg>
 <svg x="522" y="298" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">yuta kobayashi 誕生日</text></svg>
 <svg x="778" y="298" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">暴力的にカワイイ 2026</text></svg>
 <rect x="8" y="348" width="128" height="72" class="cell"/>
