@@ -38,7 +38,17 @@ pnpm zunocal check [--dry-run]   # 日付の整合性を検査し Date status �
 pnpm zunocal close [--dry-run]   # 終了日が過去の open な Issue を close
 pnpm zunocal remind 3d|1d [--dry-run] # 開始前に担当者全員を Issue コメントでメンション
 pnpm zunocal ics [--out <path>]  # iCalendar を書き出す (既定: ics/calendar.ics)
-pnpm zunocal svg [--dir <path>] [--readme <path>] # 今月と来月の画像を書き出し、指定時はREADMEも更新
+pnpm zunocal svg render --month current|next|YYYY-MM --output <path> # 指定月のSVGを1枚書き出す
+pnpm zunocal svg publish --current <path> --next <path> --readme <path> [--dry-run] # 2枚を公開しREADMEを更新
+```
+
+`svg render` は指定した1か月・1ファイルだけを書き出し、READMEには触れない。
+公開時は今月と来月のSVGを明示して `svg publish` を実行する。publishは2枚を内容ハッシュ付きの名前で保存し、入力SVGと同名の旧版を削除してREADMEを更新する。`--dry-run` では変更予定だけを表示する:
+
+```sh
+pnpm zunocal svg render --month current --output assets/calendar-0.svg
+pnpm zunocal svg render --month next --output assets/calendar-1.svg
+pnpm zunocal svg publish --current assets/calendar-0.svg --next assets/calendar-1.svg --readme README.md
 ```
 
 ## 開発
