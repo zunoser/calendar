@@ -86,7 +86,7 @@
 <rect x="392" y="348" width="128" height="72" class="cell"/>
 <text x="398" y="364">26</text>
 <rect x="520" y="348" width="128" height="72" class="cell"/>
-<rect x="522" y="351" width="52" height="18" rx="4" class="today"/>
+<rect x="522" y="351" width="18" height="18" rx="4" class="today"/>
 <text x="526" y="364" class="today-text">27</text>
 <rect x="648" y="348" width="128" height="72" class="cell"/>
 <text x="654" y="364">28</text>
