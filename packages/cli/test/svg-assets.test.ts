@@ -36,13 +36,17 @@ describe("publishSvgAssets", () => {
         "![untouched](assets/calendar-0-reference.svg)\n\n" +
         "Footer\n",
     );
-    const paths = await publishSvgAssets(assets, readmePath);
+    const { outputPaths } = await publishSvgAssets({
+      currentPath: join(assets, "calendar-0.svg"),
+      nextPath: join(assets, "calendar-1.svg"),
+      readmePath,
+    });
 
-    expect(paths).toEqual([
+    expect(outputPaths).toEqual([
       join(assets, `calendar-0-${shortHash("this month")}.svg`),
       join(assets, `calendar-1-${shortHash("next month")}.svg`),
     ]);
-    expect(await Promise.all(paths.map((path) => readFile(path, "utf8")))).toEqual(["this month", "next month"]);
+    expect(await Promise.all(outputPaths.map((path) => readFile(path, "utf8")))).toEqual(["this month", "next month"]);
     expect((await readdir(assets)).toSorted()).toEqual([
       `calendar-0-${shortHash("this month")}.svg`,
       `calendar-1-${shortHash("next month")}.svg`,
@@ -63,7 +67,13 @@ describe("publishSvgAssets", () => {
     const readme = "<!-- zunocal:calendar:start -->\n![今月](assets/calendar-0-deadbeef.svg)\n";
     const { assets, readmePath } = await fixture(readme);
 
-    await expect(publishSvgAssets(assets, readmePath)).rejects.toThrow("READMEにzunocal:calendarタグがありません");
+    await expect(
+      publishSvgAssets({
+        currentPath: join(assets, "calendar-0.svg"),
+        nextPath: join(assets, "calendar-1.svg"),
+        readmePath,
+      }),
+    ).rejects.toThrow("READMEにzunocal:calendarタグがありません");
 
     expect((await readdir(assets)).toSorted()).toEqual([
       "calendar-0-deadbeef.svg",
@@ -73,5 +83,57 @@ describe("publishSvgAssets", () => {
       "keep.svg",
     ]);
     expect(await readFile(readmePath, "utf8")).toBe(readme);
+  });
+
+  it("dry-runでは変更予定だけを返してファイルを変更しない", async () => {
+    const readme =
+      "<!-- zunocal:calendar:start -->\n![old](assets/calendar-0-deadbeef.svg)\n\n![old](assets/calendar-1-cafebabe.svg)\n<!-- zunocal:calendar:end -->\n";
+    const { assets, readmePath } = await fixture(readme);
+
+    const result = await publishSvgAssets({
+      currentPath: join(assets, "calendar-0.svg"),
+      nextPath: join(assets, "calendar-1.svg"),
+      readmePath,
+      dryRun: true,
+    });
+
+    expect(result.outputPaths).toEqual([
+      join(assets, `calendar-0-${shortHash("this month")}.svg`),
+      join(assets, `calendar-1-${shortHash("next month")}.svg`),
+    ]);
+    expect(result.removedPaths.toSorted()).toEqual([
+      join(assets, "calendar-0-deadbeef.svg"),
+      join(assets, "calendar-0.svg"),
+      join(assets, "calendar-1-cafebabe.svg"),
+      join(assets, "calendar-1.svg"),
+    ]);
+    expect((await readdir(assets)).toSorted()).toEqual([
+      "calendar-0-deadbeef.svg",
+      "calendar-0.svg",
+      "calendar-1-cafebabe.svg",
+      "calendar-1.svg",
+      "keep.svg",
+    ]);
+    expect(await readFile(readmePath, "utf8")).toBe(readme);
+  });
+
+  it("currentとnextに同じSVGは指定できない", async () => {
+    const { assets, readmePath } = await fixture("<!-- zunocal:calendar:start -->\n<!-- zunocal:calendar:end -->\n");
+    const path = join(assets, "calendar-0.svg");
+
+    await expect(publishSvgAssets({ currentPath: path, nextPath: path, readmePath })).rejects.toThrow(
+      "current と next には異なるSVGを指定してください",
+    );
+  });
+
+  it("一方の入力名がもう一方の旧版パターンに一致しても公開できる", async () => {
+    const { assets, readmePath } = await fixture("<!-- zunocal:calendar:start -->\n<!-- zunocal:calendar:end -->\n");
+    const currentPath = join(assets, "calendar.svg");
+    const nextPath = join(assets, "calendar-deadbeef.svg");
+    await Promise.all([writeFile(currentPath, "current"), writeFile(nextPath, "next")]);
+
+    const { outputPaths } = await publishSvgAssets({ currentPath, nextPath, readmePath });
+
+    expect(await Promise.all(outputPaths.map((path) => readFile(path, "utf8")))).toEqual(["current", "next"]);
   });
 });

@@ -1,13 +1,13 @@
 import { createHash } from "node:crypto";
-import { readFile, readdir, rename, unlink, writeFile } from "node:fs/promises";
-import { dirname, join, relative, sep } from "node:path";
+import { readFile, readdir, unlink, writeFile } from "node:fs/promises";
+import { basename, dirname, extname, join, relative, resolve, sep } from "node:path";
 
-const SVG_INDEXES = [0, 1] as const;
-const SVG_ALT_TEXT = ["今月のカレンダー", "来月のカレンダー"] as const;
 const README_START = "<!-- zunocal:calendar:start -->";
 const README_END = "<!-- zunocal:calendar:end -->";
+const SVG_ALT_TEXT = ["今月のカレンダー", "来月のカレンダー"] as const;
 
 const contentHash = (content: Buffer) => createHash("sha256").update(content).digest("hex").slice(0, 12);
+const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const replaceReadmeCalendar = (readme: string, paths: readonly string[]) => {
   const start = readme.indexOf(README_START);
@@ -21,32 +21,65 @@ const replaceReadmeCalendar = (readme: string, paths: readonly string[]) => {
   return readme.slice(0, contentStart) + `\n${images}\n` + readme.slice(end);
 };
 
-/** SVGに内容ハッシュを付け、古い画像とREADMEの参照を置き換える。 */
-export const publishSvgAssets = async (directory: string, readmePath: string) => {
-  const versions = await Promise.all(
-    SVG_INDEXES.map(async (index) => {
-      const sourcePath = join(directory, `calendar-${index}.svg`);
-      const content = await readFile(sourcePath);
-      const filename = `calendar-${index}-${contentHash(content)}.svg`;
-      return { index, sourcePath, targetPath: join(directory, filename) };
-    }),
-  );
+const versionedAsset = async (sourcePath: string) => {
+  const extension = extname(sourcePath);
+  if (extension !== ".svg") throw new Error(`SVGファイルを指定してください: ${sourcePath}`);
+  const stem = basename(sourcePath, extension);
+  const content = await readFile(sourcePath);
+  return {
+    content,
+    sourcePath,
+    targetPath: join(dirname(sourcePath), `${stem}-${contentHash(content)}${extension}`),
+    oldVersionPattern: new RegExp(`^${escapeRegex(stem)}-[0-9a-f]+\\.svg$`),
+  };
+};
 
+export interface PublishSvgAssetsOptions {
+  currentPath: string;
+  nextPath: string;
+  readmePath: string;
+  dryRun?: boolean;
+}
+
+/** 指定した2枚のSVGに内容ハッシュを付け、古い画像とREADMEの参照を置き換える。 */
+export const publishSvgAssets = async ({
+  currentPath,
+  nextPath,
+  readmePath,
+  dryRun = false,
+}: PublishSvgAssetsOptions) => {
+  if (resolve(currentPath) === resolve(nextPath)) {
+    throw new Error("current と next には異なるSVGを指定してください");
+  }
+
+  const versions = await Promise.all([versionedAsset(currentPath), versionedAsset(nextPath)]);
+  const outputPaths = versions.map(({ targetPath }) => targetPath);
   const readme = replaceReadmeCalendar(
     await readFile(readmePath, "utf8"),
-    versions.map(({ targetPath }) => relative(dirname(readmePath), targetPath).split(sep).join("/")),
+    outputPaths.map((path) => relative(dirname(readmePath), path).split(sep).join("/")),
   );
-
-  const filenames = await readdir(directory);
-  const oldVersions = filenames.filter((filename) =>
-    SVG_INDEXES.some((index) => new RegExp(`^calendar-${index}-[0-9a-f]+\\.svg$`).test(filename)),
+  const oldPaths = (
+    await Promise.all(
+      versions.map(async ({ sourcePath, oldVersionPattern }) =>
+        (await readdir(dirname(sourcePath)))
+          .filter((filename) => oldVersionPattern.test(filename))
+          .map((filename) => join(dirname(sourcePath), filename)),
+      ),
+    )
+  ).flat();
+  const protectedPaths = new Set(
+    versions.flatMap(({ sourcePath, targetPath }) => [resolve(sourcePath), resolve(targetPath)]),
   );
-  await Promise.all(oldVersions.map((filename) => unlink(join(directory, filename))));
+  const removedPaths = [
+    ...oldPaths.filter((path) => !protectedPaths.has(resolve(path))),
+    ...versions.map(({ sourcePath }) => sourcePath),
+  ];
 
-  for (const { sourcePath, targetPath } of versions) {
-    await rename(sourcePath, targetPath);
+  if (!dryRun) {
+    await Promise.all(versions.map(({ content, targetPath }) => writeFile(targetPath, content)));
+    await writeFile(readmePath, readme, "utf8");
+    await Promise.all(removedPaths.map((path) => unlink(path)));
   }
-  await writeFile(readmePath, readme, "utf8");
 
-  return versions.map(({ targetPath }) => targetPath);
+  return { outputPaths, removedPaths };
 };
