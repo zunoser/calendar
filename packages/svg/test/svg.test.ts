@@ -35,8 +35,8 @@ describe("toSvg", () => {
   it("今日のセルを薄い水色の背景で強調する", () => {
     const svg = toSvg([], "2026-08", today);
     expect(svg).toContain('aria-label="カレンダー 2026年8月、今日 8月25日"');
-    expect(svg).toContain(".today { fill: #ddf4ff; }");
-    expect(svg).toContain(".today { fill: #0c2d6b; }");
+    expect(svg).toContain(".today { fill: #0969da; fill-opacity: 0.06; }");
+    expect(svg).toContain(".today { fill: #4493f8; fill-opacity: 0.12; }");
     expect(svg).toContain('<rect x="264" y="348" width="128" height="72" class="cell today"/>');
     expect(svg).toContain('<text x="270" y="364">25</text>');
   });
