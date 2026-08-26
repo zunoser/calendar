@@ -95,8 +95,7 @@
 <svg x="10" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">未踏ジュニア2026 中間合宿</text></svg>
 <svg x="522" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#ed9324" stroke-width="2"/><text x="6" y="12" class="bar-text">Nvidia決算 2026Q2</text></svg>
 <svg x="650" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">映画まどマギ 公開日</text></svg>
-<svg x="778" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">まどマギ見に行く</text></svg>
-<svg x="778" y="396" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
+<svg x="778" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
 <rect x="8" y="420" width="128" height="72" class="cell"/>
 <text x="14" y="436" class="sun">30</text>
 <rect x="136" y="420" width="128" height="72" class="cell"/>
