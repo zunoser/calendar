@@ -1,5 +1,6 @@
 packages:
   - packages/*
+saveExact: true
 pmOnFail: error
 minimumReleaseAge: 4320
 catalogMode: strict

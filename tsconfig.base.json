@@ -6,9 +6,17 @@
     "moduleResolution": "bundler",
     "types": ["node"],
     "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noUncheckedSideEffectImports": true,
     "noUncheckedIndexedAccess": true,
+    "erasableSyntaxOnly": true,
+    "esModuleInterop": true,
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
     "skipLibCheck": true,
     "noEmit": true
   }
