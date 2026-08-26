@@ -35,7 +35,7 @@ describe("toSvg", () => {
   it("今日の日付を角丸の青い正方形で強調する", () => {
     const svg = toSvg([], "2026-08", today);
     expect(svg).toContain('aria-label="カレンダー 2026年8月、今日 8月25日"');
-    expect(svg).toContain('<rect x="266" y="351" width="18" height="18" rx="4" class="today"/>');
+    expect(svg).toContain('<rect x="266" y="349" width="22" height="22" rx="4" class="today"/>');
     expect(svg).toContain('<text x="270" y="364" class="today-text">25</text>');
   });
 

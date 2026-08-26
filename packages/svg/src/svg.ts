@@ -98,7 +98,7 @@ const renderMonth = (month: string, events: readonly SvgEvent[], today: IsoDate,
       if (date !== undefined) {
         const day = Number(date.slice(8, 10));
         if (date === today) {
-          parts.push(`<rect x="${x + 2}" y="${y + 3}" width="18" height="18" rx="4" class="today"/>`);
+          parts.push(`<rect x="${x + 2}" y="${y + 1}" width="22" height="22" rx="4" class="today"/>`);
           parts.push(`<text x="${x + 6}" y="${y + 16}" class="today-text">${day}</text>`);
         } else {
           parts.push(`<text x="${x + 6}" y="${y + 16}"${weekdayClass(col)}>${day}</text>`);
