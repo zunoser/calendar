@@ -36,16 +36,14 @@ const STYLE = `
   .out { fill: #808080; fill-opacity: 0.1; stroke: #808080; stroke-opacity: 0.4; }
   .sat { fill: #0969da; }
   .sun { fill: #cf222e; }
-  .today { fill: #1a73e8; }
-  .today-text { fill: #ffffff; font-weight: 600; }
+  .today { fill: #ddf4ff; }
   .bar { fill: none; }
   .bar-text { font-size: 11px; }
   @media (prefers-color-scheme: dark) {
     text { fill: #ffffff; }
     .sat { fill: #4493f8; }
     .sun { fill: #f85149; }
-    .today { fill: #8ab4f8; }
-    .today-text { fill: #202124; }
+    .today { fill: #0c2d6b; }
   }
 `;
 
@@ -93,16 +91,11 @@ const renderMonth = (month: string, events: readonly SvgEvent[], today: IsoDate,
     for (const [col, date] of week.entries()) {
       const x = MARGIN + col * CELL_W;
       parts.push(
-        `<rect x="${x}" y="${y}" width="${CELL_W}" height="${weekHeight}" class="${date === undefined ? "out" : "cell"}"/>`,
+        `<rect x="${x}" y="${y}" width="${CELL_W}" height="${weekHeight}" class="${date === undefined ? "out" : date === today ? "cell today" : "cell"}"/>`,
       );
       if (date !== undefined) {
         const day = Number(date.slice(8, 10));
-        if (date === today) {
-          parts.push(`<rect x="${x + 2}" y="${y + 1}" width="22" height="22" rx="4" class="today"/>`);
-          parts.push(`<text x="${x + 6}" y="${y + 16}" class="today-text">${day}</text>`);
-        } else {
-          parts.push(`<text x="${x + 6}" y="${y + 16}"${weekdayClass(col)}>${day}</text>`);
-        }
+        parts.push(`<text x="${x + 6}" y="${y + 16}"${weekdayClass(col)}>${day}</text>`);
       }
     }
     for (const bar of bars) {
