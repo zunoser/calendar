@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "setup": "corepack enable pnpm",
     "zunocal": "tsx packages/cli/src/index.ts",
     "lint": "oxlint .",
     "fmt": "oxfmt .",

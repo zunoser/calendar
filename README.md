@@ -56,6 +56,7 @@ pnpm zunocal svg publish --current assets/calendar-0.svg --next assets/calendar-
 Nix を利用する場合は、`direnv allow` または `nix develop` で Node.js と Corepack 管理の pnpm が入った開発環境を利用できる。
 
 ```sh
+npm run setup
 pnpm install
 pnpm test              # ユニットテスト (純粋ロジックのみ)
 pnpm test:integration  # 実 API への Read 専用テスト (要 TOKEN)
