@@ -3,7 +3,7 @@
 <!-- zunocal:calendar:start -->
 ![今月のカレンダー](assets/calendar-0-785882a29cfe.svg)
 
-![来月のカレンダー](assets/calendar-1-d89bed3d8ee4.svg)
+![来月のカレンダー](assets/calendar-1-059030345c09.svg)
 <!-- zunocal:calendar:end -->
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
