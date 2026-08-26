@@ -32,16 +32,18 @@ describe("toSvg", () => {
     expect(toSvg([], "2026-10", today)).toContain(">2026年10月</text>");
   });
 
-  it("今日の日付を余白付きの青い帯で強調する", () => {
+  it("今日のセルを薄い水色の背景で強調する", () => {
     const svg = toSvg([], "2026-08", today);
     expect(svg).toContain('aria-label="カレンダー 2026年8月、今日 8月25日"');
-    expect(svg).toContain('<rect x="266" y="351" width="52" height="18" rx="4" class="today"/>');
-    expect(svg).toContain('<text x="270" y="364" class="today-text">25</text>');
+    expect(svg).toContain(".today { fill: #0969da; fill-opacity: 0.06; }");
+    expect(svg).toContain(".today { fill: #4493f8; fill-opacity: 0.12; }");
+    expect(svg).toContain('<rect x="264" y="348" width="128" height="72" class="cell today"/>');
+    expect(svg).toContain('<text x="270" y="364">25</text>');
   });
 
   it("今日を含まない月は強調しない", () => {
     const svg = toSvg([], "2026-09", today);
-    expect(svg).not.toContain('class="today"');
+    expect(svg).not.toContain('class="cell today"');
     expect(svg).not.toContain("、今日");
   });
 
