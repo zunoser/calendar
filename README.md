@@ -1,7 +1,7 @@
 # カレンダー
 
 <!-- zunocal:calendar:start -->
-![今月のカレンダー](assets/calendar-0-c3a9a93a9e92.svg)
+![今月のカレンダー](assets/calendar-0-ba7f025c74c2.svg)
 
 ![来月のカレンダー](assets/calendar-1-d89bed3d8ee4.svg)
 <!-- zunocal:calendar:end -->
