@@ -3,16 +3,9 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { filterDated, getGitHubCalendar, parseConfig, sortByStartDate } from "@zunoser/calendar-core";
-import { toSvg, type SvgEvent } from "@zunoser/calendar-svg";
-import { getToday, type IsoDate } from "@zunoser/utils";
+import { monthOf, toSvg } from "@zunoser/calendar-svg";
+import { getToday, isoDate } from "@zunoser/utils";
 import { defineCommand } from "citty";
-
-const ISO_MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
-
-export const writeSvgFile = async (events: readonly SvgEvent[], month: string, today: IsoDate, output: string) => {
-  await mkdir(dirname(output), { recursive: true });
-  await writeFile(output, toSvg(events, month, today), "utf8");
-};
 
 export const svg = defineCommand({
   meta: { name: "svg", description: "指定した1か月のカレンダーSVGを書き出す" },
@@ -22,14 +15,13 @@ export const svg = defineCommand({
     output: { type: "string", required: true, alias: "o", description: "出力先のSVGパス" },
   },
   async run({ args }) {
-    if (!ISO_MONTH.test(args.month)) {
-      throw new Error("month は YYYY-MM 形式で指定してください");
-    }
+    const month = monthOf(isoDate(`${args.month}-01`));
     const config = parseConfig(await readFile(args.config, "utf8"));
     const { getCalendar } = await getGitHubCalendar(config);
     const events = sortByStartDate(filterDated(await Array.fromAsync(getCalendar())));
 
-    await writeSvgFile(events, args.month, getToday(), args.output);
-    console.log(`wrote ${args.output} (${args.month})`);
+    await mkdir(dirname(args.output), { recursive: true });
+    await writeFile(args.output, toSvg(events, month, getToday()), "utf8");
+    console.log(`wrote ${args.output} (${month})`);
   },
 });

@@ -35,12 +35,19 @@ jobs:
           TOKEN: ${{ github.token }}
       - name: Update calendar SVGs
         run: |
-          month=$(date +%Y-%m)
-          current="assets/calendar-$(openssl rand -hex 6).svg"
-          next="assets/calendar-$(openssl rand -hex 6).svg"
-          pnpm zunocal svg --config config.ci.jsonc --month "$month" --output "$current"
-          pnpm zunocal svg --config config.ci.jsonc --month "$(date -d "${month}-01 +1 month" +%Y-%m)" --output "$next"
-          pnpm zunocal readme --current "$current" --next "$next" --readme README.md
+          current_month=$(date +%Y-%m)
+          next_month=$(date -d "${current_month}-01 +1 month" +%Y-%m)
+          rand=$(openssl rand -hex 6)
+          current_svg="assets/calendar-current-$rand.svg"
+          next_svg="assets/calendar-next-$rand.svg"
+
+          rm -f assets/calendar-*.svg
+          pnpm zunocal svg --config config.ci.jsonc --month "$current_month" --output "$current_svg"
+          pnpm zunocal svg --config config.ci.jsonc --month "$next_month" --output "$next_svg"
+
+          pnpm zunocal readme "$current_svg" --alt "今月のカレンダー" --tag "calendar:current"
+          pnpm zunocal readme "$next_svg" --alt "来月のカレンダー" --tag "calendar:next"
+
         env:
           TOKEN: ${{ github.token }}
 

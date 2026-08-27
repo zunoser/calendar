@@ -21,11 +21,11 @@ jobs:
       - uses: ./.github/actions/setup-node
 
       - name: Remind three days before
-        run: pnpm zunocal remind 3d --config config.ci.jsonc
+        run: pnpm zunocal remind 3 --config config.ci.jsonc
         env:
           TOKEN: ${{ github.token }}
 
       - name: Remind one day before
-        run: pnpm zunocal remind 1d --config config.ci.jsonc
+        run: pnpm zunocal remind 1 --config config.ci.jsonc
         env:
           TOKEN: ${{ github.token }}

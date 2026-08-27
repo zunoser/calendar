@@ -1,10 +1,16 @@
 # カレンダー
 
-<!-- zunocal:calendar:start -->
+<!-- zunocal:calendar:current:start -->
+
 ![今月のカレンダー](assets/calendar-0-785882a29cfe.svg)
 
+<!-- zunocal:calendar:current:end -->
+
+<!-- zunocal:calendar:next:start -->
+
 ![来月のカレンダー](assets/calendar-1-059030345c09.svg)
-<!-- zunocal:calendar:end -->
+
+<!-- zunocal:calendar:next:end -->
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
 
@@ -36,22 +42,20 @@ https://raw.githubusercontent.com/zunoser/calendar/main/ics/calendar.ics
 pnpm zunocal view                # カレンダーをテーブル表示
 pnpm zunocal check [--dry-run]   # 日付の整合性を検査し Date status を Error/Next に更新
 pnpm zunocal close [--dry-run]   # 終了日が過去の open な Issue を close
-pnpm zunocal remind 3d|1d [--dry-run] # 開始前に担当者全員を Issue コメントでメンション
+pnpm zunocal remind <days> [--dry-run] # 開始日の<days>日前に担当者全員を Issue コメントでメンション
 pnpm zunocal ics [--out <path>]  # iCalendar を書き出す (既定: ics/calendar.ics)
 pnpm zunocal svg --month YYYY-MM --output <path> # 指定月のSVGを1枚書き出す
-pnpm zunocal readme --current <path> --next <path> [--readme <path>] [--dry-run] # READMEの画像参照を差し替え
+pnpm zunocal readme <path> --tag <tag> [--alt <text>] [--readme <path>] # READMEの画像参照を差し替え
 ```
 
 `svg` は指定した1か月・1ファイルだけを書き出し、READMEには触れない。
 どの月を書き出すか・ファイル名をどう付けるかは呼び出し側が決める(ランダムな名前を付けると画像URLの衝突とキャッシュを避けられる)。
-公開時は書き出した今月と来月のSVGを指定して `readme` を実行する。`readme` はタグ内の画像参照を差し替え、参照されなくなった旧SVGを削除する。`--dry-run` では削除予定だけを表示する:
+`readme` はREADMEの `<!-- zunocal:<tag>:start -->` 〜 `<!-- zunocal:<tag>:end -->` 内の画像参照を1枚に差し替える。それ以外のことはしない。旧ファイルの掃除も呼び出し側の責務 (daily.yml は render 前にまとめて削除している):
 
 ```sh
-current="assets/calendar-$(openssl rand -hex 6).svg"
-next="assets/calendar-$(openssl rand -hex 6).svg"
-pnpm zunocal svg --month 2026-08 --output "$current"
-pnpm zunocal svg --month 2026-09 --output "$next"
-pnpm zunocal readme --current "$current" --next "$next"
+path="assets/calendar-current-$(openssl rand -hex 6).svg"
+pnpm zunocal svg --month 2026-08 --output "$path"
+pnpm zunocal readme "$path" --tag calendar:current
 ```
 
 ## 開発

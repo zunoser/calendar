@@ -1,6 +1,6 @@
 import { isoDate } from "@zunoser/utils";
 import { describe, expect, it } from "vitest";
-import { monthOf, monthWeeks, nextDay, nextMonth } from "../src/month";
+import { monthOf, monthWeeks, nextDay } from "../src/month";
 
 describe("nextDay", () => {
   it("月末・年末をまたぐ", () => {
@@ -12,14 +12,6 @@ describe("nextDay", () => {
 describe("monthOf", () => {
   it("属する月を返す", () => {
     expect(monthOf(isoDate("2026-09-05"))).toBe("2026-09");
-  });
-});
-
-describe("nextMonth", () => {
-  it("翌月を返し、年末は翌年の1月になる", () => {
-    expect(nextMonth("2026-08")).toBe("2026-09");
-    expect(nextMonth("2026-09")).toBe("2026-10");
-    expect(nextMonth("2026-12")).toBe("2027-01");
   });
 });
 
