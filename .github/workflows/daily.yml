@@ -33,13 +33,16 @@ jobs:
       - run: pnpm zunocal ics --config config.ci.jsonc --name ずのさー
         env:
           TOKEN: ${{ github.token }}
-      - run: pnpm zunocal svg render --config config.ci.jsonc --month current --output assets/calendar-0.svg
+      - name: Update calendar SVGs
+        run: |
+          month=$(date +%Y-%m)
+          current="assets/calendar-$(openssl rand -hex 6).svg"
+          next="assets/calendar-$(openssl rand -hex 6).svg"
+          pnpm zunocal svg --config config.ci.jsonc --month "$month" --output "$current"
+          pnpm zunocal svg --config config.ci.jsonc --month "$(date -d "${month}-01 +1 month" +%Y-%m)" --output "$next"
+          pnpm zunocal readme --current "$current" --next "$next" --readme README.md
         env:
           TOKEN: ${{ github.token }}
-      - run: pnpm zunocal svg render --config config.ci.jsonc --month next --output assets/calendar-1.svg
-        env:
-          TOKEN: ${{ github.token }}
-      - run: pnpm zunocal svg publish --current assets/calendar-0.svg --next assets/calendar-1.svg --readme README.md # zizmor: ignore[use-trusted-publishing]
 
       - name: Check diff
         id: diff

@@ -38,17 +38,20 @@ pnpm zunocal check [--dry-run]   # 日付の整合性を検査し Date status �
 pnpm zunocal close [--dry-run]   # 終了日が過去の open な Issue を close
 pnpm zunocal remind 3d|1d [--dry-run] # 開始前に担当者全員を Issue コメントでメンション
 pnpm zunocal ics [--out <path>]  # iCalendar を書き出す (既定: ics/calendar.ics)
-pnpm zunocal svg render --month current|next|YYYY-MM --output <path> # 指定月のSVGを1枚書き出す
-pnpm zunocal svg publish --current <path> --next <path> --readme <path> [--dry-run] # 2枚を公開しREADMEを更新
+pnpm zunocal svg --month YYYY-MM --output <path> # 指定月のSVGを1枚書き出す
+pnpm zunocal readme --current <path> --next <path> [--readme <path>] [--dry-run] # READMEの画像参照を差し替え
 ```
 
-`svg render` は指定した1か月・1ファイルだけを書き出し、READMEには触れない。
-公開時は今月と来月のSVGを明示して `svg publish` を実行する。publishは2枚を内容ハッシュ付きの名前で保存し、入力SVGと同名の旧版を削除してREADMEを更新する。`--dry-run` では変更予定だけを表示する:
+`svg` は指定した1か月・1ファイルだけを書き出し、READMEには触れない。
+どの月を書き出すか・ファイル名をどう付けるかは呼び出し側が決める(ランダムな名前を付けると画像URLの衝突とキャッシュを避けられる)。
+公開時は書き出した今月と来月のSVGを指定して `readme` を実行する。`readme` はタグ内の画像参照を差し替え、参照されなくなった旧SVGを削除する。`--dry-run` では削除予定だけを表示する:
 
 ```sh
-pnpm zunocal svg render --month current --output assets/calendar-0.svg
-pnpm zunocal svg render --month next --output assets/calendar-1.svg
-pnpm zunocal svg publish --current assets/calendar-0.svg --next assets/calendar-1.svg --readme README.md
+current="assets/calendar-$(openssl rand -hex 6).svg"
+next="assets/calendar-$(openssl rand -hex 6).svg"
+pnpm zunocal svg --month 2026-08 --output "$current"
+pnpm zunocal svg --month 2026-09 --output "$next"
+pnpm zunocal readme --current "$current" --next "$next"
 ```
 
 ## 開発
