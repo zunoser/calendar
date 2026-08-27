@@ -12,12 +12,6 @@ export const nextDay = (date: IsoDate) => fromUtc(toUtc(date) + DAY_MS);
 /** 属する月 ("YYYY-MM") */
 export const monthOf = (date: IsoDate) => date.slice(0, 7);
 
-/** 翌月 ("YYYY-MM") */
-export const nextMonth = (month: string) => {
-  const mm = Number(month.slice(5, 7));
-  return mm === 12 ? `${Number(month.slice(0, 4)) + 1}-01` : `${month.slice(0, 5)}${String(mm + 1).padStart(2, "0")}`;
-};
-
 /** 月内の全日を日曜始まりの週ごとに並べる。月外のセルは undefined */
 export const monthWeeks = (month: string) => {
   const first = isoDate(`${month}-01`);

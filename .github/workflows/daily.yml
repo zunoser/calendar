@@ -16,6 +16,8 @@ jobs:
   daily:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      TZ: Asia/Tokyo
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -31,13 +33,23 @@ jobs:
       - run: pnpm zunocal ics --config config.ci.jsonc --name ずのさー
         env:
           TOKEN: ${{ github.token }}
-      - run: pnpm zunocal svg render --config config.ci.jsonc --month current --output assets/calendar-0.svg
+      - name: Update calendar SVGs
+        run: |
+          current_month=$(date +%Y-%m)
+          next_month=$(date -d "${current_month}-01 +1 month" +%Y-%m)
+          rand=$(openssl rand -hex 6)
+          current_svg="assets/calendar-current-$rand.svg"
+          next_svg="assets/calendar-next-$rand.svg"
+
+          rm -f assets/calendar-*.svg
+          pnpm zunocal svg --config config.ci.jsonc --month "$current_month" --output "$current_svg"
+          pnpm zunocal svg --config config.ci.jsonc --month "$next_month" --output "$next_svg"
+
+          pnpm zunocal readme "$current_svg" --alt "今月のカレンダー" --tag "calendar:current"
+          pnpm zunocal readme "$next_svg" --alt "来月のカレンダー" --tag "calendar:next"
+
         env:
           TOKEN: ${{ github.token }}
-      - run: pnpm zunocal svg render --config config.ci.jsonc --month next --output assets/calendar-1.svg
-        env:
-          TOKEN: ${{ github.token }}
-      - run: pnpm zunocal svg publish --current assets/calendar-0.svg --next assets/calendar-1.svg --readme README.md # zizmor: ignore[use-trusted-publishing]
 
       - name: Check diff
         id: diff

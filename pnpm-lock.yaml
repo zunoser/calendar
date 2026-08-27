@@ -92,6 +92,9 @@ importers:
       citty:
         specifier: 'catalog:'
         version: 0.1.6
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
 
   packages/core:
     dependencies:
