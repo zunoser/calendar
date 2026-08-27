@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="912" height="500" viewBox="0 0 912 500" role="img" aria-label="カレンダー 2026年8月、今日 8月27日">
+<svg xmlns="http://www.w3.org/2000/svg" width="912" height="500" viewBox="0 0 912 500" role="img" aria-label="カレンダー 2026年8月、今日 8月28日">
 <style>
   text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #000000; }
   .title { font-size: 15px; font-weight: 600; }
@@ -83,9 +83,9 @@
 <text x="270" y="364">25</text>
 <rect x="392" y="348" width="128" height="72" class="cell"/>
 <text x="398" y="364">26</text>
-<rect x="520" y="348" width="128" height="72" class="cell today"/>
+<rect x="520" y="348" width="128" height="72" class="cell"/>
 <text x="526" y="364">27</text>
-<rect x="648" y="348" width="128" height="72" class="cell"/>
+<rect x="648" y="348" width="128" height="72" class="cell today"/>
 <text x="654" y="364">28</text>
 <rect x="776" y="348" width="128" height="72" class="cell"/>
 <text x="782" y="364" class="sat">29</text>
