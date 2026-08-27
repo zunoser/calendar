@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { filterDated, getGitHubCalendar, parseConfig, sortByStartDate } from "@zunoser/calendar-core";
 import { monthOf, nextMonth, toSvg, type SvgEvent } from "@zunoser/calendar-svg";
-import { todayInTokyo, type IsoDate } from "@zunoser/utils";
+import { getToday, type IsoDate } from "@zunoser/utils";
 import { defineCommand } from "citty";
 
 const ISO_MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
@@ -28,7 +28,7 @@ export const svgRender = defineCommand({
     output: { type: "string", required: true, alias: "o", description: "出力先のSVGパス" },
   },
   async run({ args }) {
-    const today = todayInTokyo();
+    const today = getToday();
     const month = resolveMonth(args.month, today);
     const config = parseConfig(await readFile(args.config, "utf8"));
     const { getCalendar } = await getGitHubCalendar(config);

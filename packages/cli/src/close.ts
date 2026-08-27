@@ -2,7 +2,7 @@
 
 import { readFile } from "node:fs/promises";
 import { getGitHubCalendar, parseConfig, pastOpenEvents } from "@zunoser/calendar-core";
-import { todayInTokyo } from "@zunoser/utils";
+import { getToday } from "@zunoser/utils";
 import { defineCommand } from "citty";
 
 export const close = defineCommand({
@@ -15,7 +15,7 @@ export const close = defineCommand({
     const config = parseConfig(await readFile(args.config, "utf8"));
     const { getCalendar, closeIssue } = await getGitHubCalendar(config);
 
-    const targets = pastOpenEvents(await Array.fromAsync(getCalendar()), todayInTokyo());
+    const targets = pastOpenEvents(await Array.fromAsync(getCalendar()), getToday());
     if (targets.length === 0) {
       console.log("対象はありません");
       return;
