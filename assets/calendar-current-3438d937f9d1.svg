@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="912" height="500" viewBox="0 0 912 500" role="img" aria-label="カレンダー 2026年8月、今日 8月30日">
+<svg xmlns="http://www.w3.org/2000/svg" width="912" height="500" viewBox="0 0 912 500" role="img" aria-label="カレンダー 2026年8月、今日 8月31日">
 <style>
   text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #000000; }
   .title { font-size: 15px; font-weight: 600; }
@@ -93,9 +93,9 @@
 <svg x="522" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#ed9324" stroke-width="2"/><text x="6" y="12" class="bar-text">Nvidia決算 2026Q2</text></svg>
 <svg x="650" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">映画まどマギ 公開日</text></svg>
 <svg x="778" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
-<rect x="8" y="420" width="128" height="72" class="cell today"/>
+<rect x="8" y="420" width="128" height="72" class="cell"/>
 <text x="14" y="436" class="sun">30</text>
-<rect x="136" y="420" width="128" height="72" class="cell"/>
+<rect x="136" y="420" width="128" height="72" class="cell today"/>
 <text x="142" y="436">31</text>
 <rect x="264" y="420" width="128" height="72" class="out"/>
 <rect x="392" y="420" width="128" height="72" class="out"/>
