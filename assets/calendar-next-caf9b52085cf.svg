@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="912" height="500" viewBox="0 0 912 500" role="img" aria-label="カレンダー 2026年8月、今日 8月31日">
+<svg xmlns="http://www.w3.org/2000/svg" width="912" height="428" viewBox="0 0 912 428" role="img" aria-label="カレンダー 2026年10月">
 <style>
   text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #000000; }
   .title { font-size: 15px; font-weight: 600; }
@@ -16,7 +16,7 @@
     .today { fill: #4493f8; fill-opacity: 0.12; }
   }
 </style>
-<text x="8" y="28" class="title">2026年8月</text>
+<text x="8" y="28" class="title">2026年10月</text>
 <text x="72" y="53" text-anchor="middle" class="sun">日</text>
 <text x="200" y="53" text-anchor="middle">月</text>
 <text x="328" y="53" text-anchor="middle">火</text>
@@ -28,78 +28,72 @@
 <rect x="136" y="60" width="128" height="72" class="out"/>
 <rect x="264" y="60" width="128" height="72" class="out"/>
 <rect x="392" y="60" width="128" height="72" class="out"/>
-<rect x="520" y="60" width="128" height="72" class="out"/>
-<rect x="648" y="60" width="128" height="72" class="out"/>
+<rect x="520" y="60" width="128" height="72" class="cell"/>
+<text x="526" y="76">1</text>
+<rect x="648" y="60" width="128" height="72" class="cell"/>
+<text x="654" y="76">2</text>
 <rect x="776" y="60" width="128" height="72" class="cell"/>
-<text x="782" y="76" class="sat">1</text>
+<text x="782" y="76" class="sat">3</text>
 <rect x="8" y="132" width="128" height="72" class="cell"/>
-<text x="14" y="148" class="sun">2</text>
+<text x="14" y="148" class="sun">4</text>
 <rect x="136" y="132" width="128" height="72" class="cell"/>
-<text x="142" y="148">3</text>
+<text x="142" y="148">5</text>
 <rect x="264" y="132" width="128" height="72" class="cell"/>
-<text x="270" y="148">4</text>
+<text x="270" y="148">6</text>
 <rect x="392" y="132" width="128" height="72" class="cell"/>
-<text x="398" y="148">5</text>
+<text x="398" y="148">7</text>
 <rect x="520" y="132" width="128" height="72" class="cell"/>
-<text x="526" y="148">6</text>
+<text x="526" y="148">8</text>
 <rect x="648" y="132" width="128" height="72" class="cell"/>
-<text x="654" y="148">7</text>
+<text x="654" y="148">9</text>
 <rect x="776" y="132" width="128" height="72" class="cell"/>
-<text x="782" y="148" class="sat">8</text>
+<text x="782" y="148" class="sat">10</text>
 <rect x="8" y="204" width="128" height="72" class="cell"/>
-<text x="14" y="220" class="sun">9</text>
+<text x="14" y="220" class="sun">11</text>
 <rect x="136" y="204" width="128" height="72" class="cell"/>
-<text x="142" y="220">10</text>
+<text x="142" y="220">12</text>
 <rect x="264" y="204" width="128" height="72" class="cell"/>
-<text x="270" y="220">11</text>
+<text x="270" y="220">13</text>
 <rect x="392" y="204" width="128" height="72" class="cell"/>
-<text x="398" y="220">12</text>
+<text x="398" y="220">14</text>
 <rect x="520" y="204" width="128" height="72" class="cell"/>
-<text x="526" y="220">13</text>
+<text x="526" y="220">15</text>
 <rect x="648" y="204" width="128" height="72" class="cell"/>
-<text x="654" y="220">14</text>
+<text x="654" y="220">16</text>
 <rect x="776" y="204" width="128" height="72" class="cell"/>
-<text x="782" y="220" class="sat">15</text>
+<text x="782" y="220" class="sat">17</text>
+<svg x="10" y="232" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">hono conference 2026</text></svg>
+<svg x="522" y="232" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#ed9324" stroke-width="2"/><text x="6" y="12" class="bar-text">TSMC決算 2026Q3</text></svg>
 <rect x="8" y="276" width="128" height="72" class="cell"/>
-<text x="14" y="292" class="sun">16</text>
+<text x="14" y="292" class="sun">18</text>
 <rect x="136" y="276" width="128" height="72" class="cell"/>
-<text x="142" y="292">17</text>
+<text x="142" y="292">19</text>
 <rect x="264" y="276" width="128" height="72" class="cell"/>
-<text x="270" y="292">18</text>
+<text x="270" y="292">20</text>
 <rect x="392" y="276" width="128" height="72" class="cell"/>
-<text x="398" y="292">19</text>
+<text x="398" y="292">21</text>
 <rect x="520" y="276" width="128" height="72" class="cell"/>
-<text x="526" y="292">20</text>
+<text x="526" y="292">22</text>
 <rect x="648" y="276" width="128" height="72" class="cell"/>
-<text x="654" y="292">21</text>
+<text x="654" y="292">23</text>
 <rect x="776" y="276" width="128" height="72" class="cell"/>
-<text x="782" y="292" class="sat">22</text>
-<svg x="778" y="304" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">未踏ジュニア2026 中間合宿</text></svg>
+<text x="782" y="292" class="sat">24</text>
+<svg x="778" y="304" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Vue Fes Japan 2026</text></svg>
 <rect x="8" y="348" width="128" height="72" class="cell"/>
-<text x="14" y="364" class="sun">23</text>
+<text x="14" y="364" class="sun">25</text>
 <rect x="136" y="348" width="128" height="72" class="cell"/>
-<text x="142" y="364">24</text>
+<text x="142" y="364">26</text>
 <rect x="264" y="348" width="128" height="72" class="cell"/>
-<text x="270" y="364">25</text>
+<text x="270" y="364">27</text>
 <rect x="392" y="348" width="128" height="72" class="cell"/>
-<text x="398" y="364">26</text>
+<text x="398" y="364">28</text>
 <rect x="520" y="348" width="128" height="72" class="cell"/>
-<text x="526" y="364">27</text>
+<text x="526" y="364">29</text>
 <rect x="648" y="348" width="128" height="72" class="cell"/>
-<text x="654" y="364">28</text>
+<text x="654" y="364">30</text>
 <rect x="776" y="348" width="128" height="72" class="cell"/>
-<text x="782" y="364" class="sat">29</text>
-<svg x="10" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">未踏ジュニア2026 中間合宿</text></svg>
-<svg x="522" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#ed9324" stroke-width="2"/><text x="6" y="12" class="bar-text">Nvidia決算 2026Q2</text></svg>
-<svg x="650" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">映画まどマギ 公開日</text></svg>
-<svg x="778" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">とくぞう　誕生日</text></svg>
-<rect x="8" y="420" width="128" height="72" class="cell"/>
-<text x="14" y="436" class="sun">30</text>
-<rect x="136" y="420" width="128" height="72" class="cell today"/>
-<text x="142" y="436">31</text>
-<rect x="264" y="420" width="128" height="72" class="out"/>
-<rect x="392" y="420" width="128" height="72" class="out"/>
-<rect x="520" y="420" width="128" height="72" class="out"/>
-<rect x="648" y="420" width="128" height="72" class="out"/>
-<rect x="776" y="420" width="128" height="72" class="out"/>
+<text x="782" y="364" class="sat">31</text>
+<svg x="10" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">M3</text></svg>
+<svg x="522" y="376" width="252" height="16"><rect x="1" y="1" width="250" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">FlutterKaigi 2026</text></svg>
+<svg x="778" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">NIGHT HIKE</text></svg>
 </svg>
