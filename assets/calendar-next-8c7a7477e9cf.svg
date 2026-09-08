@@ -48,6 +48,8 @@
 <text x="654" y="148">9</text>
 <rect x="776" y="132" width="128" height="72" class="cell"/>
 <text x="782" y="148" class="sat">10</text>
+<svg x="10" y="160" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Codexのリセットの有効期限</text></svg>
+<svg x="138" y="160" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Codexのリセットの有効期限</text></svg>
 <rect x="8" y="204" width="128" height="72" class="cell"/>
 <text x="14" y="220" class="sun">11</text>
 <rect x="136" y="204" width="128" height="72" class="cell"/>

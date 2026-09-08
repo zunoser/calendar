@@ -55,6 +55,8 @@
 <text x="782" y="148" class="sat">12</text>
 <svg x="10" y="160" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Maker Faire Tokyo 2026</text></svg>
 <svg x="138" y="160" width="124" height="16"><defs><linearGradient id="bar-gradient-4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f74761"/><stop offset="100%" stop-color="#ed9324"/></linearGradient></defs><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="url(#bar-gradient-4)" stroke-width="2"/><text x="6" y="12" class="bar-text">リコリコスロット新台</text></svg>
+<svg x="266" y="160" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">ゼルダの伝説40周年 Direct 2026.9.8</text></svg>
+<svg x="394" y="160" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">Nintendo Direct 2026.9.9</text></svg>
 <svg x="522" y="160" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Apple Event</text></svg>
 <svg x="650" y="160" width="252" height="16"><rect x="1" y="1" width="250" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">iOSDC Japan 2026</text></svg>
 <rect x="8" y="204" width="128" height="72" class="cell"/>
