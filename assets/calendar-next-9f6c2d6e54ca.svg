@@ -81,6 +81,7 @@
 <text x="654" y="292">23</text>
 <rect x="776" y="276" width="128" height="72" class="cell"/>
 <text x="782" y="292" class="sat">24</text>
+<svg x="650" y="304" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Codexのリセットの有効期限</text></svg>
 <svg x="778" y="304" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">Vue Fes Japan 2026</text></svg>
 <rect x="8" y="348" width="128" height="72" class="cell"/>
 <text x="14" y="364" class="sun">25</text>
