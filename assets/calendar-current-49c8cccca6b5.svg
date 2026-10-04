@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="912" height="428" viewBox="0 0 912 428" role="img" aria-label="カレンダー 2026年10月、今日 10月4日">
+<svg xmlns="http://www.w3.org/2000/svg" width="912" height="428" viewBox="0 0 912 428" role="img" aria-label="カレンダー 2026年10月、今日 10月5日">
 <style>
   text { font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif; font-size: 12px; fill: #000000; }
   .title { font-size: 15px; font-weight: 600; }
@@ -34,9 +34,9 @@
 <text x="654" y="76">2</text>
 <rect x="776" y="60" width="128" height="72" class="cell"/>
 <text x="782" y="76" class="sat">3</text>
-<rect x="8" y="132" width="128" height="72" class="cell today"/>
+<rect x="8" y="132" width="128" height="72" class="cell"/>
 <text x="14" y="148" class="sun">4</text>
-<rect x="136" y="132" width="128" height="72" class="cell"/>
+<rect x="136" y="132" width="128" height="72" class="cell today"/>
 <text x="142" y="148">5</text>
 <rect x="264" y="132" width="128" height="72" class="cell"/>
 <text x="270" y="148">6</text>
