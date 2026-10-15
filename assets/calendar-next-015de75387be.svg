@@ -71,6 +71,7 @@
 <text x="654" y="220">20</text>
 <rect x="776" y="204" width="128" height="72" class="cell"/>
 <text x="782" y="220" class="sat">21</text>
+<svg x="10" y="232" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#6c30bc" stroke-width="2"/><text x="6" y="12" class="bar-text">自鯖缶</text></svg>
 <rect x="8" y="276" width="128" height="72" class="cell"/>
 <text x="14" y="292" class="sun">22</text>
 <rect x="136" y="276" width="128" height="72" class="cell"/>

@@ -466,6 +466,19 @@ DESCRIPTION:https://github.com/zunoser/calendar/issues/31
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/31
 END:VEVENT
 BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABXXnf9w
+SEQUENCE:0
+DTSTAMP:20261015T090416Z
+DTSTART;VALUE=DATE:20261115
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:自鯖缶
+LOCATION:docomo R&D OPEN LAB ODAIBA
+DESCRIPTION:自宅サーバーのカンファレンス\n\nhttps://jisaba.s
+ h/\n\nhttps://github.com/zunoser/calendar/issues/91
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/91
+END:VEVENT
+BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNkxk6A
 SEQUENCE:0
 DTSTAMP:20260820T174729Z
