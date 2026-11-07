@@ -50,6 +50,7 @@
 <text x="654" y="148">11</text>
 <rect x="776" y="132" width="128" height="72" class="cell"/>
 <text x="782" y="148" class="sat">12</text>
+<svg x="778" y="160" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">NIGHT HIKE Late 2026</text></svg>
 <rect x="8" y="204" width="128" height="72" class="cell"/>
 <text x="14" y="220" class="sun">13</text>
 <rect x="136" y="204" width="128" height="72" class="cell"/>
@@ -64,8 +65,10 @@
 <text x="654" y="220">18</text>
 <rect x="776" y="204" width="128" height="72" class="cell"/>
 <text x="782" y="220" class="sat">19</text>
-<svg x="10" y="232" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">COMITIA158</text></svg>
+<svg x="10" y="232" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">&quot;U&quot; -Aoide Launch Party-</text></svg>
+<svg x="10" y="252" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">COMITIA158</text></svg>
 <svg x="266" y="232" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#eff587" stroke-width="2"/><text x="6" y="12" class="bar-text">そうまめ 誕生日 2026</text></svg>
+<svg x="778" y="232" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">NIGHT HIKE TOURS 2026 in Seoul</text></svg>
 <rect x="8" y="276" width="128" height="72" class="cell"/>
 <text x="14" y="292" class="sun">20</text>
 <rect x="136" y="276" width="128" height="72" class="cell"/>
@@ -94,5 +97,5 @@
 <rect x="648" y="348" width="128" height="72" class="out"/>
 <rect x="776" y="348" width="128" height="72" class="out"/>
 <svg x="138" y="376" width="124" height="16"><rect x="1" y="1" width="122" height="14" rx="3" class="bar" stroke="#f74761" stroke-width="2"/><text x="6" y="12" class="bar-text">らぷりえるライブ</text></svg>
-<svg x="266" y="376" width="380" height="16"><defs><linearGradient id="bar-gradient-4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6c30bc"/><stop offset="100%" stop-color="#f74761"/></linearGradient></defs><rect x="1" y="1" width="378" height="14" rx="3" class="bar" stroke="url(#bar-gradient-4)" stroke-width="2"/><text x="6" y="12" class="bar-text">C109</text></svg>
+<svg x="266" y="376" width="380" height="16"><defs><linearGradient id="bar-gradient-7" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6c30bc"/><stop offset="100%" stop-color="#f74761"/></linearGradient></defs><rect x="1" y="1" width="378" height="14" rx="3" class="bar" stroke="url(#bar-gradient-7)" stroke-width="2"/><text x="6" y="12" class="bar-text">C109</text></svg>
 </svg>

@@ -503,7 +503,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABdTECIg
 SEQUENCE:0
-DTSTAMP:20261107T160152Z
+DTSTAMP:20261107T160857Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261123
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
@@ -538,6 +538,25 @@ DESCRIPTION:https://github.com/zunoser/calendar/issues/41
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/41
 END:VEVENT
 BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABdTO_Vw
+SEQUENCE:0
+DTSTAMP:20261107T161024Z
+DTSTART;VALUE=DATE:20261123
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:DUSTCELL LIVE 2026 ー道ー at ぴあアリーナMM
+LOCATION:ぴあアリーナMM（神奈川県横浜市）
+DESCRIPTION:2026年11月23日（月・祝）開催。\n\n- 開場18:00／
+ 開演19:00（JST・UTC+9）。終了時刻は未確認。\n- 会場：ぴ
+ あアリーナMM（神奈川県横浜市）\n- 出演：DUSTCELL\n- 料
+ 金：S席（限定グッズ付き）15\,000円、A席9\,000円（いず
+ れも税込）。\n\n公式：https://alltstudio.jp/news/1012/\n会場の
+ 公演案内：https://pia-arena-mm.jp/event/6648.html\nチケット：htt
+ ps://eplus.jp/sf/detail/3274160001\n\nhttps://github.com/zunoser/calendar/
+ issues/99
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/99
+END:VEVENT
+BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQqD4w
 SEQUENCE:0
 DTSTAMP:20260826T193405Z
@@ -549,6 +568,46 @@ LOCATION:池袋・サンシャインシティ 展示ホールD（文化会
  館ビル2F）
 DESCRIPTION:https://github.com/zunoser/calendar/issues/13
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/13
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABdTNg8Q
+SEQUENCE:0
+DTSTAMP:20261107T160803Z
+DTSTART;VALUE=DATE:20261212
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:NIGHT HIKE Late 2026
+LOCATION:WOMB（東京都渋谷区円山町2-16）
+DESCRIPTION:2026年12月12日（土）、12:00開場／13:00開演／21:00
+ 終演予定。時刻はJST（UTC+9）。\n\n会場：渋谷WOMB（東京
+ 都渋谷区円山町2-16）。\n主催：TRIBALCON。\n前売：一般6\,
+ 500円、U-19 5\,000円（いずれも税込・1ドリンク付き）。\n
+ \n公式・チケット：https://tribalcon.zaiko.io/ja/e/night-hike-late-
+ 2026\n確認元（同公演の別言語ページ）：https://tribalcon.za
+ iko.io/zh-hant/e/night-hike-late-2026\n\nhttps://github.com/zunoser/calend
+ ar/issues/97
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/97
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABdTNiYQ
+SEQUENCE:0
+DTSTAMP:20261107T160839Z
+DTSTART;VALUE=DATE:20261213
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:"U" -Aoide Launch Party-
+LOCATION:LIQUIDROOM（東京都渋谷区東3-16-6）
+DESCRIPTION:2026年12月13日（日）、14:00開場／15:00開演。時
+ 刻はJST（UTC+9）。終了時刻は未確認。\n\n会場：LIQUIDROOM
+ （東京都渋谷区東3-16-6）。\n椎乃味醂が主宰するレーベ
+ ルプロジェクトAoideのローンチパーティー。\n\n第一弾
+ 出演者：椎乃味醂、原口沙輔、雄之助、higma、r-906、muyu
+ 、Hylen、VOLTA、ariiol。\nチケット：一般5\,000円、グッズ
+ 付き6\,500円。別途ドリンク代。\n\n公式・チケット：http
+ s://aoide.zaiko.io/ja/e/u-aoide-launch-party\n確認元（同公演の別
+ 言語ページ）：https://aoide.zaiko.io/zh-hant/e/u-aoide-launch-party
+ \n\nhttps://github.com/zunoser/calendar/issues/98
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/98
 END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABN3eyug
@@ -572,6 +631,30 @@ X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:そうまめ 誕生日 2026
 DESCRIPTION:https://github.com/zunoser/calendar/issues/22
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/22
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABdTM5Ug
+SEQUENCE:0
+DTSTAMP:20261107T160721Z
+DTSTART;VALUE=DATE:20261219
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:NIGHT HIKE TOURS 2026 in Seoul
+LOCATION:YES24 WANDERLOCH HALL（韓国・ソウル）
+DESCRIPTION:2026年12月19日（土）、韓国・ソウルで開催。\n\
+ n- 開場13:30／開演14:00（予定）。現地時間KST（UTC+9、日
+ 本と時差なし）。終了時刻・タイムテーブルは未発表
+ 。\n- 会場：YES24 WANDERLOCH HALL（韓国・ソウル）\n- 共同主
+ 催：LIVET / TRIBALCON.\n- チケット：99\,000ウォン、YES24 TICKET
+ で販売。\n\n出演：水槽（DJ+LIVE）、椎乃味醂、梓川、和
+ 田たけあき、A4。、higma、雄之助、¿?（shimon）、たなか
+ （Dios）、鬱P、TAK、mondaystudio、Aiobahn。\nVJ：clocknote. ほ
+ か。LIGHTING：Rio Fukukura。\n\n発表済みの開催日に合わせ
+ 、Start date / Target date はともに2026-12-19。\n\n主催者発表
+ ：https://prtimes.jp/main/html/rd/p/000000018.000120563.html\n公式サ
+ イト：https://nighthike.net/\nチケット：https://to.livet.one/night
+ hike2026\n\nhttps://github.com/zunoser/calendar/issues/96
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/96
 END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABaXwSbQ
