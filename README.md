@@ -1,11 +1,11 @@
 # カレンダー
 
 <!-- zunocal:calendar:current:start -->
-![今月のカレンダー](assets/calendar-current-dfcf1c6b2c56.svg)
+![今月のカレンダー](assets/calendar-current-b35ab16ba189.svg)
 <!-- zunocal:calendar:current:end -->
 
 <!-- zunocal:calendar:next:start -->
-![来月のカレンダー](assets/calendar-next-dfcf1c6b2c56.svg)
+![来月のカレンダー](assets/calendar-next-b35ab16ba189.svg)
 <!-- zunocal:calendar:next:end -->
 
 [zunoser Project #3](https://github.com/orgs/zunoser/projects/3)
