@@ -570,6 +570,19 @@ DESCRIPTION:https://github.com/zunoser/calendar/issues/13
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/13
 END:VEVENT
 BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABeBUTKg
+SEQUENCE:0
+DTSTAMP:20261120T220330Z
+DTSTART;VALUE=DATE:20261124
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:SFC Tech
+LOCATION:慶應義塾大学 三田キャンパス 北別館
+DESCRIPTION:https://www.tech.sfc.keio.ac.jp/\n\nhttps://github.com/zunoser
+ /calendar/issues/100
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/100
+END:VEVENT
+BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABdTNg8Q
 SEQUENCE:0
 DTSTAMP:20261107T160803Z
