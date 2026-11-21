@@ -559,7 +559,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQqD4w
 SEQUENCE:0
-DTSTAMP:20261119T175643Z
+DTSTAMP:20261121T163439Z
 DTSTART;VALUE=DATE:20261123
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
@@ -702,6 +702,30 @@ X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:C109
 DESCRIPTION:https://github.com/zunoser/calendar/issues/15
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/15
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABhTF4hg
+SEQUENCE:0
+DTSTAMP:20261121T134450Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270117
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:GOLD DISC
+LOCATION:ZEROTOKYO（東京・新宿歌舞伎町）
+DESCRIPTION:2027年1月15日（金）開催。時刻は日本時間（JST
+ ）。\n\n| 公演 | 日時 | 会場 |\n| --- | --- | --- |\n| 本公演 |
+  1月15日（金）23:00〜1月16日（土）朝（終了時刻は未発
+ 表） | ZEROTOKYO |\n\n深夜開催で翌朝まで続くため、Target d
+ ate は2027-01-16。\n\n深夜公演のため20歳未満は入場不可の
+ 見込み（この開催回での公式明記は未確認）。本人の
+ 年齢では参加できない回。\n第一弾出演：KOTONOHOUSE、PSYQ
+ UI、t+pazolite、原口沙輔。\nFASTPASS 4\,000円／当日 4\,500円
+ （アップグレード付きFASTPASS 6\,000円）。\n\n出典：https:/
+ /news.3rd-in.co.jp/article/892e0728-e5a9-11f1-a637-9ca3ba09c411\nチケッ
+ ト：https://zerotokyo.zaiko.io\n\nhttps://github.com/zunoser/calendar/is
+ sues/102
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/102
 END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQrLEQ
