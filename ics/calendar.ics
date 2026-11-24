@@ -527,7 +527,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNkxk6A
 SEQUENCE:0
-DTSTAMP:20260820T174729Z
+DTSTAMP:20261124T015740Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261124
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
@@ -540,7 +540,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABdTO_Vw
 SEQUENCE:0
-DTSTAMP:20261107T161024Z
+DTSTAMP:20261124T015741Z
 DTSTART;VALUE=DATE:20261123
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
@@ -559,7 +559,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQqD4w
 SEQUENCE:0
-DTSTAMP:20261121T163439Z
+DTSTAMP:20261124T015738Z
 DTSTART;VALUE=DATE:20261123
 X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
 X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
@@ -581,6 +581,59 @@ LOCATION:慶應義塾大学 三田キャンパス 北別館
 DESCRIPTION:https://www.tech.sfc.keio.ac.jp/\n\nhttps://github.com/zunoser
  /calendar/issues/100
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/100
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABhngYvQ
+SEQUENCE:0
+DTSTAMP:20261123T022526Z
+DTSTART;VALUE=DATE:20261128
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:THE LUV BUGS × Neuro hack with BOURO
+LOCATION:渋谷WOMB（東京都渋谷区円山町2-16）
+DESCRIPTION:2026年11月28日（土）開催。時刻は日本時間（JST
+ ）。\n\n- 開場13:30／開演14:00／終演21:30\n- 会場：渋谷WOMB
+ （東京都渋谷区円山町2-16）\n- 主催：THE LUV BUGS\n- 出演
+ ：理芽、4s4ki、SO-SO、krynX、0b4k3、バーバパパ、ぴーなた
+  ほか\n- チケット：一般 ¥5\,000、U-23 ¥2\,500、エーテル
+ キー ¥4\,200（TicketMe、販売は11/27 23:59まで）\n\n公式・チ
+ ケット：https://ticketme.io/en/event/group/4ee31a91-54f1-4033-86ce-df3
+ c2ddcc482/25f78060-b0a9-4aa6-9f2d-3708695ad859\n出典ポスト：https://
+ x.com/i/status/2108135327181218171\n\nhttps://github.com/zunoser/calendar/
+ issues/103
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/103
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABhntAaw
+SEQUENCE:0
+DTSTAMP:20261123T024556Z
+DTSTART;VALUE=DATE:20261211
+DTEND;VALUE=DATE:20261214
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:KAMITSUBAKI WARS 2026 神椿後楽園戦線
+LOCATION:Kanadevia Hall（TOKYO DOME CITY HALL、東京都文京区後楽1
+ -3-61）
+DESCRIPTION:KAMITSUBAKI STUDIO所属のバーチャルシンガー3人に
+ よる3夜連続ワンマン。時刻は日本時間（JST）。\n\n| 公
+ 演 | 日時 | 出演 |\n| --- | --- | --- |\n| DAY-1 | 12月11日（金
+ ）18:00開場／19:00開演 | 理芽 4th ONE-MAN LIVE「NEUROMANCE Ⅳ」
+  |\n| DAY-2 | 12月12日（土）17:00開場／18:00開演 | 春猿火 4th
+  ONE-MAN LIVE「UNITY – Our Resonance -」 |\n| DAY-3 | 12月13日（日
+ ）16:30開場／17:30開演 | 幸祜 4th ONE-MAN LIVE「PATHFINDER」 |\n
+ \n- 会場：Kanadevia Hall（TOKYO DOME CITY HALL、東京都文京区後
+ 楽1-3-61）\n- 料金：全席指定（税込）アリーナ席 14\,000
+ 円／アリーナ席（特典グッズ付き）18\,000円、バルコニ
+ ーS席 12\,000円／同（特典付き）16\,000円、バルコニーA席
+  9\,800円。別途ドリンク代500円（現金のみ）。\n- 会場チ
+ ケットは先行で完売した回あり（理芽公演はSOLD OUT表記
+ ）。公式リセール（チケプラTrade）受付：11月14日（土
+ ）12:00〜11月26日（木）11:59。\n- 配信チケットあり（SINGU
+ LAR LIVE、2027年1月13日まで販売）。\n\n公式：https://kamitsub
+ aki.jp/\nプレスリリース：https://prtimes.jp/main/html/rd/p/0000002
+ 35.000170825.html\n公式リセール：https://trade.tixplus.jp/artists/t
+ our/15204\n\nhttps://github.com/zunoser/calendar/issues/104
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/104
 END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABdTNg8Q
@@ -728,6 +781,25 @@ DESCRIPTION:2027年1月15日（金）開催。時刻は日本時間（JST
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/102
 END:VEVENT
 BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABhn7Ipw
+SEQUENCE:0
+DTSTAMP:20261123T030745Z
+DTSTART;VALUE=DATE:20270220
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:鬱P「HYPERSAW」1st Oneman show
+LOCATION:渋谷WOMB（東京都渋谷区円山町2-16）
+DESCRIPTION:2027年2月20日（土）開催。時刻は日本時間（JST
+ ）。\n\n- 開場16:00／開演17:00\n- 会場：渋谷WOMB（東京都
+ 渋谷区円山町2-16）\n- 主催：鬱P / TRIBALCON.\n- 前売 ¥5\,800
+ （1ドリンク付き）\n- 抽選先行は終了（10/31〜11/8受付、
+ 当選者購入期間〜11/15）。一般販売の有無は未確認。\n\
+ n公式発表（トレーラー）：https://www.youtube.com/watch?v=g4Zc0
+ Yolonk\n出典ポスト：https://x.com/i/status/2116379644656058828\n\nht
+ tps://github.com/zunoser/calendar/issues/105
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/105
+END:VEVENT
+BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQrLEQ
 SEQUENCE:0
 DTSTAMP:20260820T174721Z
@@ -737,6 +809,54 @@ X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:fa0311 誕生日2027
 DESCRIPTION:https://github.com/zunoser/calendar/issues/14
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/14
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABhoHdZQ
+SEQUENCE:0
+DTSTAMP:20261123T032608Z
+DTSTART;VALUE=DATE:20270327
+DTEND;VALUE=DATE:20270329
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:いきづらい部！ 3rd LIVE ～いつかみんなで叶いそ
+ う～
+LOCATION:有明アリーナ（東京公演）／GLION ARENA KOBE（兵庫
+ 公演 2027-04-10・11）
+DESCRIPTION:「イキヅライブ！ LOVELIVE! BLUEBIRD」いきづらい
+ 部！の3rd LIVE。時刻は日本時間（JST）。\n\n＜東京公演
+ ＞ 有明アリーナ\n- Day.1 2027年3月27日（土）16:00開場／17:
+ 00開演\n- Day.2 2027年3月28日（日）15:00開場／16:00開演\n\n
+ ＜兵庫公演＞ GLION ARENA KOBE\n- Day.1 2027年4月10日（土）16:0
+ 0開場／17:00開演\n- Day.2 2027年4月11日（日）14:30開場／15:3
+ 0開演\n\n- 料金：全席指定 13\,000円（税込）。U-20割引チ
+ ケット 6\,000円（税込、公演当日時点で20歳未満対象）
+ あり。\n- チケット：一般発売（1次抽選）2026年11月18日
+ 〜12月6日23:59、イープラス https://eplus.jp/ikizulive_3rd/\n\n公
+ 式：https://www.lovelive-anime.jp/lovehigh/live/live_detail.php?_id=3rdL
+ IVE\n出典ポスト：https://x.com/i/status/2101621180012843282\n\nhttps
+ ://github.com/zunoser/calendar/issues/107
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/107
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABhoHEKA
+SEQUENCE:0
+DTSTAMP:20261123T032532Z
+DTSTART;VALUE=DATE:20270612
+DTEND;VALUE=DATE:20270614
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:学園アイドルマスター The 3rd Period
+LOCATION:Kアリーナ横浜
+DESCRIPTION:2027年6月12日（土）・13日（日）の2日間開催。
+ 時刻は日本時間（JST）。\n\n- 会場：Kアリーナ横浜\n- 開
+ 場・開演時刻、チケット情報などの詳細は後日発表。\n
+ - 2026年11月8日、「学園アイドルマスター LIVE TOUR -標-」
+ ファイナル公演DAY2（Kアリーナ横浜）で開催が発表され
+ た。\n\n公式発表（学園アイドルマスター公式X @gkmas_offi
+ cial）：https://x.com/gkmas_official/status/2119382864085295199\n出典
+ ポスト：https://x.com/i/status/2119382864085295199\n\nhttps://github.c
+ om/zunoser/calendar/issues/106
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/106
 END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNj8Miw
