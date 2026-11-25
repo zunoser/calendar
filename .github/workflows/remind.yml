@@ -2,7 +2,7 @@ name: remind
 
 on:
   schedule:
-    - cron: "0 9 * * *" # 18:00 JST
+    - cron: "43 9 * * *" # 18:43 JST (毎時0分の混雑を避ける)
 
 permissions:
   contents: read

@@ -1,7 +1,8 @@
 // remind コマンド。開始日の指定日数前に、Issue の担当者全員へコメントで通知する。
 
 import { readFile } from "node:fs/promises";
-import { dateInTokyoAfterDays, getGitHubCalendar, parseConfig, reminderTargets } from "@zunoser/calendar-core";
+import { getGitHubCalendar, parseConfig, reminderDueEvents, reminderMarker } from "@zunoser/calendar-core";
+import { getToday } from "@zunoser/utils";
 import { defineCommand } from "citty";
 import { z } from "zod";
 
@@ -18,8 +19,8 @@ export const remind = defineCommand({
     const daysBefore = DaysBeforeSchema.parse(args.before);
     const config = parseConfig(await readFile(args.config, "utf8"));
     const { getCalendar, addIssueComment } = await getGitHubCalendar(config);
-    const startDate = dateInTokyoAfterDays(new Date(), daysBefore);
-    const targets = reminderTargets(await Array.fromAsync(getCalendar()), startDate);
+    const today = getToday();
+    const targets = reminderDueEvents(await Array.fromAsync(getCalendar()), today, daysBefore);
 
     if (targets.length === 0) {
       console.log("対象はありません");
@@ -27,7 +28,8 @@ export const remind = defineCommand({
     }
     for (const event of targets) {
       const mentions = event.assignees.map((login) => `@${login}`).join(" ");
-      if (!args.dryRun) await addIssueComment(event.id, `${mentions}\n\n開始日の${daysBefore}日前です。`);
+      const body = `${mentions}\n\n開始日の${daysBefore}日前です。\n\n${reminderMarker(daysBefore)}`;
+      if (!args.dryRun) await addIssueComment(event.id, body);
       console.log(`${args.dryRun ? "通知対象" : "notified"}: ${event.startDate}  ${event.title}`);
     }
   },
