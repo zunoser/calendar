@@ -838,6 +838,26 @@ DESCRIPTION:「イキヅライブ！ LOVELIVE! BLUEBIRD」いきづらい
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/107
 END:VEVENT
 BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABiRcAkQ
+SEQUENCE:0
+DTSTAMP:20261125T012355Z
+DTSTART;VALUE=DATE:20270418
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:技術書典22
+DESCRIPTION:## 技術書典22\n\n- 開催日: 2027-04-18（日）\n- 開
+ 催地: 池袋（会場は未発表）\n- 時間・オンライン会期
+ ・サークル募集要項: 未発表\n\n### 日程の出典と注意\n
+ 現時点（2026-11-25）で公式発表はまだ出ていない。日程
+ は2027年の同人イベント日程表が「確定」として掲載し
+ たものに基づく先行登録。\n\n- https://marushiki.tonari-doujin.
+ com/doujin-event-schedule-2027/\n- 公式: https://techbookfest.org/\n\n
+ 公式発表が出たら、会場・時間・オンライン会期をこ
+ のIssueに追記すること。\n\nhttps://github.com/zunoser/calendar/is
+ sues/109
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/109
+END:VEVENT
+BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABhoHEKA
 SEQUENCE:0
 DTSTAMP:20261123T032532Z
