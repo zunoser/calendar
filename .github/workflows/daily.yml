@@ -2,7 +2,7 @@ name: daily
 
 on:
   schedule:
-    - cron: "0 15 * * *" # 0:00 JST
+    - cron: "17 15 * * *" # 0:17 JST (毎時0分の混雑を避ける)
   workflow_dispatch:
   push:
     branches:

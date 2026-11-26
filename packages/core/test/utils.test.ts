@@ -2,17 +2,18 @@ import { isoDate, type IsoDate } from "@zunoser/utils";
 import { describe, expect, it } from "vitest";
 import type { CalendarEvent } from "../src/service";
 import {
+  addDays,
   checkEvent,
-  dateInTokyoAfterDays,
   filterDated,
   pastOpenEvents,
-  reminderTargets,
+  reminderDueEvents,
+  reminderMarker,
   sortByStartDate,
 } from "../src/utils";
 
 const event = (
   id: string,
-  options: { startDate?: string; endDate?: string; state?: CalendarEvent["state"] } = {},
+  options: { startDate?: string; endDate?: string; state?: CalendarEvent["state"]; commentBodies?: string[] } = {},
 ): CalendarEvent => ({
   id,
   title: "t",
@@ -25,6 +26,7 @@ const event = (
   location: undefined,
   startDate: options.startDate as IsoDate | undefined,
   endDate: options.endDate as IsoDate | undefined,
+  commentBodies: options.commentBodies ?? [],
   updatedAt: "2026-08-18T18:00:00Z",
 });
 
@@ -84,15 +86,61 @@ describe("sortByStartDate", () => {
 });
 
 describe("reminder", () => {
-  it("指定日時から3日後・1日後の日本時間の日付を返す", () => {
-    expect(dateInTokyoAfterDays(new Date("2026-08-21T09:00:00Z"), 3)).toBe("2026-08-24");
-    expect(dateInTokyoAfterDays(new Date("2026-08-21T09:00:00Z"), 1)).toBe("2026-08-22");
+  it("addDays は ISO 暦日に日数を加算する (月・年の境界をまたぐ)", () => {
+    expect(addDays(isoDate("2026-08-22"), 3)).toBe("2026-08-25");
+    expect(addDays(isoDate("2026-08-30"), 3)).toBe("2026-09-02");
+    expect(addDays(isoDate("2026-12-30"), 3)).toBe("2027-01-02");
+  });
+});
+
+describe("reminderDueEvents", () => {
+  const today = isoDate("2026-08-20");
+
+  it("開始日がちょうど daysBefore 日前のイベントを対象にする", () => {
+    const target = event("a", { startDate: "2026-08-23" });
+    expect(reminderDueEvents([target], today, 3).map((e) => e.id)).toEqual(["a"]);
   });
 
-  it("担当者のいる open Issue だけを対象にする", () => {
-    const target = event("target", { startDate: "2026-08-22" });
-    const unassigned = { ...event("unassigned", { startDate: "2026-08-22" }), assignees: [] };
-    const closed = event("closed", { startDate: "2026-08-22", state: "CLOSED" });
-    expect(reminderTargets([target, unassigned, closed], isoDate("2026-08-22"))).toEqual([target]);
+  it("開始日が今日のイベントも対象にする (窓の下限)", () => {
+    const target = event("a", { startDate: "2026-08-20" });
+    expect(reminderDueEvents([target], today, 3).map((e) => e.id)).toEqual(["a"]);
+  });
+
+  it("開始日が窓の外 (today + daysBefore 超) は対象にしない", () => {
+    const far = event("far", { startDate: "2026-08-24" });
+    expect(reminderDueEvents([far], today, 3)).toEqual([]);
+  });
+
+  it("開始日が今日より前は対象にしない", () => {
+    const past = event("past", { startDate: "2026-08-19" });
+    expect(reminderDueEvents([past], today, 3)).toEqual([]);
+  });
+
+  it("担当者がいない・closed のイベントは対象にしない", () => {
+    const unassigned = { ...event("unassigned", { startDate: "2026-08-23" }), assignees: [] };
+    const closed = event("closed", { startDate: "2026-08-23", state: "CLOSED" });
+    const undated = event("undated");
+    expect(reminderDueEvents([unassigned, closed, undated], today, 3)).toEqual([]);
+  });
+
+  it("既に同じ daysBefore のマーカーがあるイベントは対象にしない", () => {
+    const sent = event("sent", {
+      startDate: "2026-08-23",
+      commentBodies: [`@alice\n\n開始日の3日前です。\n\n${reminderMarker(3)}`],
+    });
+    expect(reminderDueEvents([sent], today, 3)).toEqual([]);
+  });
+
+  it("別の daysBefore のマーカーは無視する (3日前と1日前は別物)", () => {
+    const oneDay = event("one", {
+      startDate: "2026-08-21",
+      commentBodies: [`@alice\n\n開始日の1日前です。\n\n${reminderMarker(1)}`],
+    });
+    expect(reminderDueEvents([oneDay], today, 3).map((e) => e.id)).toEqual(["one"]);
+  });
+
+  it("マーカーのないコメントは既送とみなさない", () => {
+    const plain = event("plain", { startDate: "2026-08-23", commentBodies: ["普通のコメント"] });
+    expect(reminderDueEvents([plain], today, 3).map((e) => e.id)).toEqual(["plain"]);
   });
 });

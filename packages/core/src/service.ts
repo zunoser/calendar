@@ -94,6 +94,7 @@ export const getGitHubCalendar = async (options: Config) => {
         location: texts.get("Location"),
         startDate: dates.get(options.dateFields.start),
         endDate: dates.get(options.dateFields.end),
+        commentBodies: (issue.comments?.nodes ?? []).flatMap((comment) => (comment === null ? [] : [comment.body])),
         updatedAt: issue.updatedAt,
       };
     }
