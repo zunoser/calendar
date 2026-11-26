@@ -800,6 +800,38 @@ DESCRIPTION:2027年2月20日（土）開催。時刻は日本時間（JST
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/105
 END:VEVENT
 BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABioBmcQ
+SEQUENCE:0
+DTSTAMP:20261126T030859Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270412
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:『響け！ユーフォニアム』公式吹奏楽コンサート
+  北宇治高校吹奏楽部 第10回定期演奏会
+LOCATION:ロームシアター京都 メインホール（2/20）／SGCホ
+ ール有明（3/7）／名古屋国際会議場 センチュリーホー
+ ル（4/11）
+DESCRIPTION:シリーズ完結記念、過去最大規模の3都市公演
+ 。演奏：プログレッシブ！ウインド・オーケストラ。
+ 時刻は日本時間（JST）。\n\n- 京都公演 2027年2月20日（土
+ ）ロームシアター京都 メインホール — 昼公演 開場13:3
+ 0／開演14:15、夜公演 開場17:15／開演18:00\n- 東京公演 2027
+ 年3月7日（日）SGCホール有明 — 昼公演 開場13:30／開演1
+ 4:30、夜公演 開場17:30／開演18:30\n- 名古屋公演 2027年4月1
+ 1日（日）名古屋国際会議場 センチュリーホール — 昼
+ 公演 開場13:00／開演14:00、夜公演 開場17:00／開演18:00\n- 
+ 出演：TRUE、黒沢ともよ、安済知佳 ほか（公演により異
+ なる）\n- 料金：通常 7\,700円、プレミアムグッズ付き 12
+ \,100円（いずれも税込）\n- チケット：最速先行 — 京都
+ は2026年11月23日で終了、東京は2026年12月20日23:59まで、
+ 名古屋は2027年1月24日23:59まで\n\n公式：https://news.ponycanyo
+ n.co.jp/2026/10/126459\nhttps://anime-eupho.com/news/\n出典ポスト：h
+ ttps://x.com/i/status/2124427680083001535\n\nhttps://github.com/zunoser/ca
+ lendar/issues/112
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/112
+END:VEVENT
+BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABNQrLEQ
 SEQUENCE:0
 DTSTAMP:20260820T174721Z
@@ -809,6 +841,32 @@ X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
 SUMMARY:fa0311 誕生日2027
 DESCRIPTION:https://github.com/zunoser/calendar/issues/14
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/14
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABioBZOA
+SEQUENCE:0
+DTSTAMP:20261126T030842Z
+DTSTART;VALUE=DATE:20270320
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:トゲナシトゲアリ ONE-MAN LIVE "凛音の耀"
+LOCATION:Kアリーナ横浜
+DESCRIPTION:「ガールズバンドクライ」のリアルバンド・
+ トゲナシトゲアリのワンマンライブ。過去最大規模。
+ 時刻は日本時間（JST）。\n\n- 2027年3月20日（土）OPEN 16:00
+  / START 17:30\n- 会場：Kアリーナ横浜\n- 料金：SS席（特典
+ グッズ付き）27\,000円／S席（特典グッズ付き）24\,900円
+ ／S席 15\,400円／A席（特典グッズ付き）19\,400円／A席 9\,9
+ 00円／B席（特典グッズ付き）17\,200円／B席 7\,700円（い
+ ずれも税込）\n- チケット：最速先行抽選 2026年11月4日19
+ :00〜12月9日23:59（Blu-ray＆DVD「トゲナシトゲアリ LIVE in 
+ 日本武道館 “奏檄の叫”」封入の申込券）\n\n公式：htt
+ ps://www.universal-music.co.jp/togenashitogeari/news/2026-11-03/\n出典
+ ポスト：https://x.com/i/status/2124820266367033855\n\n関連：『ガ
+ ールズバンドクライ THE MOVIE』2027年5月21日公開、舞台『
+ ガールズバンドクライ』2027年3月21日〜28日 サンシャイ
+ ン劇場\n\nhttps://github.com/zunoser/calendar/issues/111
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/111
 END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABhoHdZQ
@@ -856,6 +914,52 @@ DESCRIPTION:## 技術書典22\n\n- 開催日: 2027-04-18（日）\n- 開
  のIssueに追記すること。\n\nhttps://github.com/zunoser/calendar/is
  sues/109
 URL;VALUE=URI:https://github.com/zunoser/calendar/issues/109
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABioB1Aw
+SEQUENCE:0
+DTSTAMP:20261126T030917Z
+DTSTART;VALUE=DATE:20270521
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:ガールズバンドクライ THE MOVIE 公開日
+DESCRIPTION:『ガールズバンドクライ』完全新作劇場版。20
+ 26年11月3日のスペシャルライブで発表された。\n\n- 公開
+ 日：2027年5月21日（金）\n- 配給：東映\n- 全国ロードシ
+ ョー\n\n公式発表：https://natalie.mu/music/news/696479\n\n関連：
+ トゲナシトゲアリ ONE-MAN LIVE “凛音の耀” 2027年3月20日 
+ Kアリーナ横浜、舞台『ガールズバンドクライ』2027年3
+ 月21日〜28日 サンシャイン劇場\n\nhttps://github.com/zunoser/ca
+ lendar/issues/113
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/113
+END:VEVENT
+BEGIN:VEVENT
+UID:I_kwDOT8rdKs8AAAABioAgug
+SEQUENCE:0
+DTSTAMP:20261126T030725Z
+DTSTART;VALUE=DATE:20270528
+DTEND;VALUE=DATE:20270710
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-MICROSOFT-MSNCALENDAR-ALLDAYEVENT:TRUE
+SUMMARY:DUSTCELL TOUR 2027 -僕らの、なんでもない夏-
+LOCATION:札幌PENNY LANE24（5/28）／仙台Rensa（5/30）／高松fest
+ halle（6/5）／DRUM LOGOS（6/6）／Zepp Nagoya（6/25）／Zepp Osaka 
+ Bayside（6/26）／Zepp DiverCity (TOKYO)（7/9）
+DESCRIPTION:DUSTCELLの全国7都市ワンマンツアー。2026年11月23
+ 日のぴあアリーナMM公演「DUSTCELL LIVE 2026 -道-」で発表さ
+ れた。時刻は日本時間（JST）。\n\n- 2027年5月28日（金）
+ 札幌PENNY LANE24 — OPEN 18:30 / START 19:00\n- 2027年5月30日（日
+ ）仙台Rensa — OPEN 17:00 / START 18:00\n- 2027年6月5日（土）高
+ 松festhalle — OPEN 16:30 / START 17:30\n- 2027年6月6日（日）DRUM 
+ LOGOS — OPEN 16:30 / START 17:30\n- 2027年6月25日（金）Zepp Nagoya
+  — OPEN 18:00 / START 19:00\n- 2027年6月26日（土）Zepp Osaka Baysi
+ de — OPEN 17:00 / START 18:00\n- 2027年7月9日（金）Zepp DiverCity 
+ (TOKYO) — OPEN 18:00 / START 19:00\n\n- 料金：¥7\,500（税込、ド
+ リンク代別途）\n- チケット：ファンクラブ「DUSTROOM」
+ 先行受付中、2026年12月6日（日）23:59まで\n\n公式発表：h
+ ttps://x.com/i/status/2124843567067877720\nhttps://natalie.mu/music/news/6
+ 99300\n\nhttps://github.com/zunoser/calendar/issues/110
+URL;VALUE=URI:https://github.com/zunoser/calendar/issues/110
 END:VEVENT
 BEGIN:VEVENT
 UID:I_kwDOT8rdKs8AAAABhoHEKA
